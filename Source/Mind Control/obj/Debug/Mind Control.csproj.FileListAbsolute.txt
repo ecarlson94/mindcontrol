@@ -13,3 +13,5 @@ C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Contro
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\Mind Control\obj\Debug\Mind Control.csproj.GenerateResource.Cache
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\Mind Control\obj\Debug\Mind Control.exe
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\Mind Control\obj\Debug\Mind Control.pdb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\Mind Control\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\Mind Control\obj\Debug\Mind Control_MarkupCompile.lref

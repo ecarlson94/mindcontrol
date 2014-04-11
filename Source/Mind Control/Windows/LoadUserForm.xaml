@@ -1,0 +1,8 @@
+﻿<Window x:Class="Mind_Control.Windows.LoadUserForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LoadUserForm" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>

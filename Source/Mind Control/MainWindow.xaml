@@ -6,7 +6,8 @@
     <Window.Resources>
         <wrappers:EmoEngineWrapper x:Key="emoEngineWrapper"/>
     </Window.Resources>
-    <Grid>
-        <TextBlock x:Name="HeadsetOnTextBox"/>
-    </Grid>
+    <WrapPanel>
+        <Label x:Name="DongleLabel"
+               Content="Please plug in the Emotiv Bluetooth Dongle."/>
+    </WrapPanel>
 </Window>

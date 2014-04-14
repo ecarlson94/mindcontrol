@@ -25,7 +25,6 @@ namespace MindControlPhysEngine
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
         }
 
         /// <summary>

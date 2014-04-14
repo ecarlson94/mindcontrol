@@ -1,0 +1,10 @@
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\obj\x86\Debug\MindControlPhysEngine.csprojResolveAssemblyReference.cache
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\obj\x86\Debug\MindControlPhysEngine.exe
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\obj\x86\Debug\MindControlPhysEngine.pdb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\SDL.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\MindControlPhysEngine.exe
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\MindControlPhysEngine.pdb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\Lidgren.Network.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\MonoGame.Framework.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\OpenTK.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\MindControlPhysEngine\Tao.Sdl.dll

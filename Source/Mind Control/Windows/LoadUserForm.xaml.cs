@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mind_Control.Wrappers;
+using Emotiv;
 
 namespace Mind_Control.Windows
 {

@@ -19,7 +19,7 @@ namespace MindControlPhysEngine.Managers
 
         public ContentManager Content { get; private set; }
         public Vector2 Dimensions { private set; get; }
-        private XMLManager<GameScreen> xmlGameScreenManager;
+        private XMLManager<GameScreen> xmlGameScreenManager = new XMLManager<GameScreen>();
 
         private GameScreen currentScreen;
 
@@ -41,13 +41,14 @@ namespace MindControlPhysEngine.Managers
         {
             Dimensions = new Vector2(width, height);
             currentScreen = new SplashScreen();
+            xmlGameScreenManager = new XMLManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
             currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
         }
 
         public void LoadContent(ContentManager content)
         {
-            this.Content = new ContentManager(content.ServiceProvider, "Content");
+            this.Content = new ContentManager(content.ServiceProvider);
             currentScreen.LoadContent();
         }
 

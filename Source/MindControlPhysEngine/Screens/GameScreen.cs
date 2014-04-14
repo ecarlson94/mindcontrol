@@ -24,7 +24,7 @@ namespace MindControlPhysEngine.Screens
         public virtual void LoadContent()
         {
             content = new ContentManager(
-                ScreenManager.Instance.Content.ServiceProvider, "Content");
+                ScreenManager.Instance.Content.ServiceProvider);
         }
 
         public virtual void UnloadContent()

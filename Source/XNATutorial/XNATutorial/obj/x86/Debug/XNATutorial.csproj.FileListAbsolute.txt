@@ -1,0 +1,12 @@
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\obj\x86\Debug\XNATutorial.csprojResolveAssemblyReference.cache
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\obj\x86\Debug\XNATutorial.exe
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\obj\x86\Debug\XNATutorial.pdb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Content\Images\SplashScreens\parror.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\XNATutorial.exe
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\XNATutorial.pdb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Content\Fonts\Orbitron.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Content\ScreenManager\FadeImage.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\TomShane.Neoforce.Controls.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\DotNetEmotivSDK.dll
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\DotNetEmotivSDK.pdb

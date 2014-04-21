@@ -1,0 +1,3 @@
+Content\Images\SplashScreens\parror.xnb
+Content\Fonts\Orbitron.xnb
+Content\ScreenManager\FadeImage.xnb

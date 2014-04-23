@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////////
+    Date: 4/22/2014 1:46:01 PM
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Control cannot be created. No skin loaded.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Control..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ClipControl..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Container..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ModalContainer..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Window..ctor(Manager manager)
+   at XNATutorial.Game1.Initialize() in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Game1.cs:line 48
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at XNATutorial.Program.Main(String[] args) in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+    Date: 4/22/2014 1:47:40 PM
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Control cannot be created. No skin loaded.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Control..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ClipControl..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Container..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ModalContainer..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Window..ctor(Manager manager)
+   at XNATutorial.Game1.Initialize() in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Game1.cs:line 48
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at XNATutorial.Program.Main(String[] args) in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+    Date: 4/22/2014 1:47:53 PM
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Control cannot be created. No skin loaded.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Control..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ClipControl..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Container..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ModalContainer..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Window..ctor(Manager manager)
+   at XNATutorial.Game1.Initialize() in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Game1.cs:line 48
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at XNATutorial.Program.Main(String[] args) in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+    Date: 4/22/2014 1:58:20 PM
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Control cannot be created. No skin loaded.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Control..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ClipControl..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Container..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ModalContainer..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Window..ctor(Manager manager)
+   at XNATutorial.Game1.Initialize() in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Game1.cs:line 48
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at XNATutorial.Program.Main(String[] args) in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+    Date: 4/22/2014 2:04:04 PM
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Control cannot be created. No skin loaded.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Control..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ClipControl..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Container..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.ModalContainer..ctor(Manager manager)
+   at TomShane.Neoforce.Controls.Window..ctor(Manager manager)
+   at XNATutorial.Game1.Initialize() in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Game1.cs:line 48
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at XNATutorial.Program.Main(String[] args) in c:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Source\XNATutorial\XNATutorial\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+

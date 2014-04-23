@@ -28,6 +28,9 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="TomShane.Neoforce.Importers">
+      <HintPath>..\..\..\Vendor\Neoforce Binary\TomShane.Neoforce.Importers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\SplashScreens\parror.jpg">
@@ -43,13 +46,32 @@
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Skins\Blue.skin">
+      <Name>Blue</Name>
+    </Compile>
+    <Compile Include="Skins\Default.skin">
+      <Name>Default</Name>
+    </Compile>
+    <Compile Include="Skins\Green.skin">
+      <Name>Green</Name>
+    </Compile>
+    <Compile Include="Skins\Magenta.skin">
+      <Name>Magenta</Name>
+    </Compile>
+    <Compile Include="Skins\Purple.skin">
+      <Name>Purple</Name>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="ScreenManager\FadeImage.png">
       <Name>FadeImage</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Skins\360\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

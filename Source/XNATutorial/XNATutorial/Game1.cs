@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using TomShane.Neoforce.Controls;
 using XNATutorial.Managers;
 
 namespace XNATutorial
@@ -15,7 +16,7 @@ namespace XNATutorial
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -40,6 +41,26 @@ namespace XNATutorial
             graphics.PreferredBackBufferHeight = (int) ScreenManager.Instance.Dimensions.Y;
             graphics.ApplyChanges();
 
+            Manager man = new Manager(this, graphics);
+            man.SkinDirectory = "Skins";
+
+            // Create and setup Window control.
+            Window window = new Window(man);
+            window.Init();
+            window.Text = "Getting Started";
+            window.Width = 100;
+            window.Height = 124;
+            window.Center();
+            window.Visible = true;
+            window.BorderVisible = false;
+            window.MaximumHeight = 100;
+            window.MinimumHeight = 100;
+            window.MaximumWidth = 100;
+            window.MinimumWidth = 100;
+            window.Alpha = 128;
+
+            man.Add(window);
+
             base.Initialize();
         }
 
@@ -50,10 +71,10 @@ namespace XNATutorial
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
-            ScreenManager.Instance.SpriteBatch = spriteBatch;
-            ScreenManager.Instance.LoadContent(Content);
+            //spriteBatch = new SpriteBatch(GraphicsDevice);
+            //ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            //ScreenManager.Instance.SpriteBatch = spriteBatch;
+            //ScreenManager.Instance.LoadContent(Content);
         }
 
         /// <summary>
@@ -62,7 +83,7 @@ namespace XNATutorial
         /// </summary>
         protected override void UnloadContent()
         {
-            ScreenManager.Instance.UnloadContent();
+            //ScreenManager.Instance.UnloadContent();
         }
 
         /// <summary>
@@ -76,7 +97,7 @@ namespace XNATutorial
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            ScreenManager.Instance.Update(gameTime);
+            //ScreenManager.Instance.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -89,9 +110,9 @@ namespace XNATutorial
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
-            ScreenManager.Instance.Draw(spriteBatch);
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //ScreenManager.Instance.Draw(spriteBatch);
+            //spriteBatch.End();
 
             base.Draw(gameTime);
         }

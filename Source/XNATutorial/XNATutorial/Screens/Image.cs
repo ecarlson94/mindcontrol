@@ -143,7 +143,7 @@ namespace XNATutorial.Screens
             //Sets ScreenManager's GraphicsDevice's renderTarget to default
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
 
-            SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect(ref FadeEffect);
 
             if (Effects != String.Empty)
             {

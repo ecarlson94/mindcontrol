@@ -20,9 +20,31 @@ namespace Mind_Control.Windows
     /// </summary>
     public partial class CreateUserForm : Window
     {
+        private EmoEngineWrapper emoEngine;
         public CreateUserForm(EmoEngineWrapper engineWrapper)
         {
+            emoEngine = engineWrapper;
             InitializeComponent();
+        }
+
+        private void NameBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (NameBox.Text.Length > 25)
+                NameBox.Text = NameBox.Text.Substring(0, 25);
+        }
+
+        private void NameBox_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            if(NameBox.Text.EndsWith("New User"))
+                NameBox.Text = "";
+        }
+
+        private void CreateUser_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (emoEngine.GetProfileNames().Contains(NameBox.Text))
+                MessageBox.Show("That User Already Exists");
+            else
+                emoEngine.SaveProfile(NameBox.Text);
         }
     }
 }

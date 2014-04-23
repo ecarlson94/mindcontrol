@@ -10,8 +10,8 @@ namespace XNATutorial.Managers
     public class InputManager
     {
         private KeyboardState currentKeyState, prevKeyState;
+        private MouseState currentMouseState, prevMouseState;
         private EmoEngineManager emoEngine;
-        public EmoEngineManager EmoEngine{get { return emoEngine; }}
 
         private static InputManager instance;
         public static InputManager Instance
@@ -28,10 +28,24 @@ namespace XNATutorial.Managers
         public void Update()
         {
             prevKeyState = currentKeyState;
+            prevMouseState = currentMouseState;
             if (!ScreenManager.Instance.IsTransitioning)
             {
                 currentKeyState = Keyboard.GetState();
+                currentMouseState = Mouse.GetState();
             }
+        }
+
+        public bool LeftMousePressed()
+        {
+            return currentMouseState.LeftButton == ButtonState.Pressed &&
+                   prevMouseState.LeftButton == ButtonState.Released;
+        }
+
+        public bool RightMousePressed()
+        {
+            return currentMouseState.RightButton == ButtonState.Pressed &&
+                   prevMouseState.RightButton == ButtonState.Released;
         }
 
         public bool KeyPressed(params Keys[] keys)
@@ -45,6 +59,18 @@ namespace XNATutorial.Managers
             }
 
             return false;
+        }
+
+        public bool RightMouseReleased()
+        {
+            return currentMouseState.RightButton == ButtonState.Released &&
+                   prevMouseState.RightButton == ButtonState.Pressed;
+        }
+
+        public bool LeftMouseReleased()
+        {
+            return currentMouseState.LeftButton == ButtonState.Released &&
+                   prevMouseState.LeftButton == ButtonState.Pressed;
         }
 
         public bool KeyReleased(params Keys[] keys)
@@ -71,6 +97,26 @@ namespace XNATutorial.Managers
             }
 
             return false;
+        }
+
+        public bool RightMouseDown()
+        {
+            return currentMouseState.RightButton == ButtonState.Pressed;
+        }
+
+        public bool LeftMouseDown()
+        {
+            return currentMouseState.LeftButton == ButtonState.Pressed;
+        }
+
+        public int GetMouseX()
+        {
+            return currentMouseState.X;
+        }
+
+        public int GetMouseY()
+        {
+            return currentMouseState.Y;
         }
 
         public bool DonglePluggedIn()

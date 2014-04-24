@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsGame1", "WindowsGame1\WindowsGame1\WindowsGame1.csproj", "{BF622C2D-EBF3-4312-9963-79406E5BCFF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsGame1Content", "WindowsGame1\WindowsGame1Content\WindowsGame1Content.contentproj", "{AE5290AD-4C70-4C76-8AF1-57930A898494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoforceTheme", "WindowsGame1\UI Themes\Neoforce\NeoforceTheme.contentproj", "{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Debug|x86.ActiveCfg = Debug|x86
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Debug|x86.Build.0 = Debug|x86
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Release|Any CPU.ActiveCfg = Release|x86
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Release|x86.ActiveCfg = Release|x86
+		{BF622C2D-EBF3-4312-9963-79406E5BCFF0}.Release|x86.Build.0 = Release|x86
+		{AE5290AD-4C70-4C76-8AF1-57930A898494}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AE5290AD-4C70-4C76-8AF1-57930A898494}.Debug|x86.ActiveCfg = Debug|x86
+		{AE5290AD-4C70-4C76-8AF1-57930A898494}.Release|Any CPU.ActiveCfg = Release|x86
+		{AE5290AD-4C70-4C76-8AF1-57930A898494}.Release|x86.ActiveCfg = Release|x86
+		{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

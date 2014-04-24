@@ -1,39 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Diagnostics.Tracing;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using Emotiv;
 
-namespace Mind_Control.Wrappers
+namespace WindowsGame1.Managers
 {
-    public class EmoEngineWrapper : INotifyPropertyChanged, IDisposable
+    public class EmoEngineManager : IDisposable
     {
         /*--------------------------------------------------------------------*/
         #region Private Fields
 
         private const int _maxEmotivPollLapse = 10000;
 
-        private EmoEngine _emoEngine;
+        private EmoEngine emoEngine;
 
         #endregion
 
         /*--------------------------------------------------------------------*/
         #region Construction
 
-        public EmoEngineWrapper()
+        public EmoEngineManager()
         {
-            _emoEngine = EmoEngine.Instance;
+            emoEngine = EmoEngine.Instance;
         }
 
-        static EmoEngineWrapper()
+        static EmoEngineManager()
         {
         }
 
@@ -49,14 +43,7 @@ namespace Mind_Control.Wrappers
             set { _userId = value; }
         }
 
-        private string _profile = "None";
-        public string Profile
-        {
-            get { return _profile; }
-            set { _profile = value; }
-        }
-
-        private bool _donglePluggedIn = false;
+        private volatile bool _donglePluggedIn = false;
         public bool DonglePluggedIn
         {
             get { return _donglePluggedIn; }
@@ -66,11 +53,14 @@ namespace Mind_Control.Wrappers
             }
         }
 
-        private EmoStateWrapper _emoState;
+        private EmoStateWrapper currentEmoState;
         public EmoStateWrapper CurrentEmoState
         {
-            get { return _emoState; }
-            set { _emoState = value; }
+            get { return currentEmoState; }
+            set
+            {
+                currentEmoState = value;
+            }
         }
 
         private int _emotivPollLapse;
@@ -93,7 +83,7 @@ namespace Mind_Control.Wrappers
 
         public bool CanStartEmoEngine
         {
-            get { return (_emoEngine != null || !IsEmoEngineRunning); }
+            get { return (emoEngine != null || !IsEmoEngineRunning); }
         }
 
         public bool CanStopEmoEngine
@@ -128,10 +118,22 @@ namespace Mind_Control.Wrappers
             }
         }
 
+        private string _profile = "None";
+        public string Profile
+        {
+            get { return _profile; }
+            set { _profile = value; }
+        }
+
         #endregion
 
         /*--------------------------------------------------------------------*/
         #region Public Methods
+
+        public bool ProfileLoggedIn()
+        {
+            return !Profile.Equals("None");
+        }
 
         public void StartEmoEngine()
         {
@@ -149,15 +151,25 @@ namespace Mind_Control.Wrappers
 
         public void SaveProfile(string profileName)
         {
-            _emoEngine.EE_SaveUserProfile(UserID, GetProfilePath(profileName));
+            Profile tmp = emoEngine.GetUserProfile(0);
+            ByteArrayToFile(GetProfilePath(profileName), tmp.GetBytes());
+        }
+
+        public void CreateProfile(string profileName)
+        {
+            emoEngine.EE_SaveUserProfile(UserID, GetProfilePath(profileName));
         }
 
         public void LoadProfile(string profileName)
         {
-            if(Profile != "None")
-                SaveProfile(Profile);
             Profile = profileName;
-            _emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
+
+            FileStream fileStream = new FileStream(GetProfilePath(profileName), FileMode.Open, FileAccess.Read);
+            Byte[] buffer = new byte[fileStream.Length];
+            fileStream.Read(buffer, 0, (int) fileStream.Length);
+            fileStream.Close();
+            EdkDll.EE_SetUserProfile(UserID, buffer, (uint)buffer.Length);
+            emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
         }
 
         public string[] GetProfileNames()
@@ -166,7 +178,7 @@ namespace Mind_Control.Wrappers
 
             for(int i = 0; i < fileNames.Length; i++)
             {
-                Match regexMatch = Regex.Match(fileNames[i], @"(\w*).emu");
+                Match regexMatch = Regex.Match(fileNames[i], @"([\w ]*).emu");
                 if (regexMatch != null)
                 {
                     fileNames[i] = regexMatch.Value.Substring(0, regexMatch.Value.Length - 4);
@@ -178,13 +190,30 @@ namespace Mind_Control.Wrappers
 
         public void DeleteProfile(string profileName)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("EmoEngineManager: Delete Profiles");
         }
 
         #endregion
 
         /*--------------------------------------------------------------------*/
         #region Private Methods
+
+        private bool ByteArrayToFile(string path, byte[] profileBuffer)
+        {
+            bool success = false;
+            try
+            {
+                FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+                fileStream.Write(profileBuffer, 0, profileBuffer.Length);
+                fileStream.Close();
+                success = true;
+            }
+            catch (Exception e)
+            {
+            }
+
+            return success;
+        }
 
         private string GetProfilePath(string profileName)
         {
@@ -193,12 +222,12 @@ namespace Mind_Control.Wrappers
 
         private void InitializeEmoEngineWrapper()
         {
-            _emoEngine.EmoEngineConnected += engine_Connected;
-            _emoEngine.EmoStateUpdated += engine_EmoStateUpdated;
-            _emoEngine.UserAdded += engine_UserAdded;
-            _emoEngine.UserRemoved += engine_UserRemoved;
+            emoEngine.EmoEngineConnected += engine_Connected;
+            emoEngine.EmoStateUpdated += engine_EmoStateUpdated;
+            emoEngine.UserAdded += engine_UserAdded;
+            emoEngine.UserRemoved += engine_UserRemoved;
 
-            _emoEngine.Connect();
+            emoEngine.Connect();
         }
 
         private void InitializeProcessEventWorker()
@@ -212,10 +241,10 @@ namespace Mind_Control.Wrappers
 
         private void DisconnectEmoEngine()
         {
-            if (_emoEngine != null)
+            if (emoEngine != null)
             {
-                _emoEngine.Disconnect();
-                _emoEngine = null;
+                emoEngine.Disconnect();
+                emoEngine = null;
             }
         }
 
@@ -226,26 +255,38 @@ namespace Mind_Control.Wrappers
 
         private void engine_Connected(object sender, EmoEngineEventArgs e)
         {
-            UserID = e.userId;
+            lock (this)
+            {
+                UserID = e.userId;
+            }
         } 
 
         private void engine_EmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
-            EmoState emoState = new EmoState(e.emoState);
+            lock (this)
+            {
+                EmoState emoState = new EmoState(e.emoState);
 
-            _processEventsWorker.ReportProgress(0, emoState);
+                _processEventsWorker.ReportProgress(0, emoState);
+            }
         }
 
         private void engine_UserAdded(object sender, EmoEngineEventArgs e)
         {
-            UserID = e.userId;
-            DonglePluggedIn = true;
+            lock (this)
+            {
+                UserID = e.userId;
+                DonglePluggedIn = true;
+            }
         }
 
         private void engine_UserRemoved(object sender, EmoEngineEventArgs e)
         {
-            UserID = 0;
-            DonglePluggedIn = false;
+            lock (this)
+            {
+                UserID = 0;
+                DonglePluggedIn = false;
+            }
         }
 
         #endregion
@@ -255,14 +296,14 @@ namespace Mind_Control.Wrappers
 
         public event EmoEngine.UserAddedEventHandler UserAdded
         {
-            add { _emoEngine.UserAdded += value; }
-            remove { _emoEngine.UserAdded -= value; }
+            add { emoEngine.UserAdded += value; }
+            remove { emoEngine.UserAdded -= value; }
         }
 
         public event EmoEngine.UserRemovedEventHandler UserRemoved
         {
-            add { _emoEngine.UserRemoved += value; }
-            remove { _emoEngine.UserRemoved -= value; }
+            add { emoEngine.UserRemoved += value; }
+            remove { emoEngine.UserRemoved -= value; }
         }
 
         #endregion
@@ -276,7 +317,7 @@ namespace Mind_Control.Wrappers
 
             while (!worker.CancellationPending)
             {
-                _emoEngine.ProcessEvents(1000);
+                emoEngine.ProcessEvents(1000);
 
                 Thread.Sleep(EmotivPollLapse);
             }
@@ -284,7 +325,10 @@ namespace Mind_Control.Wrappers
 
         private void processEventsWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            _emoState = new EmoStateWrapper(e.UserState as EmoState);
+            lock (this)
+            {
+                currentEmoState = new EmoStateWrapper(e.UserState as EmoState);
+            }
         }
 
         #endregion
@@ -311,19 +355,11 @@ namespace Mind_Control.Wrappers
             }
         }
 
-        ~EmoEngineWrapper()
+        ~EmoEngineManager()
         {
             Dispose(false);
         }
 
         #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propName));
-        }
     }
 }

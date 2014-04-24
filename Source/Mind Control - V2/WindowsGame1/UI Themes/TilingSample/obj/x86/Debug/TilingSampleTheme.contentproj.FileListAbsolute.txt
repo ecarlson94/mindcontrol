@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\TilingSample\obj\x86\Debug\TilingSampleTheme.contentprojResolveAssemblyReference.cache

@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\Aero\obj\Windows Phone\Debug\AeroTheme.contentprojResolveAssemblyReference.cache

@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Content\XNA\Windows\obj\x86\Debug\DigitalRune.Graphics (Windows).contentprojResolveAssemblyReference.cache

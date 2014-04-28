@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\BlendBlue\obj\x86\Debug\BlendBlueTheme.contentprojResolveAssemblyReference.cache

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:MeshContent">
+    <Name>Gravel</Name>
+    <Identity>
+      <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Gravel\Gravel.fbx</SourceFilename>
+      <SourceTool>FbxImporter</SourceTool>
+    </Identity>
+    <Transform>7.54979E-08 0 -1 0 -1 0 -7.54979E-08 0 0 1 0 0 0 0 0 1</Transform>
+    <Positions>200 -200 0 -200 -200 0 200 200 0 -200 200 0</Positions>
+    <Geometry>
+      <Batch>
+        <Material>#Resource1</Material>
+        <Indices>2 1 0 0 3 2</Indices>
+        <Vertices>
+          <PositionIndices>1 0 2 3</PositionIndices>
+          <Channels>
+            <VertexChannel Name="Normal0" ElementType="Framework:Vector3">0 0 1 0 0 1 0 0 1 0 0 1</VertexChannel>
+            <VertexChannel Name="TextureCoordinate0" ElementType="Framework:Vector2">9.8E-05 0.999926 199.960083 0.999914 199.960083 -198.960083 7.4E-05 -198.960083</VertexChannel>
+          </Channels>
+        </Vertices>
+      </Batch>
+    </Geometry>
+  </Asset>
+  <Resources>
+    <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
+      <Name>Gravel__Gravel_01_diffuse_png</Name>
+      <Identity>
+        <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Gravel\Gravel.fbx</SourceFilename>
+        <SourceTool>FbxImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0.640000045 0.640000045 0.640000045</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">1</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0 0 0</Data>
+      </OpaqueData>
+      <Textures>
+        <Texture Key="Texture">
+          <OpaqueData>
+            <Data Key="TextureCoordinate">TextureCoordinate0</Data>
+          </OpaqueData>
+          <Reference>#External1</Reference>
+        </Texture>
+      </Textures>
+    </Resource>
+  </Resources>
+  <ExternalReferences>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\..\Content\Gravel\Gravel_01_diffuse.png</ExternalReference>
+  </ExternalReferences>
+</XnaContent>

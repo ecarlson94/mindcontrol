@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Theme.xml</Source>
+      <Name>Theme</Name>
+      <Importer>ThemeImporter</Importer>
+      <Processor>ThemeProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\Theme.xnb</Output>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\Arrow.cur</Extra>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\SizeAll.cur</Extra>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\SizeNESW.cur</Extra>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\SizeNS.cur</Extra>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\SizeNWSE.cur</Extra>
+      <Extra>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\SizeWE.cur</Extra>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>Cursors\Arrow.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Cursors\SizeAll.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Cursors\SizeNESW.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Cursors\SizeNS.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Cursors\SizeNWSE.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Cursors\SizeWE.cur</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\Default.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\UITexture.xnb</Request>
+    </Item>
+    <Item>
+      <Source>DefaultFont.spritefont</Source>
+      <Name>Default</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\Default.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>UITexture.png</Source>
+      <Name>UITexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\UITexture.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{1C51D20E-E183-41A8-889C-6E61322DF031}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\TilingSample\</RootDirectory>
+      <LoggerRootDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\Windows\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\Windows\Debug\TilingSampleTheme\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Game.UI.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:04-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-04-17T14:26:30.1927182-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

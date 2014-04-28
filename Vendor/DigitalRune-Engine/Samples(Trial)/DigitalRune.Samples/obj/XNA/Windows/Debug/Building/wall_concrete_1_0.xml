@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:MeshContent">
+    <Name>wall_concrete_1</Name>
+    <Identity>
+      <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Building\wall_concrete_1.fbx</SourceFilename>
+      <SourceTool>FbxImporter</SourceTool>
+    </Identity>
+    <Transform>7.54979E-08 0 -1 0 -1 0 -7.54979E-08 0 0 1 0 0 0 0 0 1</Transform>
+    <Children>
+      <Child Type="Graphics:MeshContent">
+        <Name>wall_concrete_1_Occluder</Name>
+        <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+        <Positions>1.28 0 -1.28 -1.28 0 -1.28 1.28 0 1.28 -1.28 -0 1.28</Positions>
+        <Geometry>
+          <Batch>
+            <Material>#Resource1</Material>
+            <Indices>2 1 0 0 3 2</Indices>
+            <Vertices>
+              <PositionIndices>1 0 2 3</PositionIndices>
+              <Channels>
+                <VertexChannel Name="Normal0" ElementType="Framework:Vector3">0 -1 -0 0 -1 -0 0 -1 -0 0 -1 -0</VertexChannel>
+              </Channels>
+            </Vertices>
+          </Batch>
+        </Geometry>
+      </Child>
+    </Children>
+    <Positions>1.279998 -0.16 -1.28 1.279998 -0.16 1.279997 -1.28 -0.16 1.279997 -1.28 -0.16 -1.28 -1.28 0.16 -1.28 1.279998 0.16 -1.28 1.279998 0.159999 1.279997 -1.28 0.159999 1.279997</Positions>
+    <Geometry>
+      <Batch>
+        <Material>#Resource2</Material>
+        <Indices>2 1 0 0 3 2 6 5 4 4 7 6 10 9 8 8 11 10 14 13 12 12 15 14 18 17 16 16 19 18 22 21 20 20 23 22</Indices>
+        <Vertices>
+          <PositionIndices>0 1 2 3 0 3 4 5 1 0 5 6 6 7 2 1 7 4 3 2 7 6 5 4</PositionIndices>
+          <Channels>
+            <VertexChannel Name="Normal0" ElementType="Framework:Vector3">0 -1 -0 0 -1 -0 0 -1 -0 0 -1 -0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 1 0 0 1 0 0 1 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 0 1 -1 0 0 -1 0 0 -1 0 0 -1 0 0 0 1 0 0 1 0 0 1 0 0 1 0</VertexChannel>
+            <VertexChannel Name="TextureCoordinate0" ElementType="Framework:Vector2">1 0.5 1 0 0.5 0 0.5 0.5 1 0.4374 0.5 0.4374 0.5 0.5 1 0.5 0.9375 0 0.9375 0.5 1 0.5 1 0 1 0 0.5 0 0.5 0.0626 1 0.0626 0.5 0 0.5 0.5 0.5626 0.5 0.5626 0 0.5 0 1 0 1 0.5 0.5 0.5</VertexChannel>
+          </Channels>
+        </Vertices>
+      </Batch>
+    </Geometry>
+  </Asset>
+  <Resources>
+    <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
+      <Name>unnamed</Name>
+      <Identity>
+        <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Building\wall_concrete_1.fbx</SourceFilename>
+        <SourceTool>FbxImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0.640000045 0.640000045 0.640000045</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">1</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0.5 0.5 0.5</Data>
+        <Data Key="SpecularPower" Type="float">12.3</Data>
+      </OpaqueData>
+    </Resource>
+    <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
+      <Name>Building__diffuse_png</Name>
+      <Identity>
+        <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Building\wall_concrete_1.fbx</SourceFilename>
+        <SourceTool>FbxImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0.8 0.8 0.8</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">0</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0 0 0</Data>
+      </OpaqueData>
+      <Textures>
+        <Texture Key="Texture">
+          <OpaqueData>
+            <Data Key="TextureCoordinate">TextureCoordinate0</Data>
+          </OpaqueData>
+          <Reference>#External1</Reference>
+        </Texture>
+      </Textures>
+    </Resource>
+  </Resources>
+  <ExternalReferences>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\..\Content\Building\diffuse.png</ExternalReference>
+  </ExternalReferences>
+</XnaContent>

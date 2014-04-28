@@ -1,0 +1,10 @@
+WindowsPhone7Theme\ThemeDark.xnb
+WindowsPhone7Theme\Segoe15.xnb
+WindowsPhone7Theme\Segoe17.xnb
+WindowsPhone7Theme\Segoe17Semilight.xnb
+WindowsPhone7Theme\Segoe19.xnb
+WindowsPhone7Theme\Segoe19Semibold.xnb
+WindowsPhone7Theme\Segoe24Semilight.xnb
+WindowsPhone7Theme\Segoe32Semilight.xnb
+WindowsPhone7Theme\Segoe54.xnb
+WindowsPhone7Theme\UITextureDark.xnb

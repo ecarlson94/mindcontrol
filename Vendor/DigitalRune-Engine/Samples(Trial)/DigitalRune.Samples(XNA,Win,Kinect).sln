@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Samples(XNA,Win,Kinect)", "DigitalRune.Samples\DigitalRune.Samples(XNA,Win,Kinect).csproj", "{34FC7691-5EB9-43F6-9A74-809F737A4CBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Samples.Content.Pipeline", "DigitalRune.Samples.Content.Pipeline\DigitalRune.Samples.Content.Pipeline.csproj", "{8B9EDD3C-AF88-46BD-83B8-63559C3D269A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{E58567B3-414D-420B-AD9D-F051BD806BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Graphics (Windows)", "..\Content\XNA\Windows\DigitalRune.Graphics (Windows).contentproj", "{864147F3-94B6-48CE-BF38-8B71ACA6BD7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlendBlueTheme", "Content\UI Themes\BlendBlue\BlendBlueTheme.contentproj", "{68CA309E-2F40-4DA1-82D8-95B6CA2FB996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content(Reach)", "Content\Content(Reach).contentproj", "{8860B244-7834-48B8-BB19-17CA5622CF27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34FC7691-5EB9-43F6-9A74-809F737A4CBB}.Debug|x86.ActiveCfg = Debug|x86
+		{34FC7691-5EB9-43F6-9A74-809F737A4CBB}.Debug|x86.Build.0 = Debug|x86
+		{34FC7691-5EB9-43F6-9A74-809F737A4CBB}.Release|x86.ActiveCfg = Release|x86
+		{34FC7691-5EB9-43F6-9A74-809F737A4CBB}.Release|x86.Build.0 = Release|x86
+		{8B9EDD3C-AF88-46BD-83B8-63559C3D269A}.Debug|x86.ActiveCfg = Debug|x86
+		{8B9EDD3C-AF88-46BD-83B8-63559C3D269A}.Debug|x86.Build.0 = Debug|x86
+		{8B9EDD3C-AF88-46BD-83B8-63559C3D269A}.Release|x86.ActiveCfg = Release|x86
+		{8B9EDD3C-AF88-46BD-83B8-63559C3D269A}.Release|x86.Build.0 = Release|x86
+		{864147F3-94B6-48CE-BF38-8B71ACA6BD7A}.Debug|x86.ActiveCfg = Debug|x86
+		{864147F3-94B6-48CE-BF38-8B71ACA6BD7A}.Release|x86.ActiveCfg = Release|x86
+		{68CA309E-2F40-4DA1-82D8-95B6CA2FB996}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{68CA309E-2F40-4DA1-82D8-95B6CA2FB996}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8860B244-7834-48B8-BB19-17CA5622CF27}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8860B244-7834-48B8-BB19-17CA5622CF27}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{864147F3-94B6-48CE-BF38-8B71ACA6BD7A} = {E58567B3-414D-420B-AD9D-F051BD806BCB}
+		{68CA309E-2F40-4DA1-82D8-95B6CA2FB996} = {E58567B3-414D-420B-AD9D-F051BD806BCB}
+		{8860B244-7834-48B8-BB19-17CA5622CF27} = {E58567B3-414D-420B-AD9D-F051BD806BCB}
+	EndGlobalSection
+EndGlobal

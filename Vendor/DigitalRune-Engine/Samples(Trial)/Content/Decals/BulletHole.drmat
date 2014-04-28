@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Material>
+  <Pass Name="GBuffer" Effect="DigitalRune/Decals/GBufferNormal" Profile="HiDef">
+    <Texture Name="DiffuseTexture" ScaleAlphaToCoverage="True" File="BulletHole_diffuse_mask.png" />
+    <Parameter Name="SpecularPower" Value="100" />
+    <Texture Name="NormalTexture" Format="Normal" File="BulletHole_normal.png" />
+  </Pass>
+  <Pass Name="Material" Effect="DigitalRune/Decals/Material" Profile="HiDef">
+    <Parameter Name="DiffuseColor" Value="0.45,0.45,0.45" />
+    <Parameter Name="SpecularColor" Value="0.4,0.4,0.4" />
+    <Texture Name="DiffuseTexture" ScaleAlphaToCoverage="True" File="BulletHole_diffuse_mask.png" />
+    <Texture Name="SpecularTexture" File="BulletHole_specular.png" />
+  </Pass>
+</Material>

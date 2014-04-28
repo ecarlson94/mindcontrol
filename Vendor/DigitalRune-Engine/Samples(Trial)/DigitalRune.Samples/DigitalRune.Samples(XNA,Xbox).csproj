@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{28324365-F8D7-4C85-BDB7-6822F42EA756}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Xbox 360</Platform>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DigitalRune.Samples</RootNamespace>
+    <AssemblyName>DigitalRune.Samples</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>ef7053ff-6d3b-4455-91bc-2e9341d504d0</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
+    <BaseIntermediateOutputPath>obj\XNA\Xbox\Debug\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\</IntermediateOutputPath>
+    <OutputPath>bin\XNA\Xbox\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XBOX;XBOX360;TRIAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
+    <BaseIntermediateOutputPath>obj\XNA\Xbox\Release\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\</IntermediateOutputPath>
+    <OutputPath>bin\XNA\Xbox\Release</OutputPath>
+    <DefineConstants>TRACE;XBOX;XBOX360;DIGITALRUNE_PROFILE;TRIAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DigitalRune">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Animation">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Animation.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Game">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Game.Input">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Game.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Game.UI">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Game.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Geometry">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Graphics">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Mathematics">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Particles">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Particles.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Physics">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Physics.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Physics.Specialized">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.Physics.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.ServiceLocation">
+      <HintPath>..\..\References\XNA\Xbox360\DigitalRune.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\References\XNA\Xbox360\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Avatar" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sample Framework\ControlsAttribute.cs" />
+    <Compile Include="Sample Framework\GamePadComponent.cs" />
+    <Compile Include="Sample Framework\GuiGraphicsScreen.cs" />
+    <Compile Include="Sample Framework\HelpComponent.cs" />
+    <Compile Include="Sample Framework\MenuComponent.cs" />
+    <Compile Include="Sample Framework\MouseComponent.cs" />
+    <Compile Include="Sample Framework\ProfilerComponent.cs" />
+    <Compile Include="Sample Framework\SampleAttribute.cs" />
+    <Compile Include="Sample Framework\SampleCategory.cs" />
+    <Compile Include="Sample Framework\SampleHelper.cs" />
+    <Compile Include="Sample Framework\SettingsWindow.cs" />
+    <Compile Include="SampleGame.cs" />
+    <Compile Include="Samples\Animation\AnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\07-AnimatableObjectSample\AnimatableSprite.cs" />
+    <Compile Include="Samples\Animation\Basics\01-BasicAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\02-CompositeAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\07-AnimatableObjectSample\AnimatableObjectSample.cs" />
+    <Compile Include="Samples\Animation\Basics\08-BlendedAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\09-AdditiveAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\06-CrossFadeSample.cs" />
+    <Compile Include="Samples\Animation\Basics\05-CustomAnimationSample\MyCircleAnimation.cs" />
+    <Compile Include="Samples\Animation\Basics\05-CustomAnimationSample\CustomAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\11-StringAnimation\StringKeyFrameAnimation.cs" />
+    <Compile Include="Samples\Animation\Basics\11-StringAnimation\StringAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\11-StringAnimation\StringTraits.cs" />
+    <Compile Include="Samples\Animation\Basics\03-PathAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\04-EasingSample.cs" />
+    <Compile Include="Samples\Animation\Basics\10-DoubleAnimation\DoubleAnimationSample.cs" />
+    <Compile Include="Samples\Animation\Basics\10-DoubleAnimation\DoubleFromToByAnimation.cs" />
+    <Compile Include="Samples\Animation\Basics\10-DoubleAnimation\DoubleTraits.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimationSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\09-BoneJiggleSample\BoneJiggler.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\01-BindPoseSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\02-SkeletonManipulationSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\03-DudeWalkingSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\04-AttachmentSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\05-CharacterCrossFadeSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\06-StressTestSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\07-CompressionSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\08-MixingSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\09-BoneJiggleSample\BoneJiggleSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\10-SkeletonMappingSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\IK Samples\CcdIKSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\IK Samples\ClosedFormIKSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\IK Samples\TwoJointIKSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\IK Samples\JacobianTransposeIKSample.cs" />
+    <Compile Include="Samples\Animation\CharacterAnimation\IK Samples\LookAtIKSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\01-BasicAvatarSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\02-WrappedAvatarAnimationSample\WrappedAvatarAnimationSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\02-WrappedAvatarAnimationSample\WrappedAvatarExpressionAnimation.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\02-WrappedAvatarAnimationSample\WrappedAvatarSkeletonAnimation.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\03-BakedAnimationSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\04-CustomAvatarAnimationSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\05-AvatarAttachmentSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\06-AvatarRagdollSample.cs" />
+    <Compile Include="Samples\Animation\XboxAvatars\07-AdvancedAvatarRagdollSample.cs" />
+    <Compile Include="Samples\Base\01-ProfilerSample.cs" />
+    <Compile Include="Samples\Base\02-HierarchicalProfilerSample.cs" />
+    <Compile Include="Samples\BasicSample.cs" />
+    <Compile Include="Samples\Game.UI\01 - InputSample\InputSample.cs" />
+    <Compile Include="Samples\Game.UI\01 - InputSample\RectangleObject.cs" />
+    <Compile Include="Samples\Game.UI\02 - InputCommandSample.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\AllControlsWindow.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\ConsoleWindow.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\ControlsSample.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\DialogDemoWindow.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\FpsTextBox.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\RenderTransformWindow.cs" />
+    <Compile Include="Samples\Game.UI\03 - ControlsSample\ResizableWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\AnimatedWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\EasingWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\FadingWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\RotatingWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\ScalingWindow.cs" />
+    <Compile Include="Samples\Game.UI\04 - UIAnimationSample\UIAnimationSample.cs" />
+    <Compile Include="Samples\Game.UI\05 - TilingSample.cs" />
+    <Compile Include="Samples\Game.UI\06 - CustomControlSample\CustomControlSample.cs" />
+    <Compile Include="Samples\Game.UI\06 - CustomControlSample\MyUIRenderer.cs" />
+    <Compile Include="Samples\Game.UI\06 - CustomControlSample\TreeView.cs" />
+    <Compile Include="Samples\Game.UI\06 - CustomControlSample\TreeViewItem.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\DebuggingComponent.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\GameMenuSample.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\GameMenuWindow.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\MainMenuComponent.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\MainMenuWindow.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\MyGameComponent.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\OptionsWindow.cs" />
+    <Compile Include="Samples\Game.UI\07 - GameMenuSample\StartScreenComponent.cs" />
+    <Compile Include="Samples\Game.UI\08 - GameStatesSample.cs" />
+    <Compile Include="Samples\Game.UI\09 - InGameUISample\InGameUISample.cs" />
+    <Compile Include="Samples\Game.UI\09 - InGameUISample\InGameUIScreen.cs" />
+    <Compile Include="Samples\Game.UI\09 - InGameUISample\InGameWindow.cs" />
+    <Compile Include="Samples\Game.UI\09 - InGameUISample\NormalUIIScreen.cs" />
+    <Compile Include="Samples\Geometry\01-CollisionDetectionSample.cs" />
+    <Compile Include="Samples\Geometry\02-PickingSample.cs" />
+    <Compile Include="Samples\Geometry\03-ConvexHullSample.cs" />
+    <Compile Include="Samples\Geometry\04-MassCollisionsSample.cs" />
+    <Compile Include="Samples\Geometry\05-FrustumCullingSample.cs" />
+    <Compile Include="Samples\Geometry\06-ContinuousCollisionDetectionSample.cs" />
+    <Compile Include="Samples\Geometry\07-ContentPipelineSample\ContentPipelineSample.cs" />
+    <Compile Include="Samples\Geometry\07-ContentPipelineSample\SaucerObject.cs" />
+    <Compile Include="Samples\Geometry\07-ContentPipelineSample\ShipObject.cs" />
+    <Compile Include="Samples\Geometry\08-CharacterControllerSample\CharacterController.cs" />
+    <Compile Include="Samples\Geometry\08-CharacterControllerSample\CharacterControllerLevel.cs" />
+    <Compile Include="Samples\Geometry\08-CharacterControllerSample\CharacterControllerSample.cs" />
+    <Compile Include="Samples\Geometry\09-TriangulationSample.cs" />
+    <Compile Include="Samples\Geometry\10-ConvexDecompositionSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\09-CustomSceneNodeSample\CustomSceneNodeSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\09-CustomSceneNodeSample\TextNode.cs" />
+    <Compile Include="Samples\Graphics\Basics\09-CustomSceneNodeSample\TextRenderer.cs" />
+    <Compile Include="Samples\Graphics\Basics\13-FigureSample\FigureGeometricObject.cs" />
+    <Compile Include="Samples\Graphics\Basics\13-FigureSample\FigurePickerObject.cs" />
+    <Compile Include="Samples\Graphics\Basics\13-FigureSample\FigureSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\05-SplitScreenSample\SplitScreen.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\05-SplitScreenSample\SplitScreenSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\10-LodBlendingSample\FourWaySplitScreen.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\10-LodBlendingSample\LodBlendingSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\10-LodBlendingSample\LodTestObject.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\10-LodBlendingSample\SceneQueryWithLodBlending.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\13-OcclusionCullingSample\OcclusionCullingSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\13-OcclusionCullingSample\OcclusionCullingScreen.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\14-SceneCapture2DSample\SceneCapture2DSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\15-SceneCaptureCubeSample\SceneCaptureCubeSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\17-WaterSample\UnderwaterPostProcessor.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\17-WaterSample\WaterSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\18-OceanSample\OceanSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\DeferredGraphicsScreen\CustomSceneQuery.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\DeferredGraphicsScreen\DeferredGraphicsScreen.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\DeferredGraphicsScreen\GBufferRenderer.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\DeferredGraphicsScreen\LightBufferRenderer.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\DeferredGraphicsScreen\PreprocessingSceneQuery.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\CampfireControl.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\DeferredGraphicsScreenTabItem.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\EnvironmentDecalsControl.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\FogControl.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\OptionsWindow.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\OptionsWindow\ReticleControl.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\01-SaturationSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\02-SepiaSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\03-ColorCorrectionSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\04-SharpeningSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\05-UnsharpMaskingSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\06-EdgeFilterSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\07-GrainSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\08-CopyFilterSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\09-DownsampleSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\10-BlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\11-KawaseBlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\12-RadialBlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\13-SimpleMotionBlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\14-CameraMotionBlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\15-ObjectMotionBlurSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\16-DepthOfFieldSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\17-FxaaSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\18-SmaaSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\19-GodRaySample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\20-SsaoSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\21-BloomSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\22-HdrSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\23-CustomProcessorSample\CustomProcessorSample.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\23-CustomProcessorSample\NegativeFilter.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\24-CustomProcessorSample2.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\PostProcessingGraphicsScreen.cs" />
+    <Compile Include="Samples\Graphics\PostProcessing\PostProcessingSample.cs" />
+    <Compile Include="Samples\Mathematics\01-BasicMathSample.cs" />
+    <Compile Include="Samples\Mathematics\02-OdeIntegratorSample.cs" />
+    <Compile Include="Samples\Mathematics\03-CurveSample.cs" />
+    <Compile Include="Samples\Mathematics\04-PathSample.cs" />
+    <Compile Include="Samples\Mathematics\05-ScatteredInterpolationSample.cs" />
+    <Compile Include="Samples\Mathematics\06-DistributionsSample.cs" />
+    <Compile Include="Samples\Mathematics\07-PcaSample.cs" />
+    <Compile Include="Samples\Particles\ParticleSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\PhysicsSpecializedSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\01-CollisionDetectionOnlyRagdollSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\02-KinematicRagdollSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\03-PassiveRagdollSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\04-ActiveRagdollSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\05-AutoRagdollShapesSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\Ragdoll Samples\DudeRagdollCreator.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\01-DeferredLightingSample\DeferredLightingSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\02-LightSample\LightSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\02-LightSample\TestLightsObject.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\03-DecalSample\EnviromentDecalsGameObject.cs" />
+    <Compile Include="Samples\Graphics\Basics\01-DelegateGraphicsScreenSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\02-ScreenInScreenSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\03-XnaModelSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\04-DebugRendererSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\05-SubmeshSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\06-MeshNodeSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\07-SceneSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\08-InstancingSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\10-LensFlareSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\11-BillboardSample.cs" />
+    <Compile Include="Samples\Graphics\Basics\12-MaterialCaptureSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\03-DecalSample\DecalSample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\04-SkySample\SkySample.cs" />
+    <Compile Include="Samples\Graphics\DeferredRendering\04-SkySample\DynamicSkyObject.cs" />
+    <Compile Include="Samples\Graphics\StockEffects\BasicEffectSample.cs" />
+    <Compile Include="Samples\Graphics\StockEffects\SkinnedEffectSample.cs" />
+    <Compile Include="Samples\Graphics\StockEffects\EnvironmentMapEffectSample.cs" />
+    <Compile Include="Samples\Graphics\StockEffects\DualTextureEffectSample.cs" />
+    <Compile Include="Samples\Graphics\StockEffects\ProceduralSkyDome.cs" />
+    <Compile Include="Samples\Physics.Specialized\CharacterControllerSample\ThirdPersonCameraObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\CharacterControllerSample\CharacterControllerSample.cs" />
+    <Compile Include="Samples\Physics.Specialized\CharacterControllerSample\CharacterControllerObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\CharacterControllerSample\CharacterControllerLevelObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\VehicleSample\VehicleCameraObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\VehicleSample\VehicleObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\VehicleSample\VehicleLevelObject.cs" />
+    <Compile Include="Samples\Physics.Specialized\VehicleSample\VehicleSample.cs" />
+    <Compile Include="Samples\Physics\01-BoxStackSample.cs" />
+    <Compile Include="Samples\Physics\14-CustomGravitySample\CustomGravity.cs" />
+    <Compile Include="Samples\Physics\14-CustomGravitySample\CustomGravitySample.cs" />
+    <Compile Include="Samples\Physics\25-ResponseFilterSample\MyCollisionResponseFilter.cs" />
+    <Compile Include="Samples\Physics\25-ResponseFilterSample\ResponseFilterSample.cs" />
+    <Compile Include="Samples\Physics\PhysicSample.cs" />
+    <Compile Include="Samples\Physics\WindowsPhoneSamples\LowPassFilter.cs" />
+    <Compile Include="Samples\Physics\WindowsPhoneSamples\WindowsPhoneSample.cs" />
+    <Compile Include="Samples\Physics\WindowsPhoneSamples\WpRagddollSample.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Samples\Particles\03-RingOfFire\Fire.cs" />
+    <Compile Include="Samples\Particles\02-Smoke\Smoke.cs" />
+    <Compile Include="Samples\Particles\02-Smoke\SmokeSample.cs" />
+    <Compile Include="Samples\Particles\03-RingOfFire\RingOfFireSample.cs" />
+    <Compile Include="Samples\Particles\04-Campfire\Campfire.cs" />
+    <Compile Include="Samples\Particles\04-Campfire\CampfireSmoke.cs" />
+    <Compile Include="Samples\Particles\04-Campfire\CampfireSample.cs" />
+    <Compile Include="Samples\Particles\08-WaterFall\WaterFallSample.cs" />
+    <Compile Include="Samples\Particles\05-Explosion\ExplosionSample.cs" />
+    <Compile Include="Samples\Particles\05-Explosion\Explosion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\06-FlameJet\FlameJetSample.cs" />
+    <Compile Include="Samples\Particles\06-FlameJet\FlameJet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\07-Rain\RainSample.cs" />
+    <Compile Include="Samples\Particles\07-Rain\Rain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\08-WaterFall\WaterFall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\09-Bounce\BouncingSparks.cs" />
+    <Compile Include="Samples\Particles\09-Bounce\BounceSample.cs" />
+    <Compile Include="Samples\Particles\09-Bounce\CollisionPlaneEffector.cs" />
+    <Compile Include="Samples\Particles\10-Teleport\TeleportSample.cs" />
+    <Compile Include="Samples\Particles\10-Teleport\Teleport.cs" />
+    <Compile Include="Samples\Particles\11-ReferenceFrame\ReferenceFrameSample.cs" />
+    <Compile Include="Samples\Particles\11-ReferenceFrame\GlowingMeshEffect.cs" />
+    <Compile Include="Samples\Particles\11-ReferenceFrame\StartOnMeshEffector.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\SuperEmitterSample.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\ParticleSystemRecycler.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\RocketEffector.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\RocketExplosion.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\RocketExplosionCore.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\RocketExplosionSmoke.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\Rockets.cs" />
+    <Compile Include="Samples\Particles\12-SuperEmitter\RocketTrail.cs" />
+    <Compile Include="Samples\Particles\13-Grass\GrassSample.cs" />
+    <Compile Include="Samples\Particles\13-Grass\Grass.cs" />
+    <Compile Include="Samples\Particles\14-Decals\DecalSample.cs" />
+    <Compile Include="Samples\Particles\14-Decals\Decals.cs" />
+    <Compile Include="Samples\Particles\15-DepthSorting\BrownOut.cs" />
+    <Compile Include="Samples\Particles\15-DepthSorting\DepthSortingSample.cs" />
+    <Compile Include="Samples\Particles\16-Ribbon\RibbonSample.cs" />
+    <Compile Include="Samples\Particles\16-Ribbon\RibbonEffect.cs" />
+    <Compile Include="Samples\Particles\16-Ribbon\RibbonEffector.cs" />
+    <Compile Include="Samples\Particles\17-AnimatedTexture\AnimationEffector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\17-AnimatedTexture\BeeEffector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\17-AnimatedTexture\BeeSwarm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\Particles\17-AnimatedTexture\AnimatedTextureSample.cs" />
+    <Compile Include="Samples\Particles\ParticleHelper.cs" />
+    <Compile Include="Samples\Particles\ParticleSystemValidator.cs" />
+    <Compile Include="Samples\Particles\01-Basic\BasicParticlesSample.cs" />
+    <Compile Include="Samples\Physics\02-SphereStackSample.cs" />
+    <Compile Include="Samples\Physics\03-WallSample.cs" />
+    <Compile Include="Samples\Physics\04-KinematicSample.cs" />
+    <Compile Include="Samples\Physics\05-MassSample.cs" />
+    <Compile Include="Samples\Physics\06-MaterialSample.cs" />
+    <Compile Include="Samples\Physics\07-CompositeMaterialSample.cs" />
+    <Compile Include="Samples\Physics\08-CompositeMaterial2Sample.cs" />
+    <Compile Include="Samples\Physics\09-SurfaceMotionSample.cs" />
+    <Compile Include="Samples\Physics\10-ShapesSample.cs" />
+    <Compile Include="Samples\Physics\11-HeightFieldSample.cs" />
+    <Compile Include="Samples\Physics\12-TriangleMeshSample.cs" />
+    <Compile Include="Samples\Physics\13-BuoyancySample.cs" />
+    <Compile Include="Samples\Physics\15-ConstraintSample1.cs" />
+    <Compile Include="Samples\Physics\16-ConstraintSample2.cs" />
+    <Compile Include="Samples\Physics\17-ConstraintSample3.cs" />
+    <Compile Include="Samples\Physics\18-RopeSample.cs" />
+    <Compile Include="Samples\Physics\19-BridgeSample.cs" />
+    <Compile Include="Samples\Physics\20-ConstraintCarSample.cs" />
+    <Compile Include="Samples\Physics\21-RagdollSample.cs" />
+    <Compile Include="Samples\Physics\22-BreakableJointsSample.cs" />
+    <Compile Include="Samples\Physics\23-LockRotationSample.cs" />
+    <Compile Include="Samples\Physics\24-ContinuousCollisionDetectionSample.cs" />
+    <Compile Include="Samples\Physics\26-ParallelSimulationsSample.cs" />
+    <Compile Include="Samples\Physics\27-SmallerScaleSample.cs" />
+    <Compile Include="Samples\Physics\28-PerformanceSample.cs" />
+    <Compile Include="Samples\Physics\29-MeshFromModelSample.cs" />
+    <Compile Include="Samples\Physics\30-SoundSample.cs" />
+    <Compile Include="Samples\Physics\31-ConvexHullSample.cs" />
+    <Compile Include="Samples\Physics\32-ContentPipelineHeightFieldSample.cs" />
+    <Compile Include="Samples\Physics\33-ContentPipelineMeshSample.cs" />
+    <Compile Include="Samples\Physics\34-RollingSphereSample.cs" />
+    <Compile Include="Samples\Sample.cs" />
+    <Compile Include="Samples\SampleGraphicsScreen.cs" />
+    <Compile Include="Shared GameObjects\BallShooterObject.cs" />
+    <Compile Include="Shared GameObjects\CameraObject.cs" />
+    <Compile Include="Shared GameObjects\CampfireObject.cs" />
+    <Compile Include="Shared GameObjects\DefaultLightsObject.cs" />
+    <Compile Include="Shared GameObjects\DudeObject.cs" />
+    <Compile Include="Shared GameObjects\DynamicObject.cs" />
+    <Compile Include="Shared GameObjects\ExplosionObject.cs" />
+    <Compile Include="Shared GameObjects\FogObject.cs" />
+    <Compile Include="Shared GameObjects\GodRayObject.cs" />
+    <Compile Include="Shared GameObjects\GrabObject.cs" />
+    <Compile Include="Shared GameObjects\GroundObject.cs" />
+    <Compile Include="Shared GameObjects\LavaBallsObject.cs" />
+    <Compile Include="Shared GameObjects\ObjectCreatorObject.cs" />
+    <Compile Include="Shared GameObjects\OptionsObject.cs" />
+    <Compile Include="Shared GameObjects\ProceduralObject.cs" />
+    <Compile Include="Shared GameObjects\SandboxObject.cs" />
+    <Compile Include="Shared GameObjects\StaticObject.cs" />
+    <Compile Include="Shared GameObjects\StaticSkyObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="Samples\Geometry\07-ContentPipelineSample\README.TXT" />
+    <None Include="Samples\Graphics\DeferredRendering\19-FogSphereSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\16-PlanarReflectionSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\11-FurSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\12-TechniqueBindingSample\Premium Sample.txt" />
+    <None Include="Samples\Physics.Specialized\ConstraintVehicleSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\06-CloudQuadSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\07-EnvironmentLightSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\08-RefractionSample\Premium Sample.txt" />
+    <None Include="Samples\Graphics\DeferredRendering\09-ParallaxMappingSample\Premium Sample.txt" />
+    <None Include="GameThumbnail.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Content\XNA\Xbox360\DigitalRune.Graphics %28Xbox 360%29.contentproj">
+      <Project>{105047D7-FB44-442B-8E37-748186BF769F}</Project>
+      <Name>DigitalRune.Graphics %28Xbox 360%29 %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\Content.contentproj">
+      <Project>{8BA83B1A-5B69-477B-A6AF-2933A2B7DD8B}</Project>
+      <Name>Content %28Content\Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\UI Themes\Aero\AeroTheme.contentproj">
+      <Project>{62552589-4B8A-45BF-BD3D-11E7D366BFFA}</Project>
+      <Name>AeroTheme</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\UI Themes\GameStatesSample\GameStatesSampleTheme.contentproj">
+      <Project>{052805C4-E7DB-4322-92AF-D4A5010D5213}</Project>
+      <Name>GameStatesSampleTheme</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\UI Themes\Neoforce\NeoforceTheme.contentproj">
+      <Project>{7041C4A8-2FA1-4AC1-9368-5ACE11397EA3}</Project>
+      <Name>NeoforceTheme</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\UI Themes\TilingSample\TilingSampleTheme.contentproj">
+      <Project>{1C51D20E-E183-41A8-889C-6E61322DF031}</Project>
+      <Name>TilingSampleTheme</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\UI Themes\BlendBlue\BlendBlueTheme.contentproj">
+      <Project>{68CA309E-2F40-4DA1-82D8-95B6CA2FB996}</Project>
+      <Name>BlendBlueTheme</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\Neoforce\obj\Windows Phone\Debug\NeoforceTheme.contentprojResolveAssemblyReference.cache

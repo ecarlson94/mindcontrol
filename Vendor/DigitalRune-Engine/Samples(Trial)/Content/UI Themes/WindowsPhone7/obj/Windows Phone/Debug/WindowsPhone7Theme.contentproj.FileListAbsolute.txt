@@ -1,0 +1,1 @@
+C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\UI Themes\WindowsPhone7\obj\Windows Phone\Debug\WindowsPhone7Theme.contentprojResolveAssemblyReference.cache

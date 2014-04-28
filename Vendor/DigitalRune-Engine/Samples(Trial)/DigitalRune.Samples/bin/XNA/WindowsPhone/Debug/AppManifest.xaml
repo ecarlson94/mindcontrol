@@ -1,0 +1,18 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="DigitalRune.Samples" EntryPointType="DigitalRune.Samples.SampleGame" RuntimeVersion="3.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="DigitalRune.Samples" Source="DigitalRune.Samples.dll" />
+    <AssemblyPart x:Name="DigitalRune.Animation" Source="DigitalRune.Animation.dll" />
+    <AssemblyPart x:Name="DigitalRune" Source="DigitalRune.dll" />
+    <AssemblyPart x:Name="DigitalRune.Game" Source="DigitalRune.Game.dll" />
+    <AssemblyPart x:Name="DigitalRune.Game.Input" Source="DigitalRune.Game.Input.dll" />
+    <AssemblyPart x:Name="DigitalRune.Game.UI" Source="DigitalRune.Game.UI.dll" />
+    <AssemblyPart x:Name="DigitalRune.Geometry" Source="DigitalRune.Geometry.dll" />
+    <AssemblyPart x:Name="DigitalRune.Graphics" Source="DigitalRune.Graphics.dll" />
+    <AssemblyPart x:Name="DigitalRune.Mathematics" Source="DigitalRune.Mathematics.dll" />
+    <AssemblyPart x:Name="DigitalRune.Particles" Source="DigitalRune.Particles.dll" />
+    <AssemblyPart x:Name="DigitalRune.Physics" Source="DigitalRune.Physics.dll" />
+    <AssemblyPart x:Name="DigitalRune.Physics.Specialized" Source="DigitalRune.Physics.Specialized.dll" />
+    <AssemblyPart x:Name="DigitalRune.ServiceLocation" Source="DigitalRune.ServiceLocation.dll" />
+    <AssemblyPart x:Name="Microsoft.Practices.ServiceLocation" Source="Microsoft.Practices.ServiceLocation.dll" />
+  </Deployment.Parts>
+</Deployment>

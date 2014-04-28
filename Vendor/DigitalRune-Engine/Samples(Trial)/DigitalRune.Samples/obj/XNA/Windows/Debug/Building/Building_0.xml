@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics">
+  <Asset Type="Graphics:NodeContent">
+    <Name>RootNode</Name>
+    <Identity>
+      <SourceFilename>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\Building\Building.FBX</SourceFilename>
+      <SourceTool>FbxImporter</SourceTool>
+    </Identity>
+    <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+    <Children>
+      <Child>
+        <Name>concrete_door_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">1</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -48 128 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">2</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 208 128 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_2_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">3</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 400 128 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">4</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -304 384 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">5</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -317 528 317 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">6</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -304 128 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_1_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">7</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 128 337 1</Transform>
+      </Child>
+      <Child>
+        <Name>hangar_door_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">8</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 452 128 -207 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">9</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 7.35745E-05 528 317 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">10</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 317.000122 528 317 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">11</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 317.000122 528 2.28174E-05 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">12</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 7.35745E-05 528 2.28174E-05 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">13</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -317 528 2.28174E-05 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_007</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">14</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 317.000122 528 -317 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_008</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">15</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 7.35745E-05 528 -317 1</Transform>
+      </Child>
+      <Child>
+        <Name>roof_009</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">16</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -317 528 -317 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">17</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -48 384 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">18</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 208 384 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_window_2_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">19</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 400 384 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">20</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 672 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">21</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 672 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_4_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">22</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 336 576 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">23</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -304 672 449 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">24</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 672 337 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">25</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 128 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">26</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 128 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_007</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">27</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 128 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_008</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">28</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 128 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_009</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">29</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 384 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_010</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">30</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -158 384 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_011</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">31</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 384 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_1_012</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">32</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 384 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_2_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">33</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 640 -143 1</Transform>
+      </Child>
+      <Child>
+        <Name>pillar_concrete_3_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">34</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 142 608 157 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_window_1_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">35</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 384 337 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">36</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 384 80.99995 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">37</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 384 -175 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_2_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">38</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 384 -367 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">39</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 128 80.9999847 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">40</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 128 -175 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_2_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">41</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 128 -367 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_5_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">42</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.044769 576.1067 369.0178 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">43</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 303.9999 128 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">44</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 303.9999 384 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>cooling_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">45</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -484 411 -361.000031 1</Transform>
+      </Child>
+      <Child>
+        <Name>cooling_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">46</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -484 149 -361.000031 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_3_001</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">47</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 608 145 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_4_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">48</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 -448.000031 576 -47 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">49</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 672 -334.9999 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_1_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">50</Data>
+        </OpaqueData>
+        <Transform>-100 -7.498799E-31 1.22464684E-14 0 1.22464684E-14 -6.123234E-15 100 0 0 100 6.123234E-15 0 303.9999 672 -446.999878 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_4_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">51</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 48.00003 576 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_3_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">52</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -16.0000114 672 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">53</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -336.000122 384 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">54</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -336.000122 128 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">55</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -80.00004 128 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_double_window_007</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">56</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 -80.00004 384 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_window_2_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">57</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 112.000008 384 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_2_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">58</Data>
+        </OpaqueData>
+        <Transform>100 0 0 0 0 6.123234E-15 -100 0 0 100 6.123234E-15 0 112.000008 128 -447 1</Transform>
+      </Child>
+      <Child>
+        <Name>cooling_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">59</Data>
+        </OpaqueData>
+        <Transform>-100 -7.498799E-31 1.22464684E-14 0 1.22464684E-14 -6.123234E-15 100 0 0 100 6.123234E-15 0 303.9999 149 -483.499969 1</Transform>
+      </Child>
+      <Child>
+        <Name>cooling_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">60</Data>
+        </OpaqueData>
+        <Transform>-100 -7.498799E-31 1.22464684E-14 0 1.22464684E-14 -6.123234E-15 100 0 0 100 6.123234E-15 0 303.9999 411 -483.499969 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_2_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">61</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 128 -399 1</Transform>
+      </Child>
+      <Child>
+        <Name>hangar_door_002</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">62</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 452 128 176.999985 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_2_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">63</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 128 -14.99999 1</Transform>
+      </Child>
+      <Child>
+        <Name>wall_concrete_2_006</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">64</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 -6.123234E-15 100 0 100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 128 369 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_007</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">65</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 384 176.999985 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_double_window_008</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">66</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 384 -207 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_2_003</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">67</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 384 -15.00001 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_2_004</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">68</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 384 369 1</Transform>
+      </Child>
+      <Child>
+        <Name>concrete_small_window_2_005</Name>
+        <OpaqueData>
+          <Data Key="MaxHandle" Type="int">69</Data>
+        </OpaqueData>
+        <Transform>1.33158055E-05 6.123234E-15 -100 0 -100 8.15357948E-22 -1.33158055E-05 0 0 100 6.123234E-15 0 448.000031 384 -399 1</Transform>
+      </Child>
+    </Children>
+  </Asset>
+</XnaContent>

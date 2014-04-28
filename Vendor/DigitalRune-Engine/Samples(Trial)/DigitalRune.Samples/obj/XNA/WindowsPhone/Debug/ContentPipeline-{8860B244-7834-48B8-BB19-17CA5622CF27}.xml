@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>sky.bmp</Source>
+      <Name>sky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\sky.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Beam.png</Source>
+      <Name>Particles\Beam</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Beam.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\BeamBlurred.png</Source>
+      <Name>Particles\BeamBlurred</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\BeamBlurred.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\beeWingFlap.png</Source>
+      <Name>Particles\beeWingFlap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">False</Data>
+        <Data Key="ResizeToPowerOfTwo">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\beeWingFlap.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\BulletHole.png</Source>
+      <Name>Particles\BulletHole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\BulletHole.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Clouds.png</Source>
+      <Name>Particles\Clouds</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Clouds.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Explosion.png</Source>
+      <Name>Particles\Explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Explosion.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Explosion2.png</Source>
+      <Name>Particles\Explosion2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Explosion2.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Fire.png</Source>
+      <Name>Particles\Fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Fire.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Flames.png</Source>
+      <Name>Particles\Flames</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Flames.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Flash.png</Source>
+      <Name>Particles\Flash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Flash.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\LensFlare.png</Source>
+      <Name>Particles\LensFlare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\LensFlare.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\RainDrop.png</Source>
+      <Name>Particles\RainDrop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\RainDrop.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Ribbon.png</Source>
+      <Name>Particles\Ribbon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Ribbon.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Smoke.png</Source>
+      <Name>Particles\Smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Smoke.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Grass.tga</Source>
+      <Name>Particles\Grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Grass.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Campfire\FireParticles.tga</Source>
+      <Name>Campfire\FireParticles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Campfire\FireParticles.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Campfire\Smoke2.png</Source>
+      <Name>Campfire\Smoke2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Campfire\Smoke2.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Spark.png</Source>
+      <Name>Particles\Spark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Spark.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Spray.png</Source>
+      <Name>Particles\Spray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Spray.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Star.png</Source>
+      <Name>Particles\Star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Star.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Water.png</Source>
+      <Name>Particles\Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">True</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Water.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>HeightField\TerrainHeights.png</Source>
+      <Name>HeightField\TerrainHeights</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>HeightFieldProcessor</Processor>
+      <Parameters>
+        <Data Key="TextureFilename">Terrain.png</Data>
+        <Data Key="ScaleY">16</Data>
+        <Data Key="WidthX">400</Data>
+        <Data Key="WidthZ">400</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\HeightField\TerrainHeights.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\HeightField\Terrain_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>LensFlare\AnamorphicFlare.png</Source>
+      <Name>LensFlare\AnamorphicFlare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="GenerateMipmaps">False</Data>
+        <Data Key="PremultiplyAlpha">False</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\LensFlare\AnamorphicFlare.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>LensFlare\LensFlares.png</Source>
+      <Name>LensFlare\LensFlares</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="PremultiplyAlpha">False</Data>
+        <Data Key="GenerateMipmaps">False</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\LensFlare\LensFlares.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Billboard\BillboardReference.png</Source>
+      <Name>Billboard\BillboardReference</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Billboard\BillboardReference.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Logo.png</Source>
+      <Name>Logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Logo.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>DigitalRune.png</Source>
+      <Name>DigitalRune</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DigitalRune.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Icon.png</Source>
+      <Name>Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Icon.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Reticle.png</Source>
+      <Name>Reticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Reticle.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Explo1.wav</Source>
+      <Name>Particles\Explo1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Explo1.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Roll.wav</Source>
+      <Name>Audio\Roll</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Audio\Roll.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Scratch.wav</Source>
+      <Name>Audio\Scratch</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Audio\Scratch.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Sphere.fbx</Source>
+      <Name>Particles\Sphere</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Particles\Sphere.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Particles\Sphere_0.xml</Key>
+        <Value>2014-04-22T17:44:18.3845615-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Particles\Sphere.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Sandbox\Sandbox.fbx</Source>
+      <Name>Sandbox\Sandbox</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Sandbox\Sandbox.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Sandbox\Sandbox_0.xml</Key>
+        <Value>2014-04-22T17:44:18.9627002-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Sandbox\Sandbox.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Sandbox\Sandbox_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ship\Ship.fbx</Source>
+      <Name>Ship\Ship</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\Ship.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ship\Ship_0.xml</Key>
+        <Value>2014-04-22T17:44:19.9307907-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Ship\Ship.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\ShipDiffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ship\Ship_CollisionModel.fbx</Source>
+      <Name>Ship\Ship_CollisionModel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>CollisionShapeProcessor</Processor>
+      <Parameters>
+        <Data Key="Scale">0.001</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\Ship_CollisionModel.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ship\Ship_CollisionModel_0.xml</Key>
+        <Value>2014-04-22T17:44:20.1828219-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Saucer\saucer.fbx</Source>
+      <Name>Saucer\saucer</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelWithCollisionMeshProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer\saucer.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer\saucer_0.xml</Key>
+        <Value>2014-04-22T17:44:20.4198756-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Saucer\saucer.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer\saucer_texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Bowl.fbx</Source>
+      <Name>Bowl</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Bowl.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Bowl_0.xml</Key>
+        <Value>2014-04-22T17:44:21.2146168-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Bowl.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Dude\Dude.fbx</Source>
+      <Name>Dude\Dude</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Dude.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Dude\Dude_0.xml</Key>
+        <Value>2014-04-22T17:44:23.3658884-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Dude\Dude.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Head_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Jacket_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Pants_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\UpBody_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Eyes_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Saucer2\saucer.fbx</Source>
+      <Name>Saucer2\saucer</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelWithConvexHullProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer2\saucer.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer2\saucer_0.xml</Key>
+        <Value>2014-04-22T17:44:27.3792642-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Saucer2\saucer.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer2\saucer_texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Car.fbx</Source>
+      <Name>Car\Car</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\Car.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Car\Car_0.xml</Key>
+        <Value>2014-04-22T17:44:28.0773592-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Car\Car.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Wheel.fbx</Source>
+      <Name>Car\Wheel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\Wheel.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Car\Wheel_0.xml</Key>
+        <Value>2014-04-22T17:44:31.7123818-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Car\Wheel.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>MetalGrateBox\MetalGrateBox.fbx</Source>
+      <Name>MetalGrateBox\MetalGrateBox</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\MetalGrateBox\MetalGrateBox.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\MetalGrateBox\MetalGrateBox_0.xml</Key>
+        <Value>2014-04-22T17:44:31.7763771-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>MetalGrateBox\MetalGrateBox.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\MetalGrateBox\Metal_Grate_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Tank\tank.fbx</Source>
+      <Name>Tank\tank</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\tank.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Tank\tank_0.xml</Key>
+        <Value>2014-04-22T17:44:33.0565525-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Tank\tank.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\turret_alt_diff_tex_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\engine_diff_tex_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\saucer.fbx</Source>
+      <Name>EnvironmentMapped\saucer</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\saucer.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\EnvironmentMapped\saucer_0.xml</Key>
+        <Value>2014-04-22T17:44:33.9996642-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>EnvironmentMapped\saucer.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Body_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Cockpit_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Engines_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>DualTextured\model_lightmap.fbx</Source>
+      <Name>DualTextured\model_lightmap</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\model_lightmap.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\DualTextured\model_lightmap_0.xml</Key>
+        <Value>2014-04-22T17:44:35.2958043-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>DualTextured\model_lightmap.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\Floor_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\Cube_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Saucer3\saucer.fbx</Source>
+      <Name>Saucer3\saucer</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Parameters>
+        <Data Key="Scale">0.001</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer3\saucer.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer3\saucer_0.xml</Key>
+        <Value>2014-04-22T17:44:36.4729763-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer3\saucer_texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Marine\PlayerMarine.fbx</Source>
+      <Name>Marine\PlayerMarine</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\PlayerMarine.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\PlayerMarine_0.xml</Key>
+        <Value>2014-04-22T17:44:40.6529962-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Marine\PlayerMarine.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Run_0.xml</Key>
+        <Value>2014-04-22T17:44:41.0051057-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Aim_0.xml</Key>
+        <Value>2014-04-22T17:44:41.3461173-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Shoot_0.xml</Key>
+        <Value>2014-04-22T17:44:41.6730336-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\PlayerMarineDiffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Marine\Weapon\WeaponMachineGun.fbx</Source>
+      <Name>Marine\Weapon\WeaponMachineGun</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\Weapon\WeaponMachineGun.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Weapon\WeaponMachineGun_0.xml</Key>
+        <Value>2014-04-22T17:44:42.7201578-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Marine\Weapon\WeaponMachineGun.drmdl</Key>
+        <Value>2013-11-29T08:51:32-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\Textures\WeaponMachineGunDiffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Audio\Hit.wma</Source>
+      <Name>Audio\Hit</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Audio\Hit.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ground\Ground.x</Source>
+      <Name>Ground\Ground</Name>
+      <Importer>XImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ground\Ground.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ground\Ground_0.xml</Key>
+        <Value>2014-04-22T17:44:43.0997397-07:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Ground\Ground.drmdl</Key>
+        <Value>2013-11-29T08:51:34-07:00</Value>
+      </Dependency>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ground\Checker_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>HeightField\Terrain.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\HeightField\Terrain_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\HeightField\Terrain_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>HeightField\Terrain.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\HeightField\Terrain_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\Sphere.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Particles\Sphere_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sandbox\Sandbox.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Sandbox\Sandbox_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sandbox\Sandbox.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Sandbox\Sandbox_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Sandbox\Sandbox_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Sandbox\Sandbox.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Sandbox\Sandbox_1.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ship\Ship.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ship\Ship_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ship\ShipDiffuse.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\ShipDiffuse_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\ShipDiffuse_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ship\ShipDiffuse.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ship\ShipDiffuse_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ship\Ship_CollisionModel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ship\Ship_CollisionModel_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer\saucer.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer\saucer_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer\saucer_texture.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer\saucer_texture_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer\saucer_texture_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Saucer\saucer_texture.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer\saucer_texture_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Bowl.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Bowl_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Dude\Dude.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Dude\Dude_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Dude\Head.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Head_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\head_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Dude\Jacket.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Jacket_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\jacket_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Dude\Pants.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Pants_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\pants_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Dude\UpBody.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\UpBody_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\upBodyC_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Dude\Eyes.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\Eyes_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\upBodyC_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Dude\head.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\head_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Dude\jacket.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\jacket_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Dude\pants.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\pants_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Dude\upBodyC.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Dude\upBodyC_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer2\saucer.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer2\saucer_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer2\saucer_texture.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer2\saucer_texture_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer2\saucer_texture_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Saucer2\saucer_texture.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer2\saucer_texture_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\Car.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Car\Car_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\RacerCar_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\RacerCar_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Car\RacerCar_1.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\Wheel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Car\Wheel_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>MetalGrateBox\MetalGrateBox.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\MetalGrateBox\MetalGrateBox_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>MetalGrateBox\Metal_Grate.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\MetalGrateBox\Metal_Grate_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\MetalGrateBox\Metal_Grate_diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>MetalGrateBox\Metal_Grate_diffuse.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\MetalGrateBox\Metal_Grate_diffuse_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tank\tank.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Tank\tank_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tank\turret_alt_diff_tex.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\turret_alt_diff_tex_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\turret_alt_diff_tex_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Tank\engine_diff_tex.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\engine_diff_tex_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\engine_diff_tex_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Tank\turret_alt_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\turret_alt_diff_tex_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Tank\engine_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Tank\engine_diff_tex_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\saucer.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\EnvironmentMapped\saucer_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\Body.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Body_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\saucer_texture_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Skybox_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\Cockpit.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Cockpit_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\saucer_texture_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Skybox_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\Engines.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Engines_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\saucer_texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\saucer_texture.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\saucer_texture_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>EnvironmentMapped\Skybox.dds</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\EnvironmentMapped\Skybox_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>DualTextured\model_lightmap.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\DualTextured\model_lightmap_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>DualTextured\Floor.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\Floor_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\grass1_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\lightmap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>DualTextured\Cube.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\Cube_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\tile1_0.xnb</Request>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\lightmap_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>DualTextured\grass1.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\grass1_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>DualTextured\lightmap.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\lightmap_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>DualTextured\tile1.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\DualTextured\tile1_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer3\saucer.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Saucer3\saucer_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Saucer3\saucer_texture.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Saucer3\saucer_texture_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\PlayerMarine.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\PlayerMarine_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\Run.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Run_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Run_1.xml</Key>
+        <Value>2014-04-22T17:44:40.9450984-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Marine\Run.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Run_1.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\Aim.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Aim_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Aim_1.xml</Key>
+        <Value>2014-04-22T17:44:41.2861096-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Marine\Aim.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Aim_1.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\Shoot.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Shoot_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Dependency>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Shoot_1.xml</Key>
+        <Value>2014-04-22T17:44:41.6150254-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Marine\Shoot.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Shoot_1.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\PlayerMarineDiffuse.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\PlayerMarineDiffuse_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\PlayerMarineDiffuse_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Marine\PlayerMarineDiffuse.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\PlayerMarineDiffuse_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\Weapon\WeaponMachineGun.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Marine\Weapon\WeaponMachineGun_0.xml</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Marine\Textures\WeaponMachineGunDiffuse.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\Textures\WeaponMachineGunDiffuse_0.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\Textures\WeaponMachineGunDiffuse_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Marine\Textures\WeaponMachineGunDiffuse.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Marine\Textures\WeaponMachineGunDiffuse_1.xnb</Output>
+      <Time>2013-11-29T08:51:32-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ground\Ground.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\Ground\Ground_0.xml</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ground\Checker.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ground\Checker_0.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+      <Request>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ground\checker_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ground\checker.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\Ground\checker_1.xnb</Output>
+      <Time>2013-11-29T08:51:34-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{8860B244-7834-48B8-BB19-17CA5622CF27}</ContentProjectGUID>
+      <TargetPlatform>WindowsPhone</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\obj\XNA\WindowsPhone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples\bin\XNA\WindowsPhone\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\Samples(Trial)\DigitalRune.Samples.Content.Pipeline\bin\x86\Debug\DigitalRune.Samples.Content.Pipeline.dll</Key>
+        <Value>2014-04-22T17:44:14.1549378-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Animation.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:04-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-04-17T14:26:30.1927182-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

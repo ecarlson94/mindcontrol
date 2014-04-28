@@ -1,0 +1,3 @@
+TilingSampleTheme\Theme.xnb
+TilingSampleTheme\Default.xnb
+TilingSampleTheme\UITexture.xnb

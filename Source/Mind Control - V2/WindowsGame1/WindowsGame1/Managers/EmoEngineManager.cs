@@ -130,9 +130,10 @@ namespace WindowsGame1.Managers
         /*--------------------------------------------------------------------*/
         #region Public Methods
 
-        public void StartCognitivTraining()
+        public void StartCognitivTraining(EdkDll.EE_CognitivAction_t action)
         {
-            
+            emoEngine.CognitivSetTrainingAction(UserID, action);
+            emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_START);
         }
 
         public bool ProfileLoggedIn()
@@ -195,7 +196,7 @@ namespace WindowsGame1.Managers
 
             FileStream fileStream = new FileStream(GetProfilePath(profileName), FileMode.Open, FileAccess.Read);
             Byte[] buffer = new byte[fileStream.Length];
-            fileStream.Read(buffer, 0, (int) fileStream.Length);
+            fileStream.Read(buffer, 0, (int)fileStream.Length);
             fileStream.Close();
             EdkDll.EE_SetUserProfile(UserID, buffer, (uint)buffer.Length);
             emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
@@ -205,7 +206,7 @@ namespace WindowsGame1.Managers
         {
             string[] fileNames = Directory.GetFiles("Profiles");
 
-            for(int i = 0; i < fileNames.Length; i++)
+            for (int i = 0; i < fileNames.Length; i++)
             {
                 Match regexMatch = Regex.Match(fileNames[i], @"([\w ]*).emu");
                 if (regexMatch != null)
@@ -280,7 +281,7 @@ namespace WindowsGame1.Managers
         #endregion
 
         /*--------------------------------------------------------------------*/
-        #region EmoEngine Event Handlers
+        #region EmoEngine Delegates
 
         private void engine_Connected(object sender, EmoEngineEventArgs e)
         {
@@ -288,7 +289,7 @@ namespace WindowsGame1.Managers
             {
                 UserID = e.userId;
             }
-        } 
+        }
 
         private void engine_EmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
@@ -321,7 +322,7 @@ namespace WindowsGame1.Managers
         #endregion
 
         /*--------------------------------------------------------------------*/
-        #region EmoEngine Event Wrappers
+        #region EmoEngine Event Handler Wrappers
 
         public event EmoEngine.UserAddedEventHandler UserAdded
         {
@@ -335,10 +336,52 @@ namespace WindowsGame1.Managers
             remove { emoEngine.UserRemoved -= value; }
         }
 
+        public event EmoEngine.CognitivTrainingStartedEventEventHandler CognitivTrainingStarted
+        {
+            add { emoEngine.CognitivTrainingStarted += value; }
+            remove { emoEngine.CognitivTrainingStarted -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingCompletedEventHandler CognitivTrainingCompleted
+        {
+            add { emoEngine.CognitivTrainingCompleted += value; }
+            remove { emoEngine.CognitivTrainingCompleted -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingDataErasedEventHandler CognitivTrainingDataErased
+        {
+            add { emoEngine.CognitivTrainingDataErased += value; }
+            remove { emoEngine.CognitivTrainingDataErased -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingFailedEventHandler CognitivTrainingFailed
+        {
+            add { emoEngine.CognitivTrainingFailed += value; }
+            remove { emoEngine.CognitivTrainingFailed -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingRejectedEventHandler CognitivTrainingRejected
+        {
+            add { emoEngine.CognitivTrainingRejected += value; }
+            remove { emoEngine.CognitivTrainingRejected -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingResetEventHandler CognitivTrainingReset
+        {
+            add { emoEngine.CognitivTrainingReset += value; }
+            remove { emoEngine.CognitivTrainingReset -= value; }
+        }
+
+        public event EmoEngine.CognitivTrainingSucceededEventHandler CognitivTrainingSucceeded
+        {
+            add { emoEngine.CognitivTrainingSucceeded += value; }
+            remove { emoEngine.CognitivTrainingSucceeded -= value; }
+        }
+
         #endregion
 
         /*--------------------------------------------------------------------*/
-        #region BackgroundWork Event Handlers
+        #region BackgroundWork Delegates
 
         private void processEventsWorker_ProcessEvents(object sender, DoWorkEventArgs e)
         {

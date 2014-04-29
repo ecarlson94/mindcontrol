@@ -80,7 +80,7 @@ namespace WindowsGame1.StackPanels
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Focusable = emoEngine.HeadsetOn(),
-                FocusWhenMouseOver = emoEngine.HeadsetOn(),
+                FocusWhenMouseOver = false,
             };
             practiceButton.Click += (s, e) => makePracticeMenu = true;
 
@@ -93,7 +93,7 @@ namespace WindowsGame1.StackPanels
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Focusable = emoEngine.HeadsetOn(),
-                FocusWhenMouseOver = emoEngine.HeadsetOn(),
+                FocusWhenMouseOver = false,
             };
 
             settings = new Button
@@ -105,7 +105,7 @@ namespace WindowsGame1.StackPanels
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Focusable = emoEngine.HeadsetOn(),
-                FocusWhenMouseOver = emoEngine.HeadsetOn(),
+                FocusWhenMouseOver = false,
             };
             settings.Click += (s, e) => settingsClicked = true;
 

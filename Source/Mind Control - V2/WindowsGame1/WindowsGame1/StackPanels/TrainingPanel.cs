@@ -14,7 +14,9 @@ namespace WindowsGame1.StackPanels
     {
         private EmoEngineManager emoEngine;
         private StackPanel bottomPanel;
-        private EdkDll.EE_CognitivAction_t trainingAction;
+        private readonly EdkDll.EE_CognitivAction_t trainingAction;
+        private Button trainButton;
+        private Button eraseButton;
 
         public TrainingPanel(EmoEngineManager emoEngineParam, EdkDll.EE_CognitivAction_t trainingActionParam)
         {
@@ -23,7 +25,8 @@ namespace WindowsGame1.StackPanels
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
             Orientation = Orientation.Vertical;
-            Margin = new Vector4F(5);
+            Margin = new Vector4F(20);
+            RenderScale = new Vector2F(1.5f);
 
             switch (trainingActionParam)
             {
@@ -87,18 +90,48 @@ namespace WindowsGame1.StackPanels
             };
             Children.Add(bottomPanel);
 
+            trainButton = new Button
+            {
+                Name = "TrainButton",
+                Content = new TextBlock { Text = "Train" },
+                Margin = new Vector4F(4),
+                //RenderScale = new Vector2F(1.50f),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Focusable = false,
+                FocusWhenMouseOver = false,
+            };
+            trainButton.Click += (s, e) => emoEngine.StartCognitivTraining(trainingAction);
+            bottomPanel.Children.Add(trainButton);
 
+            eraseButton = new Button
+            {
+                Name = "EraseButton",
+                Content = new TextBlock { Text = "Erase Data" },
+                Margin = new Vector4F(4),
+                //RenderScale = new Vector2F(1.50f),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Focusable = false,
+                FocusWhenMouseOver = false,
+            };
+            eraseButton.Click += (s, e) => emoEngine.EraseCognitivTraining(trainingAction);
+            bottomPanel.Children.Add(eraseButton);
         }
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
-            if (!Name.Equals("Neutral"))
+            if (Name.Equals("Neutral"))
             {
-                foreach (UIControl control in bottomPanel.Children)
-                {
-                    control.IsEnabled = emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);
-                }
+                trainButton.IsEnabled = !emoEngine.IsTraining;
             }
+            else
+            {
+                trainButton.IsEnabled = emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL) &&
+                    !emoEngine.IsTraining;
+            }
+
+            eraseButton.IsEnabled = emoEngine.IsCognitivActionTrained(trainingAction) && !emoEngine.IsTraining;
 
             base.OnUpdate(deltaTime);
         }

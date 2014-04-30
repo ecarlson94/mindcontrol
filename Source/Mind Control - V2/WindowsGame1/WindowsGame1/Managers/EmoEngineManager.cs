@@ -10,6 +10,8 @@ namespace WindowsGame1.Managers
 {
     public class EmoEngineManager : IDisposable
     {
+        public const uint TrainingTimeMs = 8000;
+
         /*--------------------------------------------------------------------*/
         #region Private Fields
 
@@ -32,6 +34,20 @@ namespace WindowsGame1.Managers
 
         /*--------------------------------------------------------------------*/
         #region Properties
+
+        private EdkDll.EE_CognitivTrainingControl_t _trainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_NONE;
+        public EdkDll.EE_CognitivTrainingControl_t TrainingStatus
+        {
+            get { return _trainingStatus; }
+            set
+            {
+                if (Profile != String.Empty)
+                {
+                    _trainingStatus = value;
+                    emoEngine.CognitivSetTrainingControl(UserID, value);
+                }
+            }
+        }
 
         private uint _userId;
         public uint UserID
@@ -131,29 +147,76 @@ namespace WindowsGame1.Managers
         /*--------------------------------------------------------------------*/
         #region Public Methods
 
+        public void SetOverallCognitivSensitivity(int sensitivity)
+        {
+            if (Profile != String.Empty)
+            {
+                if (sensitivity <= 7 && sensitivity >= 1)
+                {
+                    emoEngine.CognitivSetActivationLevel(UserID, sensitivity);
+                    SaveProfile(Profile);
+                }
+                else
+                {
+                    throw new Exception("Sensitivity must be within the range 0-7");
+                }
+            }
+        }
+
+        public int GetOverallCognitivSensitivity()
+        {
+            int sensitivity = 0;
+
+            if (Profile != String.Empty)
+                sensitivity = emoEngine.CognitivGetActivationLevel(UserID);
+
+            return sensitivity;
+        }
+
+        public uint GetTrainingTime()
+        {
+            uint trainingTime = 0;
+
+            if (Profile != String.Empty && IsTraining)
+                trainingTime = emoEngine.CognitivGetTrainingTime(UserID);
+
+            return trainingTime;
+        }
+
         public void StartCognitivTraining(EdkDll.EE_CognitivAction_t action)
         {
             if (Profile != String.Empty)
             {
-                emoEngine.CognitivSetTrainingAction(UserID, action);
-                emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_START);
                 IsTraining = true;
+                emoEngine.CognitivSetTrainingAction(UserID, action);
+                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_START;
+            }
+        }
+
+        public void EraseCognitivTraining(EdkDll.EE_CognitivAction_t action)
+        {
+            if (Profile != String.Empty && activeActions.Contains(action))
+            {
+                IsTraining = true;
+                emoEngine.CognitivSetTrainingAction(UserID, action);
+                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ERASE;
             }
         }
 
         public void AcceptTraining()
         {
-            if (Profile != String.Empty && IsTraining)
+            if (IsTraining)
             {
-                emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
+                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT;
             }
+            
         }
 
         public void RejectTraining()
         {
-            if (Profile != String.Empty && IsTraining)
+            if (IsTraining)
             {
-                emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_REJECT);
+                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_REJECT;
             }
         }
 
@@ -309,7 +372,7 @@ namespace WindowsGame1.Managers
 
             foreach (EdkDll.EE_CognitivAction_t activeAction in activeActions)
             {
-                cognitivActions = cognitivActions | cognitivActions;
+                cognitivActions = cognitivActions | (uint)activeAction;
             }
 
             return cognitivActions;
@@ -325,9 +388,7 @@ namespace WindowsGame1.Managers
                 fileStream.Close();
                 success = true;
             }
-            catch (Exception e)
-            {
-            }
+            catch (Exception e){}
 
             return success;
         }
@@ -345,6 +406,7 @@ namespace WindowsGame1.Managers
             emoEngine.CognitivTrainingFailed += EmoEngineOnCognitivTrainingFailed;
             emoEngine.CognitivTrainingRejected += EmoEngineOnCognitivTrainingRejected;
             emoEngine.CognitivTrainingCompleted += EmoEngineOnCognitivTrainingCompleted;
+            emoEngine.CognitivTrainingDataErased += EmoEngineOnCognitivTrainingDataErased;
             emoEngine.UserAdded += engine_UserAdded;
             emoEngine.UserRemoved += engine_UserRemoved;
 
@@ -353,9 +415,11 @@ namespace WindowsGame1.Managers
 
         private void InitializeProcessEventWorker()
         {
-            _processEventsWorker = new BackgroundWorker();
-            _processEventsWorker.WorkerReportsProgress = true;
-            _processEventsWorker.WorkerSupportsCancellation = true;
+            _processEventsWorker = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
             _processEventsWorker.DoWork += processEventsWorker_ProcessEvents;
             _processEventsWorker.ProgressChanged += processEventsWorker_ProgressChanged;
         }
@@ -371,7 +435,7 @@ namespace WindowsGame1.Managers
 
         private void EndTraining()
         {
-            emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_NONE);
+            TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_NONE;
             IsTraining = false;
         }
 
@@ -445,6 +509,20 @@ namespace WindowsGame1.Managers
                 var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
                 if (!activeActions.Contains(trainingAction))
                     activeActions.Add(trainingAction);
+                emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
+
+                EndTraining();
+
+                SaveProfile(Profile);
+            }
+        }
+
+        private void EmoEngineOnCognitivTrainingDataErased(object sender, EmoEngineEventArgs e)
+        {
+            if (Profile != String.Empty)
+            {
+                var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
+                activeActions.Remove(trainingAction);
                 emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
 
                 EndTraining();

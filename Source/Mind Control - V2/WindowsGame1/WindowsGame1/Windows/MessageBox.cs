@@ -41,6 +41,8 @@ namespace WindowsGame1.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Margin = new Vector4F(4),
+                Focusable = false,
+                FocusWhenMouseOver = false,
             };
             okButton.Click += (s, e) => Close();
 

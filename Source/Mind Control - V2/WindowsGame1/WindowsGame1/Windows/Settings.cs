@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WindowsGame1.Managers;
+using WindowsGame1.StackPanels;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
+using DigitalRune.Mathematics.Algebra;
 using Emotiv;
 using Microsoft.Xna.Framework;
 
@@ -21,6 +23,7 @@ namespace WindowsGame1.Windows
             VerticalAlignment = VerticalAlignment.Stretch;
             Title = "Settings";
             HideOnClose = false;
+            CanDrag = false;
             Initialize();
         }
 
@@ -30,6 +33,7 @@ namespace WindowsGame1.Windows
             emoEngine.CognitivTrainingStarted += EmoEngineOnCognitivTrainingStarted;
             emoEngine.CognitivTrainingSucceeded += EmoEngineOnCognitivTrainingSucceeded;
             emoEngine.CognitivTrainingFailed += EmoEngineOnCognitivTrainingFailed;
+            emoEngine.CognitivTrainingDataErased += EmoEngineOnCognitivTrainingDataErased;
             
 
             FillWindow();
@@ -46,9 +50,31 @@ namespace WindowsGame1.Windows
             };
             Content = stackPanel;
 
+            stackPanel.Children.Add(new TrainingPanel(emoEngine, EdkDll.EE_CognitivAction_t.COG_NEUTRAL));
+            stackPanel.Children.Add(new TrainingPanel(emoEngine, EdkDll.EE_CognitivAction_t.COG_PUSH));
+            stackPanel.Children.Add(new TrainingPanel(emoEngine, EdkDll.EE_CognitivAction_t.COG_PULL));
+            stackPanel.Children.Add(new TrainingPanel(emoEngine, EdkDll.EE_CognitivAction_t.COG_LEFT));
+            stackPanel.Children.Add(new TrainingPanel(emoEngine, EdkDll.EE_CognitivAction_t.COG_RIGHT));
+
+            var slider = new SliderWithLable("Detection Sensitivity");
+            slider.Slider.Value = emoEngine.GetOverallCognitivSensitivity();
+            slider.Slider.Maximum = 7;
+            slider.Slider.Minimum = 1;
+            slider.Slider.LargeChange = 1;
+            slider.Slider.PropertyChanged += (s, e) =>
+            {
+                if (e.Property.Name.Equals("Value"))
+                    emoEngine.SetOverallCognitivSensitivity((int)slider.Slider.Value);
+            };
+            stackPanel.Children.Add(slider);
             
 
-            trainingStatus = new ProgressBar();//Initialize progress bar here
+            trainingStatus = new ProgressBar
+            {
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                RenderScale = new Vector2F(1.5f),
+                Margin = new Vector4F(20),
+            };//Initialize progress bar here
             stackPanel.Children.Add(trainingStatus);
         }
 
@@ -60,32 +86,71 @@ namespace WindowsGame1.Windows
             Width = Screen.ActualWidth - 250;
         }
 
-        private void EmoEngineOnCognitivTrainingFailed(object sender, EmoEngineEventArgs emoEngineEventArgs)
+        protected override void OnUpdate(TimeSpan deltaTime)
         {
-            //training failed
-            throw new NotImplementedException();
+            //progress bar visibility and update set here
+            if (emoEngine.IsTraining && !trainingStatus.IsVisible)
+            {
+                trainingStatus.IsVisible = true;
+            }
+            else if (!emoEngine.IsTraining && trainingStatus.IsVisible)
+            {
+                trainingStatus.IsVisible = false;
+            }
+            else if (emoEngine.IsTraining && trainingStatus.IsVisible && emoEngine.TrainingStatus == EdkDll.EE_CognitivTrainingControl_t.COG_START)
+            {
+                trainingStatus.Value = (emoEngine.GetTrainingTime()/EmoEngineManager.TrainingTimeMs)*100;
+            }
+
+            base.OnUpdate(deltaTime);
         }
 
-        private void EmoEngineOnCognitivTrainingSucceeded(object sender, EmoEngineEventArgs emoEngineEventArgs)
+        private void EmoEngineOnCognitivTrainingDataErased(object sender, EmoEngineEventArgs e)
+        {
+            //display confirmation of data erase to user here
+            var messageBox = new MessageBox("Data Erased", "The data has been successfully erased.");
+            messageBox.Show(this);
+        }
+
+        private void EmoEngineOnCognitivTrainingFailed(object sender, EmoEngineEventArgs e)
+        {
+            //training failed
+            var messageBox = new MessageBox("Training Failed", "The training session failed due to low quality contact.");
+            messageBox.Show(this);
+        }
+
+        private void EmoEngineOnCognitivTrainingSucceeded(object sender, EmoEngineEventArgs e)
         {
             //training succeded
             //ask user for acception or rejection
             //stop the progress bar
-            throw new NotImplementedException();
+            var acceptDialog = new OptionDialog("Accept this training session?", "Confirm", "Accept", "Reject");
+            acceptDialog.Closing += (s, ev) =>
+            {
+                if ((bool)(s as Window).DialogResult)
+                {
+                    emoEngine.AcceptTraining();
+                }
+                else
+                {
+                    emoEngine.RejectTraining();
+                }
+            };
+            acceptDialog.Show(this);
         }
 
-        private void EmoEngineOnCognitivTrainingStarted(object sender, EmoEngineEventArgs emoEngineEventArgs)
+        private void EmoEngineOnCognitivTrainingStarted(object sender, EmoEngineEventArgs e)
         {
             //training started
             //start the progress bar
-            throw new NotImplementedException();
         }
 
         private void EmoEngineOnCognitivTrainingCompleted(object sender, EmoEngineEventArgs emoEngineEventArgs)
         {
             //acception completed
             //display confirmation of acceptance
-            throw new NotImplementedException();
+            var messageBox = new MessageBox("Training Complete", "The selected direction has been successfully saved");
+            messageBox.Show(Screen);
         }
     }
 }

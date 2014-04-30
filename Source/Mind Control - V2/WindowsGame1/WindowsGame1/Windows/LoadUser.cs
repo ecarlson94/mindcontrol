@@ -69,6 +69,8 @@ namespace WindowsGame1.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Margin = new Vector4F(3),
+                Focusable = false,
+                FocusWhenMouseOver = false,
             };
             loadButton.Click += (s, e) =>
             {
@@ -95,6 +97,8 @@ namespace WindowsGame1.Windows
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Margin = new Vector4F(3),
+                Focusable = false,
+                FocusWhenMouseOver = false,
             };
             createButton.Click += (s, e) =>
             {

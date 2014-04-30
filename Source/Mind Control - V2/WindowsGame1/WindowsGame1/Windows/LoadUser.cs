@@ -18,6 +18,7 @@ namespace WindowsGame1.Windows
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
             Initialize();
+            CloseButtonStyle = "";
         }
 
         private void Initialize()

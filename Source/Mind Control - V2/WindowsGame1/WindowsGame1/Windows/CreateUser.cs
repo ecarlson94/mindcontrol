@@ -21,6 +21,7 @@ namespace WindowsGame1.Windows
             HideOnClose = false;
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
+            CloseButtonStyle = "";
             Initialize();
         }
 
@@ -73,7 +74,7 @@ namespace WindowsGame1.Windows
                 Match match = Regex.Match(profileName, @"^([\w ]*)$");
                 if (match.Success)
                 {
-                    emoEngine.SaveProfile(profileName);
+                    emoEngine.CreateProfile(profileName);
                     emoEngine.LoadProfile(profileName);
                     Close();
                 }

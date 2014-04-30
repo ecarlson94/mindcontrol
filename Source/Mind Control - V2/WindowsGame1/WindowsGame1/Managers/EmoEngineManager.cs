@@ -15,7 +15,7 @@ namespace WindowsGame1.Managers
 
         private const int _maxEmotivPollLapse = 10000;
         private EmoEngine emoEngine;
-        private List<EdkDll.EE_CognitivAction_t> activeActions; 
+        private List<EdkDll.EE_CognitivAction_t> activeActions;
 
         #endregion
 
@@ -26,15 +26,6 @@ namespace WindowsGame1.Managers
         {
             emoEngine = EmoEngine.Instance;
             activeActions = new List<EdkDll.EE_CognitivAction_t>();
-            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);
-            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
-            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
-            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
-            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
-        }
-
-        static EmoEngineManager()
-        {
         }
 
         #endregion
@@ -124,7 +115,7 @@ namespace WindowsGame1.Managers
             }
         }
 
-        private string _profile = "None";
+        private string _profile = String.Empty;
         public string Profile
         {
             get { return _profile; }
@@ -138,15 +129,22 @@ namespace WindowsGame1.Managers
 
         public void StartCognitivTraining(EdkDll.EE_CognitivAction_t action)
         {
-            emoEngine.CognitivSetTrainingAction(UserID, action);
-            emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_START);
+            if (Profile != String.Empty)
+            {
+                //move to on completed/training accepted
+                //if(!activeActions.Contains(action))
+                //    activeActions.Add(action);
+                //emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
+                emoEngine.CognitivSetTrainingAction(UserID, action);
+                emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_START);
+            }
         }
 
         public bool IsCognitivActionTrained(EdkDll.EE_CognitivAction_t action)
         {
             bool cognitivActionTrained = false;
 
-            if (emoEngine != null && activeActions.Contains(action))
+            if (emoEngine != null && Profile != String.Empty && activeActions.Contains(action))
                 cognitivActionTrained = (emoEngine.CognitivGetActiveActions(UserID) & (uint) action) == (uint) action;
 
             return cognitivActionTrained;
@@ -156,17 +154,23 @@ namespace WindowsGame1.Managers
         {
             bool allActionsTrained = false;
 
-            if (emoEngine != null)
+            if (Profile != String.Empty)
             {
-                allActionsTrained = true;
                 uint actions = emoEngine.CognitivGetActiveActions(UserID);
-                foreach (var cognitivAction in activeActions)
-                {
-                    if (allActionsTrained && (actions & (uint) cognitivAction) != (uint) cognitivAction)
-                    {
-                        allActionsTrained = false;
-                    }
-                }
+                allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL) ==
+                                    (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL;
+                if (allActionsTrained)
+                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PUSH) ==
+                                        (uint) EdkDll.EE_CognitivAction_t.COG_PUSH;
+                if (allActionsTrained)
+                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PULL) ==
+                                        (uint) EdkDll.EE_CognitivAction_t.COG_PULL;
+                if (allActionsTrained)
+                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_LEFT) ==
+                                        (uint) EdkDll.EE_CognitivAction_t.COG_LEFT;
+                if (allActionsTrained)
+                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT) ==
+                                        (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT;
             }
 
             return allActionsTrained;
@@ -174,7 +178,7 @@ namespace WindowsGame1.Managers
 
         public bool ProfileLoggedIn()
         {
-            return !Profile.Equals("None");
+            return Profile != String.Empty;
         }
 
         public void StartEmoEngine()
@@ -194,7 +198,7 @@ namespace WindowsGame1.Managers
         public bool HeadsetOnHead()
         {
             bool headsetOnHead = false;
-            if (currentEmoState != null)
+            if (currentEmoState != null && Profile != String.Empty)
             {
                 var contactQuality = currentEmoState.ContactQualityFromAllChannels;
                 int noSignalCount = 0;
@@ -223,7 +227,8 @@ namespace WindowsGame1.Managers
 
         public void CreateProfile(string profileName)
         {
-            emoEngine.EE_SaveUserProfile(UserID, GetProfilePath(profileName));
+            emoEngine.CognitivSetActiveActions(UserID, 0);
+            SaveProfile(profileName);
         }
 
         public void LoadProfile(string profileName)
@@ -236,6 +241,7 @@ namespace WindowsGame1.Managers
             fileStream.Close();
             EdkDll.EE_SetUserProfile(UserID, buffer, (uint)buffer.Length);
             emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
+            LoadActiveActions();
         }
 
         public string[] GetProfileNames()
@@ -264,6 +270,34 @@ namespace WindowsGame1.Managers
         /*--------------------------------------------------------------------*/
         #region Private Methods
 
+        private void LoadActiveActions()
+        {
+            activeActions.Clear();
+            uint actions = emoEngine.CognitivGetActiveActions(UserID);
+            if((actions & (uint)EdkDll.EE_CognitivAction_t.COG_NEUTRAL) == (uint)EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
+                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);
+            if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_PUSH) == (uint)EdkDll.EE_CognitivAction_t.COG_PUSH)
+                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+            if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_PULL) == (uint)EdkDll.EE_CognitivAction_t.COG_PULL)
+                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
+            if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_LEFT) == (uint)EdkDll.EE_CognitivAction_t.COG_LEFT)
+                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+            if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_RIGHT) == (uint)EdkDll.EE_CognitivAction_t.COG_RIGHT)
+                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+        }
+
+        private uint GetActiveActions()
+        {
+            uint cognitivActions = 0x0000;
+
+            foreach (EdkDll.EE_CognitivAction_t activeAction in activeActions)
+            {
+                cognitivActions = cognitivActions | cognitivActions;
+            }
+
+            return cognitivActions;
+        }
+
         private bool ByteArrayToFile(string path, byte[] profileBuffer)
         {
             bool success = false;
@@ -290,6 +324,7 @@ namespace WindowsGame1.Managers
         {
             emoEngine.EmoEngineConnected += engine_Connected;
             emoEngine.EmoStateUpdated += engine_EmoStateUpdated;
+            emoEngine.EmoEngineEmoStateUpdated += EmoEngineOnEmoEngineEmoStateUpdated;
             emoEngine.UserAdded += engine_UserAdded;
             emoEngine.UserRemoved += engine_UserRemoved;
 
@@ -327,6 +362,16 @@ namespace WindowsGame1.Managers
             }
         }
 
+        private void EmoEngineOnEmoEngineEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
+        {
+            lock (this)
+            {
+                EmoState emoState = new EmoState(e.emoState);
+
+                _processEventsWorker.ReportProgress(0, emoState);
+            }
+        }
+
         private void engine_EmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
             lock (this)
@@ -351,6 +396,8 @@ namespace WindowsGame1.Managers
             lock (this)
             {
                 UserID = 0;
+                Profile = String.Empty;
+                activeActions.Clear();
                 DonglePluggedIn = false;
             }
         }

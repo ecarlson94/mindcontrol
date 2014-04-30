@@ -16,7 +16,7 @@ namespace WindowsGame1.StackPanels
     {
         private EmoEngineManager emoEngine;
         private bool makePracticeMenu = false;
-        private bool makeMainMenu = true;
+        private bool makeMainMenu = false;
         private bool settingsClicked = false;
         private Button practiceButton;
         private Button settings;
@@ -54,7 +54,15 @@ namespace WindowsGame1.StackPanels
             {
                 CloseWindows();
                 Screen.Children.Add(new Settings(emoEngine));
+                settingsClicked = false;
             }
+
+            bool headsetOn = emoEngine.HeadsetOn();
+            bool headsetOnHead = emoEngine.HeadsetOnHead();
+            bool allCognitivActionsTrained = emoEngine.AllCognitivActionsTrained();
+            practiceButton.IsEnabled = headsetOn && headsetOnHead && allCognitivActionsTrained;
+            rcCarButton.IsEnabled = headsetOn && headsetOnHead && allCognitivActionsTrained;
+            settings.IsEnabled = headsetOn;// && headsetOnHead;
 
             base.OnUpdate(deltaTime);
         }
@@ -65,13 +73,14 @@ namespace WindowsGame1.StackPanels
             HorizontalAlignment = HorizontalAlignment.Left;
             Orientation = Orientation.Vertical;
             Width = 200;
+            MakeMainMenu();
         }
 
         private void MakeMainMenu()
         {
             Children.Clear();
 
-            var practiceButton = new Button
+            practiceButton = new Button
             {
                 Name = "Practice",
                 Content = new TextBlock { Text = "Practice" },
@@ -79,7 +88,8 @@ namespace WindowsGame1.StackPanels
                 RenderScale = new Vector2F(1.50f),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Focusable = emoEngine.HeadsetOn(),
+                IsEnabled = emoEngine.HeadsetOn() && emoEngine.HeadsetOnHead() && emoEngine.AllCognitivActionsTrained(),
+                Focusable = false,
                 FocusWhenMouseOver = false,
             };
             practiceButton.Click += (s, e) => makePracticeMenu = true;
@@ -92,12 +102,13 @@ namespace WindowsGame1.StackPanels
                 RenderScale = new Vector2F(1.50f),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Focusable = emoEngine.HeadsetOn(),
+                IsEnabled = emoEngine.HeadsetOn() && emoEngine.HeadsetOnHead() && emoEngine.AllCognitivActionsTrained(),
+                Focusable = false,
                 FocusWhenMouseOver = false,
             };
             rcCarButton.Click += (s, e) =>
             {
-
+                //do stuff here
             };
 
             settings = new Button
@@ -108,20 +119,11 @@ namespace WindowsGame1.StackPanels
                 RenderScale = new Vector2F(1.50f),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Focusable = emoEngine.HeadsetOn(),
+                IsEnabled = emoEngine.HeadsetOn(),
+                Focusable = false,
                 FocusWhenMouseOver = false,
             };
-            settings.Click += (s, e) =>
-            {
-                if (emoEngine.HeadsetOn() && emoEngine.HeadsetOnHead())
-                {
-                    settingsClicked = true;
-                }
-                else
-                {
-                    //display message box here.
-                }
-            };
+            settings.Click += (s, e) => settingsClicked = true;
 
             contactQuality = new Button
             {
@@ -129,6 +131,7 @@ namespace WindowsGame1.StackPanels
                 Content = new TextBlock { Text = "Contact Quality" },
                 Margin = new Vector4F(10),
                 RenderScale = new Vector2F(1.50f),
+                Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
@@ -149,6 +152,7 @@ namespace WindowsGame1.StackPanels
                 Content = new TextBlock { Text = "Forward/Backward" },
                 Margin = new Vector4F(10),
                 RenderScale = new Vector2F(1.50f),
+                Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
@@ -159,6 +163,7 @@ namespace WindowsGame1.StackPanels
                 Content = new TextBlock { Text = "Left/Right" },
                 Margin = new Vector4F(10),
                 RenderScale = new Vector2F(1.50f),
+                Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
@@ -169,6 +174,7 @@ namespace WindowsGame1.StackPanels
                 Content = new TextBlock { Text = "All Directions" },
                 Margin = new Vector4F(10),
                 RenderScale = new Vector2F(1.50f),
+                Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
@@ -179,6 +185,7 @@ namespace WindowsGame1.StackPanels
                 Content = new TextBlock{Text = "Back"},
                 Margin = new Vector4F(10),
                 RenderScale = new Vector2F(1.50f),
+                Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };

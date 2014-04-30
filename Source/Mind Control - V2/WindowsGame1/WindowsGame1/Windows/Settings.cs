@@ -6,6 +6,7 @@ using WindowsGame1.Managers;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using Emotiv;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1.Windows
 {

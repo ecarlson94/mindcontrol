@@ -13,7 +13,7 @@ namespace WindowsGame1.Windows
     public class Settings : Window
     {
         private EmoEngineManager emoEngine;
-        private EdkDll.EE_CognitivAction_t trainingAction;
+        private ProgressBar trainingStatus;
 
         public Settings(EmoEngineManager emoEngineParam)
         {
@@ -29,13 +29,13 @@ namespace WindowsGame1.Windows
             emoEngine.CognitivTrainingCompleted += EmoEngineOnCognitivTrainingCompleted;
             emoEngine.CognitivTrainingStarted += EmoEngineOnCognitivTrainingStarted;
             emoEngine.CognitivTrainingSucceeded += EmoEngineOnCognitivTrainingSucceeded;
-            emoEngine.CognitivTrainingRejected += EmoEngineOnCognitivTrainingRejected;
             emoEngine.CognitivTrainingFailed += EmoEngineOnCognitivTrainingFailed;
+            
 
-            MakePanels();
+            FillWindow();
         }
 
-        private void MakePanels()
+        private void FillWindow()
         {
             var stackPanel = new StackPanel
             {
@@ -45,6 +45,11 @@ namespace WindowsGame1.Windows
                 Name = "SettingsPanel",
             };
             Content = stackPanel;
+
+            
+
+            trainingStatus = new ProgressBar();//Initialize progress bar here
+            stackPanel.Children.Add(trainingStatus);
         }
 
         protected override void OnLoad()
@@ -57,26 +62,29 @@ namespace WindowsGame1.Windows
 
         private void EmoEngineOnCognitivTrainingFailed(object sender, EmoEngineEventArgs emoEngineEventArgs)
         {
-            throw new NotImplementedException();
-        }
-
-        private void EmoEngineOnCognitivTrainingRejected(object sender, EmoEngineEventArgs emoEngineEventArgs)
-        {
+            //training failed
             throw new NotImplementedException();
         }
 
         private void EmoEngineOnCognitivTrainingSucceeded(object sender, EmoEngineEventArgs emoEngineEventArgs)
         {
+            //training succeded
+            //ask user for acception or rejection
+            //stop the progress bar
             throw new NotImplementedException();
         }
 
         private void EmoEngineOnCognitivTrainingStarted(object sender, EmoEngineEventArgs emoEngineEventArgs)
         {
+            //training started
+            //start the progress bar
             throw new NotImplementedException();
         }
 
         private void EmoEngineOnCognitivTrainingCompleted(object sender, EmoEngineEventArgs emoEngineEventArgs)
         {
+            //acception completed
+            //display confirmation of acceptance
             throw new NotImplementedException();
         }
     }

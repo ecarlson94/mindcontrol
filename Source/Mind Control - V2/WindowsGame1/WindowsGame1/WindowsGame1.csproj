@@ -103,6 +103,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="StackPanels\ControlPanel.cs" />
     <Compile Include="StackPanels\MainPanel.cs" />
+    <Compile Include="StackPanels\TrainingPanel.cs" />
     <Compile Include="Windows\ContactQuality.cs" />
     <Compile Include="Windows\CreateUser.cs" />
     <Compile Include="Windows\LoadUser.cs" />

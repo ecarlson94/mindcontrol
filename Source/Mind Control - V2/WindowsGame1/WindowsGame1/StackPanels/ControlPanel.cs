@@ -95,6 +95,10 @@ namespace WindowsGame1.StackPanels
                 Focusable = emoEngine.HeadsetOn(),
                 FocusWhenMouseOver = false,
             };
+            rcCarButton.Click += (s, e) =>
+            {
+
+            };
 
             settings = new Button
             {
@@ -107,7 +111,17 @@ namespace WindowsGame1.StackPanels
                 Focusable = emoEngine.HeadsetOn(),
                 FocusWhenMouseOver = false,
             };
-            settings.Click += (s, e) => settingsClicked = true;
+            settings.Click += (s, e) =>
+            {
+                if (emoEngine.HeadsetOn() && emoEngine.HeadsetOnHead())
+                {
+                    settingsClicked = true;
+                }
+                else
+                {
+                    //display message box here.
+                }
+            };
 
             contactQuality = new Button
             {

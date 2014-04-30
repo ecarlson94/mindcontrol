@@ -14,8 +14,8 @@ namespace WindowsGame1.Managers
         #region Private Fields
 
         private const int _maxEmotivPollLapse = 10000;
-
         private EmoEngine emoEngine;
+        private List<EdkDll.EE_CognitivAction_t> activeActions; 
 
         #endregion
 
@@ -25,6 +25,12 @@ namespace WindowsGame1.Managers
         public EmoEngineManager()
         {
             emoEngine = EmoEngine.Instance;
+            activeActions = new List<EdkDll.EE_CognitivAction_t>();
+            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);
+            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+            activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
         }
 
         static EmoEngineManager()
@@ -134,6 +140,36 @@ namespace WindowsGame1.Managers
         {
             emoEngine.CognitivSetTrainingAction(UserID, action);
             emoEngine.CognitivSetTrainingControl(UserID, EdkDll.EE_CognitivTrainingControl_t.COG_START);
+        }
+
+        public bool IsCognitivActionTrained(EdkDll.EE_CognitivAction_t action)
+        {
+            bool cognitivActionTrained = false;
+
+            if (emoEngine != null && activeActions.Contains(action))
+                cognitivActionTrained = (emoEngine.CognitivGetActiveActions(UserID) & (uint) action) == (uint) action;
+
+            return cognitivActionTrained;
+        }
+
+        public bool AllCognitivActionsTrained()
+        {
+            bool allActionsTrained = false;
+
+            if (emoEngine != null)
+            {
+                allActionsTrained = true;
+                uint actions = emoEngine.CognitivGetActiveActions(UserID);
+                foreach (var cognitivAction in activeActions)
+                {
+                    if (allActionsTrained && (actions & (uint) cognitivAction) != (uint) cognitivAction)
+                    {
+                        allActionsTrained = false;
+                    }
+                }
+            }
+
+            return allActionsTrained;
         }
 
         public bool ProfileLoggedIn()

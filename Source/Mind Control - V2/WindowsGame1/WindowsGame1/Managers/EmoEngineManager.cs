@@ -10,8 +10,6 @@ namespace WindowsGame1.Managers
 {
     public class EmoEngineManager : IDisposable
     {
-        public const uint TrainingTimeMs = 8000;
-
         /*--------------------------------------------------------------------*/
         #region Private Fields
 
@@ -187,6 +185,10 @@ namespace WindowsGame1.Managers
         {
             if (Profile != String.Empty)
             {
+                if (action != EdkDll.EE_CognitivAction_t.COG_NEUTRAL &&
+                    !activeActions.Contains(action))
+                    activeActions.Add(action);
+                emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
                 IsTraining = true;
                 emoEngine.CognitivSetTrainingAction(UserID, action);
                 TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_START;
@@ -195,7 +197,7 @@ namespace WindowsGame1.Managers
 
         public void EraseCognitivTraining(EdkDll.EE_CognitivAction_t action)
         {
-            if (Profile != String.Empty && activeActions.Contains(action))
+            if (Profile != String.Empty)
             {
                 IsTraining = true;
                 emoEngine.CognitivSetTrainingAction(UserID, action);
@@ -224,8 +226,15 @@ namespace WindowsGame1.Managers
         {
             bool cognitivActionTrained = false;
 
-            if (emoEngine != null && Profile != String.Empty && activeActions.Contains(action))
-                cognitivActionTrained = (emoEngine.CognitivGetActiveActions(UserID) & (uint) action) == (uint) action;
+            lock (emoEngine)
+            {
+                if (emoEngine != null && Profile != String.Empty)
+                {
+                    uint trainedActions = emoEngine.CognitivGetTrainedSignatureActions(UserID);
+                    cognitivActionTrained = (trainedActions & (uint) action) ==
+                                            (uint) action;
+                }
+            }
 
             return cognitivActionTrained;
         }
@@ -236,21 +245,25 @@ namespace WindowsGame1.Managers
 
             if (Profile != String.Empty)
             {
-                uint actions = emoEngine.CognitivGetActiveActions(UserID);
-                allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL) ==
-                                    (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL;
-                if (allActionsTrained)
-                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PUSH) ==
-                                        (uint) EdkDll.EE_CognitivAction_t.COG_PUSH;
-                if (allActionsTrained)
-                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PULL) ==
-                                        (uint) EdkDll.EE_CognitivAction_t.COG_PULL;
-                if (allActionsTrained)
-                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_LEFT) ==
-                                        (uint) EdkDll.EE_CognitivAction_t.COG_LEFT;
-                if (allActionsTrained)
-                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT) ==
-                                        (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT;
+                allActionsTrained = true;
+                lock (emoEngine)
+                {
+                    uint actions = emoEngine.CognitivGetTrainedSignatureActions(UserID);
+                    allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL) ==
+                                        (uint) EdkDll.EE_CognitivAction_t.COG_NEUTRAL;
+                    if (allActionsTrained)
+                        allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PUSH) ==
+                                            (uint) EdkDll.EE_CognitivAction_t.COG_PUSH;
+                    if (allActionsTrained)
+                        allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_PULL) ==
+                                            (uint) EdkDll.EE_CognitivAction_t.COG_PULL;
+                    if (allActionsTrained)
+                        allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_LEFT) ==
+                                            (uint) EdkDll.EE_CognitivAction_t.COG_LEFT;
+                    if (allActionsTrained)
+                        allActionsTrained = (actions & (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT) ==
+                                            (uint) EdkDll.EE_CognitivAction_t.COG_RIGHT;
+                }
             }
 
             return allActionsTrained;
@@ -321,7 +334,7 @@ namespace WindowsGame1.Managers
             fileStream.Close();
             EdkDll.EE_SetUserProfile(UserID, buffer, (uint)buffer.Length);
             emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
-            LoadActiveActions();
+            LoadTrainedActions();
         }
 
         public string[] GetProfileNames()
@@ -350,12 +363,10 @@ namespace WindowsGame1.Managers
         /*--------------------------------------------------------------------*/
         #region Private Methods
 
-        private void LoadActiveActions()
+        private void LoadTrainedActions()
         {
             activeActions.Clear();
-            uint actions = emoEngine.CognitivGetActiveActions(UserID);
-            if((actions & (uint)EdkDll.EE_CognitivAction_t.COG_NEUTRAL) == (uint)EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
-                activeActions.Add(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);
+            uint actions = emoEngine.CognitivGetTrainedSignatureActions(UserID);
             if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_PUSH) == (uint)EdkDll.EE_CognitivAction_t.COG_PUSH)
                 activeActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
             if ((actions & (uint)EdkDll.EE_CognitivAction_t.COG_PULL) == (uint)EdkDll.EE_CognitivAction_t.COG_PULL)
@@ -446,7 +457,7 @@ namespace WindowsGame1.Managers
 
         private void engine_Connected(object sender, EmoEngineEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
                 UserID = e.userId;
             }
@@ -454,7 +465,7 @@ namespace WindowsGame1.Managers
 
         private void EmoEngineOnEmoEngineEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
                 EmoState emoState = new EmoState(e.emoState);
 
@@ -464,7 +475,7 @@ namespace WindowsGame1.Managers
 
         private void engine_EmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
                 EmoState emoState = new EmoState(e.emoState);
 
@@ -474,7 +485,7 @@ namespace WindowsGame1.Managers
 
         private void engine_UserAdded(object sender, EmoEngineEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
                 UserID = e.userId;
                 DonglePluggedIn = true;
@@ -483,10 +494,10 @@ namespace WindowsGame1.Managers
 
         private void engine_UserRemoved(object sender, EmoEngineEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
-                UserID = 0;
                 Profile = String.Empty;
+                UserID = 0;
                 activeActions.Clear();
                 DonglePluggedIn = false;
             }
@@ -506,28 +517,39 @@ namespace WindowsGame1.Managers
         {
             if (Profile != String.Empty)
             {
-                var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
-                if (!activeActions.Contains(trainingAction))
-                    activeActions.Add(trainingAction);
-                emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
+                //var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
+                //if (trainingAction != EdkDll.EE_CognitivAction_t.COG_NEUTRAL &&
+                //    !activeActions.Contains(trainingAction))
+                //    activeActions.Add(trainingAction);
+                //emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
 
-                EndTraining();
+                
 
-                SaveProfile(Profile);
+                //perhaps move this somewhere else i.e. save button in settings menu TBD
+                lock (emoEngine)
+                {
+                    EndTraining();
+                    SaveProfile(Profile);
+                }
             }
         }
 
         private void EmoEngineOnCognitivTrainingDataErased(object sender, EmoEngineEventArgs e)
         {
+
             if (Profile != String.Empty)
             {
-                var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
-                activeActions.Remove(trainingAction);
-                emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
+                //perhaps move this somewhere else i.e. save button in settings menu TBD
+                lock (emoEngine)
+                {
+                    var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
+                    activeActions.Remove(trainingAction);
+                    emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
 
-                EndTraining();
-
-                SaveProfile(Profile);
+                
+                    EndTraining();
+                    SaveProfile(Profile);
+                }
             }
         }
 

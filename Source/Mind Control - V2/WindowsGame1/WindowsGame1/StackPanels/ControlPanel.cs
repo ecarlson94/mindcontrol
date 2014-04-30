@@ -17,7 +17,6 @@ namespace WindowsGame1.StackPanels
         private EmoEngineManager emoEngine;
         private bool makePracticeMenu = false;
         private bool makeMainMenu = false;
-        private bool settingsClicked = false;
         private Button practiceButton;
         private Button settings;
         private Button contactQuality;
@@ -50,19 +49,14 @@ namespace WindowsGame1.StackPanels
                 MakePracticeMenu();
                 makePracticeMenu = false;
             }
-            else if (settingsClicked)
-            {
-                CloseWindows();
-                Screen.Children.Add(new Settings(emoEngine));
-                settingsClicked = false;
-            }
 
             bool headsetOn = emoEngine.HeadsetOn();
             bool headsetOnHead = emoEngine.HeadsetOnHead();
             bool allCognitivActionsTrained = emoEngine.AllCognitivActionsTrained();
-            practiceButton.IsEnabled = headsetOn && headsetOnHead && allCognitivActionsTrained;
-            rcCarButton.IsEnabled = headsetOn && headsetOnHead && allCognitivActionsTrained;
-            settings.IsEnabled = headsetOn;// && headsetOnHead;
+
+            practiceButton.IsEnabled = headsetOn && allCognitivActionsTrained; // && headsetOnHead;
+            rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained; // && headsetOnHead
+            settings.IsEnabled = true;//headsetOn; // && headsetOnHead;
 
             base.OnUpdate(deltaTime);
         }
@@ -123,7 +117,11 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 FocusWhenMouseOver = false,
             };
-            settings.Click += (s, e) => settingsClicked = true;
+            settings.Click += (s, e) =>
+            {
+                CloseWindows();
+                Screen.Children.Add(new Settings(emoEngine));
+            };//settingsClicked = true;
 
             contactQuality = new Button
             {

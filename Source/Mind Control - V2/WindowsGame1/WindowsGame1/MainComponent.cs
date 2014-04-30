@@ -29,6 +29,7 @@ namespace WindowsGame1
         private readonly IUIService _uiService;
         private readonly IAnimationService _animationService;
         private readonly EmoEngineManager _emoEngine;
+        public static ContentManager Content;
 
         private StateMachine stateMachine;
 
@@ -44,6 +45,7 @@ namespace WindowsGame1
             _inputService = (IInputService)game.Services.GetService(typeof(IInputService));
             _uiService = (IUIService)game.Services.GetService(typeof(IUIService));
             _animationService = (IAnimationService)game.Services.GetService(typeof(IAnimationService));
+            Content = Game.Content;
             _emoEngine = new EmoEngineManager();
             _emoEngine.StartEmoEngine();
         }

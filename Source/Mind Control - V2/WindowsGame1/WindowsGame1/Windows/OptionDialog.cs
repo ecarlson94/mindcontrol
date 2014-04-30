@@ -17,6 +17,7 @@ namespace WindowsGame1.Windows
             HorizontalAlignment = HorizontalAlignment.Center;
             HideOnClose = false;
             CloseButtonStyle = "";
+            IsModal = true;
 
             var stackPanel = new StackPanel
             {

@@ -63,7 +63,7 @@ namespace WindowsGame1.Windows
             slider.Slider.LargeChange = 1;
             slider.Slider.PropertyChanged += (s, e) =>
             {
-                if (e.Property.Name.Equals("Value"))
+                if (e.Property.Name.Equals("Value") && slider.Slider.Value%1 == 0f)
                     emoEngine.SetOverallCognitivSensitivity((int)slider.Slider.Value);
             };
             stackPanel.Children.Add(slider);
@@ -74,6 +74,7 @@ namespace WindowsGame1.Windows
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 RenderScale = new Vector2F(1.5f),
                 Margin = new Vector4F(20),
+                IsIndeterminate = true,
             };//Initialize progress bar here
             stackPanel.Children.Add(trainingStatus);
         }
@@ -97,10 +98,6 @@ namespace WindowsGame1.Windows
             {
                 trainingStatus.IsVisible = false;
             }
-            else if (emoEngine.IsTraining && trainingStatus.IsVisible && emoEngine.TrainingStatus == EdkDll.EE_CognitivTrainingControl_t.COG_START)
-            {
-                trainingStatus.Value = (emoEngine.GetTrainingTime()/EmoEngineManager.TrainingTimeMs)*100;
-            }
 
             base.OnUpdate(deltaTime);
         }
@@ -109,14 +106,14 @@ namespace WindowsGame1.Windows
         {
             //display confirmation of data erase to user here
             var messageBox = new MessageBox("Data Erased", "The data has been successfully erased.");
-            messageBox.Show(this);
+            messageBox.Show(Screen);
         }
 
         private void EmoEngineOnCognitivTrainingFailed(object sender, EmoEngineEventArgs e)
         {
             //training failed
             var messageBox = new MessageBox("Training Failed", "The training session failed due to low quality contact.");
-            messageBox.Show(this);
+            messageBox.Show(Screen);
         }
 
         private void EmoEngineOnCognitivTrainingSucceeded(object sender, EmoEngineEventArgs e)
@@ -136,7 +133,7 @@ namespace WindowsGame1.Windows
                     emoEngine.RejectTraining();
                 }
             };
-            acceptDialog.Show(this);
+            acceptDialog.Show(Screen);
         }
 
         private void EmoEngineOnCognitivTrainingStarted(object sender, EmoEngineEventArgs e)

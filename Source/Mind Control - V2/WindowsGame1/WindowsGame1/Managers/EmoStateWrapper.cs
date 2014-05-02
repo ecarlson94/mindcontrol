@@ -146,7 +146,7 @@ namespace WindowsGame1.Managers
                             case EdkDll.EE_InputChannels_t.EE_CHAN_F4:
                                 {
                                     _inputChannelToDataChannelMap[inputChannel] = EdkDll.EE_DataChannel_t.F4;
-                                    _inputChannelIndexToDataChannelMap[i] = EdkDll.EE_DataChannel_t.F3;
+                                    _inputChannelIndexToDataChannelMap[i] = EdkDll.EE_DataChannel_t.F4;
                                     break;
                                 }
                             case EdkDll.EE_InputChannels_t.EE_CHAN_F7:

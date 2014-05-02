@@ -54,6 +54,13 @@ namespace WindowsGame1.Managers
             private set { _userId = value; }
         }
 
+        private volatile float _overallContactQuality;
+        public float OverallContactQuality
+        {
+            get { return _overallContactQuality; }
+            set { _overallContactQuality = value; }
+        }
+
         private bool _isTraining = false;
         public bool IsTraining
         {
@@ -250,7 +257,6 @@ namespace WindowsGame1.Managers
 
             if (Profile != String.Empty)
             {
-                allActionsTrained = true;
                 lock (emoEngine)
                 {
                     uint actions = emoEngine.CognitivGetTrainedSignatureActions(UserID);
@@ -295,21 +301,12 @@ namespace WindowsGame1.Managers
 
         public bool HeadsetOnHead()
         {
-            bool headsetOnHead = false;
-            if (currentEmoState != null && Profile != String.Empty)
-            {
-                var contactQuality = currentEmoState.ContactQualityFromAllChannels;
-                int noSignalCount = 0;
-                foreach (KeyValuePair<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t> entry in contactQuality)
-                {
-                    if (entry.Value == EdkDll.EE_EEG_ContactQuality_t.EEG_CQ_NO_SIGNAL)
-                        noSignalCount++;
-                }
+            return OverallContactQuality > .75f;
+        }
 
-                headsetOnHead = noSignalCount < 5;
-            }
-
-            return headsetOnHead;
+        public bool OverallGoodQuality()
+        {
+            return OverallContactQuality >= 2.5f;
         }
 
         public bool HeadsetOn()
@@ -640,6 +637,23 @@ namespace WindowsGame1.Managers
             lock (emoEngine)
             {
                 currentEmoState = new EmoStateWrapper(e.UserState as EmoState);
+
+                if (currentEmoState != null && Profile != String.Empty)
+                {
+                    var contactQuality = GetContactQualityMap();
+                    float qualityTotal = 0;
+                    foreach (
+                        KeyValuePair<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t> entry in contactQuality)
+                    {
+                        qualityTotal = (float) entry.Value;
+                    }
+
+                    OverallContactQuality = qualityTotal/contactQuality.Count;
+                }
+                else
+                {
+                    OverallContactQuality = 0.0f;
+                }
             }
         }
 

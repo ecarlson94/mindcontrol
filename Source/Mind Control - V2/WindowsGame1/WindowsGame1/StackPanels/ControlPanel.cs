@@ -27,6 +27,7 @@ namespace WindowsGame1.StackPanels
         private Button leftRight;
         private Button allDirections;
         private MenuState menu;
+        private ContactQualityWindow cqWindow;
 
         public ControlPanel(EmoEngineManager emoEngine)
         {
@@ -56,27 +57,42 @@ namespace WindowsGame1.StackPanels
             bool headsetOn = emoEngine.HeadsetOn();
             bool headsetOnHead = emoEngine.HeadsetOnHead();
             bool allCognitivActionsTrained = emoEngine.AllCognitivActionsTrained();
+            bool goodContactQuality = emoEngine.OverallGoodQuality();
 
             if (menu == MenuState.Main)
             {
                 practiceButton.IsEnabled = headsetOn &&
-                                           emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);//TODO: && headsetOnHead;
-                rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained;//TODO: && headsetOnHead;
-                settings.IsEnabled = headsetOn;//TODO: && headsetOnHead;
-            }else if (menu == MenuState.Practice)
+                                           emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
+                                           && headsetOnHead && goodContactQuality;
+
+                rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained
+                                        && headsetOnHead && goodContactQuality;
+
+                settings.IsEnabled = headsetOn
+                                     && headsetOnHead && goodContactQuality;
+            }
+            else if (menu == MenuState.Practice)
             {
                 forwardBackward.IsEnabled = headsetOn &&
                                             (emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PUSH)
-                                             || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL));
+                                             || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL)
+                                             && goodContactQuality);
+
                 leftRight.IsEnabled = headsetOn &&
                                       (emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_LEFT)
-                                      || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT));
+                                      || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT)
+                                      && goodContactQuality);
 
-                allDirections.IsEnabled = headsetOn &&
-                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PUSH) &&
-                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL) &&
-                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_LEFT) &&
-                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+                allDirections.IsEnabled = headsetOn && allCognitivActionsTrained && goodContactQuality;
+            }
+
+            if (emoEngine.Profile != String.Empty && !(headsetOn && headsetOnHead && goodContactQuality))
+            {
+                if (!Screen.Children.OfType<Window>().ToArray().Contains(cqWindow))
+                {
+                    CloseWindows();
+                    Screen.Children.Add(cqWindow);
+                }
             }
 
             base.OnUpdate(deltaTime);
@@ -88,6 +104,7 @@ namespace WindowsGame1.StackPanels
             HorizontalAlignment = HorizontalAlignment.Left;
             Orientation = Orientation.Vertical;
             Width = 200;
+            cqWindow = new ContactQualityWindow(emoEngine);
             MakeMainMenu();
         }
 
@@ -124,7 +141,7 @@ namespace WindowsGame1.StackPanels
             };
             rcCarButton.Click += (s, e) =>
             {
-                //do stuff here
+                //TODO: implement remote control car funtionality
             };
 
             settings = new Button

@@ -1,6 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Brain\ContactQualities\Fair.png</Source>
+      <Name>Brain\ContactQualities\Fair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Fair.xnb</Output>
+      <Time>2014-05-01T20:12:49.9402758-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\ContactQualities\Good.png</Source>
+      <Name>Brain\ContactQualities\Good</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Good.xnb</Output>
+      <Time>2014-05-01T20:25:38.1667801-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\ContactQualities\NoSignal.png</Source>
+      <Name>Brain\ContactQualities\NoSignal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\NoSignal.xnb</Output>
+      <Time>2014-05-01T20:25:11.499365-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\ContactQualities\Poor.png</Source>
+      <Name>Brain\ContactQualities\Poor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Poor.xnb</Output>
+      <Time>2014-05-01T20:25:01.7741138-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\ContactQualities\VeryBad.png</Source>
+      <Name>Brain\ContactQualities\VeryBad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\VeryBad.xnb</Output>
+      <Time>2014-05-01T20:24:54.6241976-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\Brain.png</Source>
+      <Name>Brain\Brain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Brain.xnb</Output>
+      <Time>2014-05-01T09:55:24.7557961-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Brain\Head.png</Source>
+      <Name>Brain\Head</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Head.xnb</Output>
+      <Time>2014-05-01T23:07:20.0317857-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{AE5290AD-4C70-4C76-8AF1-57930A898494}</ContentProjectGUID>
@@ -14,6 +77,46 @@
       <OutputDirectory>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2012-09-06T14:52:54-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Game.UI.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:04-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Animation.Content.Pipeline.dll</Key>
+        <Value>2014-03-03T11:51:04-07:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
         <Value>2014-04-17T14:26:30.1927182-07:00</Value>

@@ -34,3 +34,10 @@ C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\DigitalRune.Game.UI.xml
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\DigitalRune.Mathematics.xml
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\DigitalRune.Geometry.xml
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Fair.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Good.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\NoSignal.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Poor.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\VeryBad.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Brain.xnb
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Head.xnb

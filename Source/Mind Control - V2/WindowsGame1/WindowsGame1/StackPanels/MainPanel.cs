@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WindowsGame1.Managers;
+using WindowsGame1.Paints;
 using WindowsGame1.Windows;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
@@ -30,7 +31,8 @@ namespace WindowsGame1.StackPanels
             //control.SettingsClicked += ControlOnSettingsClicked;
             Children.Add(control);
 
-            Children.Add(new ContactQuality(emoEngine));
+            //make custom window for contact quality before this call
+            //Children.Add();
         }
 
         private void ControlOnSettingsClicked(object sender, EventArgs eventArgs)

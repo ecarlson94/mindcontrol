@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using WindowsGame1.Enums;
 using WindowsGame1.Managers;
 using WindowsGame1.Windows;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Mathematics.Algebra;
+using Emotiv;
 
 namespace WindowsGame1.StackPanels
 {
@@ -24,6 +26,7 @@ namespace WindowsGame1.StackPanels
         private Button forwardBackward;
         private Button leftRight;
         private Button allDirections;
+        private MenuState menu;
 
         public ControlPanel(EmoEngineManager emoEngine)
         {
@@ -54,9 +57,27 @@ namespace WindowsGame1.StackPanels
             bool headsetOnHead = emoEngine.HeadsetOnHead();
             bool allCognitivActionsTrained = emoEngine.AllCognitivActionsTrained();
 
-            practiceButton.IsEnabled = headsetOn && allCognitivActionsTrained; // && headsetOnHead;
-            rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained; // && headsetOnHead
-            settings.IsEnabled = true;//headsetOn; // && headsetOnHead;
+            if (menu == MenuState.Main)
+            {
+                practiceButton.IsEnabled = headsetOn &&
+                                           emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL);//TODO: && headsetOnHead;
+                rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained;//TODO: && headsetOnHead;
+                settings.IsEnabled = headsetOn;//TODO: && headsetOnHead;
+            }else if (menu == MenuState.Practice)
+            {
+                forwardBackward.IsEnabled = headsetOn &&
+                                            (emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PUSH)
+                                             || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL));
+                leftRight.IsEnabled = headsetOn &&
+                                      (emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_LEFT)
+                                      || emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT));
+
+                allDirections.IsEnabled = headsetOn &&
+                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PUSH) &&
+                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL) &&
+                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_LEFT) &&
+                                          emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+            }
 
             base.OnUpdate(deltaTime);
         }
@@ -68,11 +89,13 @@ namespace WindowsGame1.StackPanels
             Orientation = Orientation.Vertical;
             Width = 200;
             MakeMainMenu();
+            Screen.Children.Add(new ContactQualityWindow(emoEngine));
         }
 
         private void MakeMainMenu()
         {
             Children.Clear();
+            menu = MenuState.Main;
 
             practiceButton = new Button
             {
@@ -121,7 +144,7 @@ namespace WindowsGame1.StackPanels
             {
                 CloseWindows();
                 Screen.Children.Add(new Settings(emoEngine));
-            };//settingsClicked = true;
+            };
 
             contactQuality = new Button
             {
@@ -133,6 +156,11 @@ namespace WindowsGame1.StackPanels
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
+            contactQuality.Click += (s, e) =>
+            {
+                CloseWindows();
+                Screen.Children.Add(new ContactQualityWindow(emoEngine));
+            };
 
             Children.Add(practiceButton);
             Children.Add(rcCarButton);
@@ -143,6 +171,7 @@ namespace WindowsGame1.StackPanels
         private void MakePracticeMenu()
         {
             Children.Clear();
+            menu = MenuState.Practice;
 
             forwardBackward = new Button
             {
@@ -153,6 +182,10 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
+            };
+            forwardBackward.Click += (s, e) =>
+            {
+
             };
 
             leftRight = new Button
@@ -165,6 +198,10 @@ namespace WindowsGame1.StackPanels
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
+            leftRight.Click += (s, e) =>
+            {
+
+            };
 
             allDirections = new Button
             {
@@ -175,6 +212,10 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
+            };
+            allDirections.Click += (s, e) =>
+            {
+
             };
 
             var backButton = new Button

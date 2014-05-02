@@ -123,12 +123,12 @@ namespace WindowsGame1.StackPanels
         {
             if (Name.Equals("Neutral"))
             {
-                trainButton.IsEnabled = !emoEngine.IsTraining;
+                trainButton.IsEnabled = !emoEngine.IsTraining; //TODO: // && headsetOnHead;
             }
             else
             {
                 trainButton.IsEnabled = emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL) &&
-                    !emoEngine.IsTraining;
+                    !emoEngine.IsTraining;//TODO: && headsetOnHead;
             }
 
             eraseButton.IsEnabled = emoEngine.IsCognitivActionTrained(trainingAction) && !emoEngine.IsTraining;

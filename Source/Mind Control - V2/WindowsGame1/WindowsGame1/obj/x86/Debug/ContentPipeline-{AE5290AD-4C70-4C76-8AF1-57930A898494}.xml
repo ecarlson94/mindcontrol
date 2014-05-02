@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Fair.xnb</Output>
-      <Time>2014-05-01T20:12:49.9402758-07:00</Time>
+      <Time>2014-05-02T00:01:00.7017501-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\Good.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Good.xnb</Output>
-      <Time>2014-05-01T20:25:38.1667801-07:00</Time>
+      <Time>2014-05-02T00:01:46.2815934-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\NoSignal.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\NoSignal.xnb</Output>
-      <Time>2014-05-01T20:25:11.499365-07:00</Time>
+      <Time>2014-05-02T00:01:38.4815927-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\Poor.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Poor.xnb</Output>
-      <Time>2014-05-01T20:25:01.7741138-07:00</Time>
+      <Time>2014-05-02T00:01:19.2641325-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\VeryBad.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\VeryBad.xnb</Output>
-      <Time>2014-05-01T20:24:54.6241976-07:00</Time>
+      <Time>2014-05-02T00:01:06.1014458-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\Brain.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Head.xnb</Output>
-      <Time>2014-05-01T23:07:20.0317857-07:00</Time>
+      <Time>2014-05-02T00:47:23.0255086-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

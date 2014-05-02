@@ -36,7 +36,7 @@ namespace WindowsGame1.StackPanels
 
         protected override void OnLoad()
         {
-            //take care of global buttons here
+            Screen.Children.Add(new ContactQualityWindow(emoEngine));
             base.OnLoad();
         }
 
@@ -89,7 +89,6 @@ namespace WindowsGame1.StackPanels
             Orientation = Orientation.Vertical;
             Width = 200;
             MakeMainMenu();
-            Screen.Children.Add(new ContactQualityWindow(emoEngine));
         }
 
         private void MakeMainMenu()

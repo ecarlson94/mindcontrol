@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Enums\GameState.cs" />
     <Compile Include="Enums\MenuState.cs" />
+    <Compile Include="Images\ContactQualityImage.cs" />
     <Compile Include="MainComponent.cs" />
     <Compile Include="Managers\EmoEngineManager.cs" />
     <Compile Include="Managers\EmoStateWrapper.cs" />

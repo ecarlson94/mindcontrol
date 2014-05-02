@@ -145,6 +145,11 @@ namespace WindowsGame1.Managers
         /*--------------------------------------------------------------------*/
         #region Public Methods
 
+        public Dictionary<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t> GetContactQualityMap()
+        {
+            return Profile != String.Empty && currentEmoState != null ? currentEmoState.ContactQualityFromAllChannels : new Dictionary<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t>();
+        }
+
         public void SetOverallCognitivSensitivity(int sensitivity)
         {
             if (Profile != String.Empty)
@@ -309,7 +314,7 @@ namespace WindowsGame1.Managers
 
         public bool HeadsetOn()
         {
-            return currentEmoState != null && currentEmoState.HeadsetOn == 1;
+            return currentEmoState != null && currentEmoState.WirelessSignalStatus != EdkDll.EE_SignalStrength_t.NO_SIGNAL;
         }
 
         public void SaveProfile(string profileName)
@@ -422,6 +427,7 @@ namespace WindowsGame1.Managers
             emoEngine.UserRemoved += engine_UserRemoved;
 
             emoEngine.Connect();
+            emoEngine.ProcessEvents(10000);
         }
 
         private void InitializeProcessEventWorker()
@@ -631,7 +637,7 @@ namespace WindowsGame1.Managers
 
         private void processEventsWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            lock (this)
+            lock (emoEngine)
             {
                 currentEmoState = new EmoStateWrapper(e.UserState as EmoState);
             }

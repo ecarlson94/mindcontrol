@@ -81,29 +81,24 @@ namespace WindowsGame1.Windows
             bool headsetOnHead = emoEngine.HeadsetOnHead();
             bool overallGoodQuality = emoEngine.OverallGoodQuality();
 
-            if (!headsetOn && !Content.Name.Equals(headsetOff.Name))
+            if (!headsetOn && !Content.Equals(headsetOff))
             {
                 Content = headsetOff;
             }
-            else if (!headsetOnHead && !Content.Name.Equals(headsetOffHead.Name))
+            else if (headsetOn && !headsetOnHead && !Content.Equals(headsetOffHead))
             {
                 Content = headsetOffHead;
             }
-            else if (!overallGoodQuality)
+            else if (headsetOn && headsetOnHead)
             {
-                if (!Content.Name.Equals(poorContactQuality.Name))
+                if (!Content.Equals(poorContactQuality))
                     Content = poorContactQuality;
 
-                if(!poorContactQuality.Children.Contains(poorQualityText))
+                if (!poorContactQuality.Children.Contains(poorQualityText) && !overallGoodQuality)
                     poorContactQuality.Children.Add(poorQualityText);
-            }
-            else
-            {
-                if (!Content.Name.Equals(poorContactQuality.Name))
-                    Content = poorContactQuality;
-                
-                if (poorContactQuality.Children.Contains(poorQualityText))
+                else if (poorContactQuality.Children.Contains(poorQualityText) && overallGoodQuality)
                     poorContactQuality.Children.Remove(poorQualityText);
+                    
             }
         }
 
@@ -117,7 +112,7 @@ namespace WindowsGame1.Windows
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
-            if(emoEngine.Profile != String.Empty)
+            if(emoEngine.ProfileLoggedIn())
                 DetermineWindowContent();
             base.OnUpdate(deltaTime);
         }

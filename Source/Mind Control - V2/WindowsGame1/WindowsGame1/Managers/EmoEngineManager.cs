@@ -520,15 +520,6 @@ namespace WindowsGame1.Managers
         {
             if (Profile != String.Empty)
             {
-                //var trainingAction = emoEngine.CognitivGetTrainingAction(UserID);
-                //if (trainingAction != EdkDll.EE_CognitivAction_t.COG_NEUTRAL &&
-                //    !activeActions.Contains(trainingAction))
-                //    activeActions.Add(trainingAction);
-                //emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
-
-                
-
-                //perhaps move this somewhere else i.e. save button in settings menu TBD
                 lock (emoEngine)
                 {
                     EndTraining();
@@ -642,10 +633,9 @@ namespace WindowsGame1.Managers
                 {
                     var contactQuality = GetContactQualityMap();
                     float qualityTotal = 0;
-                    foreach (
-                        KeyValuePair<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t> entry in contactQuality)
+                    foreach (KeyValuePair<EdkDll.EE_DataChannel_t, EdkDll.EE_EEG_ContactQuality_t> entry in contactQuality)
                     {
-                        qualityTotal = (float) entry.Value;
+                        qualityTotal += (float) entry.Value;
                     }
 
                     OverallContactQuality = qualityTotal/contactQuality.Count;

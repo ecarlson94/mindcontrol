@@ -35,6 +35,10 @@ namespace WindowsGame1.StackPanels
             Initialize();
         }
 
+        /*
+         * Out of the universe, time, space, everything and everyone, Would you go to Senior Ball with me?
+         */
+
         protected override void OnLoad()
         {
             Screen.Children.Add(new ContactQualityWindow(emoEngine));

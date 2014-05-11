@@ -23,6 +23,11 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        static Game1()
+        {
+            DigitalRune.Licensing.AddSerialNumber("tgCYABO7/bPuX88BoL1Y979+0AEnACNNaWNoYWVsIEVyaWMgQ2FybHNvbiMxIzEjTm9uQ29tbWVyY2lhbECDssOQzVFUBAMB/A8+nkxZKRoeFeU6DBZQwPbqzcXgDShq/mWxgXiyJGaY+yVQ7+BoDaxXv7Z2cR1MSfw=");
+        }
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this)

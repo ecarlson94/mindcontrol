@@ -75,11 +75,29 @@
     <Reference Include="DigitalRune.Game.UI">
       <HintPath>..\..\..\..\..\..\..\..\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Game.UI.dll</HintPath>
     </Reference>
+    <Reference Include="DigitalRune.Graphics">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.dll</HintPath>
+    </Reference>
     <Reference Include="DigitalRune.Mathematics">
       <HintPath>..\..\..\..\..\..\..\..\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.dll</HintPath>
     </Reference>
+    <Reference Include="DigitalRune.Particles">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Particles.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Physics">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Physics.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Physics.Specialized">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Physics.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.ServiceLocation">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetEmotivSDK">
       <HintPath>.\DotNetEmotivSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -94,12 +112,15 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MouseComponent.cs" />
+    <Compile Include="Components\BaseComponent.cs" />
     <Compile Include="Enums\GameState.cs" />
     <Compile Include="Enums\MenuState.cs" />
     <Compile Include="Images\ContactQualityImage.cs" />
     <Compile Include="MainComponent.cs" />
     <Compile Include="Managers\EmoEngineManager.cs" />
     <Compile Include="Managers\EmoStateWrapper.cs" />
+    <Compile Include="MindControl.cs" />
     <Compile Include="Paints\ContactQuality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

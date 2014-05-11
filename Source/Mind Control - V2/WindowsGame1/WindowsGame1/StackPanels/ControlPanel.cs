@@ -17,8 +17,8 @@ namespace WindowsGame1.StackPanels
     public class ControlPanel : StackPanel
     {
         private EmoEngineManager emoEngine;
-        private bool makePracticeMenu = false;
-        private bool makeMainMenu = false;
+        private bool makePracticeMenu;
+        private bool makeMainMenu;
         private Button practiceButton;
         private Button settings;
         private Button contactQuality;

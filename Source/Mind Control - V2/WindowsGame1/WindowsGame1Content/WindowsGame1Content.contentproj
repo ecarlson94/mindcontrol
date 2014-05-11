@@ -31,6 +31,9 @@
     <Reference Include="DigitalRune.Geometry.Content.Pipeline">
       <HintPath>..\..\..\..\..\..\..\..\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.Content.Pipeline.dll</HintPath>
     </Reference>
+    <Reference Include="DigitalRune.Graphics.Content.Pipeline">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.Content.Pipeline.dll</HintPath>
+    </Reference>
     <Reference Include="DigitalRune.Mathematics.Content.Pipeline">
       <HintPath>..\..\..\..\..\..\..\..\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</HintPath>
     </Reference>

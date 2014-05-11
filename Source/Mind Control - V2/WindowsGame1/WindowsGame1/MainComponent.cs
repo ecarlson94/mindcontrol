@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using WindowsGame1.Components;
 using WindowsGame1.Enums;
 using WindowsGame1.Managers;
 using WindowsGame1.StackPanels;
@@ -201,8 +202,6 @@ namespace WindowsGame1
             // Draw the UI screen. 
             _screen.Draw(gameTime);
         }
-
-          // Shows the text "Loading...".
 
         /// <summary>
         /// Called when "Loading" state is entered.

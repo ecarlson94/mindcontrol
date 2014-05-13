@@ -1,7 +1,7 @@
+Content\Brain\Brain.xnb
 Content\Brain\ContactQualities\Fair.xnb
 Content\Brain\ContactQualities\Good.xnb
 Content\Brain\ContactQualities\NoSignal.xnb
 Content\Brain\ContactQualities\Poor.xnb
 Content\Brain\ContactQualities\VeryBad.xnb
-Content\Brain\Brain.xnb
 Content\Brain\Head.xnb

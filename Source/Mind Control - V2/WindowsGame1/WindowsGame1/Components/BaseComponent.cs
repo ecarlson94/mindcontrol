@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WindowsGame1.Managers;
 using DigitalRune.Animation;
 using DigitalRune.Game;
 using DigitalRune.Game.Input;
@@ -27,6 +28,7 @@ namespace WindowsGame1.Components
         protected readonly IGameObjectService GameObjectService;
         protected readonly IAnimationService AnimationService;
         protected readonly IUIService UIService;
+        protected readonly EmoEngineManager EmoEngine;
 
         // Centers and hides the mouse
         public bool EnableMouseCentering
@@ -48,10 +50,12 @@ namespace WindowsGame1.Components
             }
         }
 
-        protected BaseComponent(Game game) : base(game)
+        protected BaseComponent(Game game, EmoEngineManager emoEngine) : base(game)
         {
-            EnableMouseCentering = true;
+            // disable mouse centering and unhide mouse by default
+            EnableMouseCentering = false;
 
+            //Get services from the global service container.
             var services = (ServiceContainer)ServiceLocator.Current;
             ContentManager = services.GetInstance<ContentManager>();
             UIContentManager = services.GetInstance<ContentManager>("UIContent");
@@ -62,6 +66,10 @@ namespace WindowsGame1.Components
             GameObjectService = services.GetInstance<IGameObjectService>();
             UIService = services.GetInstance<IUIService>();
 
+            //set EmoEngineManager
+            EmoEngine = emoEngine;
+
+            //local service container
             Services = services.CreateChildContainer();
         }
 
@@ -70,8 +78,7 @@ namespace WindowsGame1.Components
             if (disposing)
             {
                 GameObjectService.Objects.Clear();
-                //TODO: make sure to come back and fix this
-                //((SampleGame)Game).ResetPhysicsSimulation();
+                ((MindControl)Game).ResetPhysicsSimulation();
                 Services.Dispose();
             }
 

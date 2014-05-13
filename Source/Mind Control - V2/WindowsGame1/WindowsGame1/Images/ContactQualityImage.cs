@@ -5,6 +5,8 @@ using System.Text;
 using DigitalRune.Game;
 using DigitalRune.Game.UI.Controls;
 using Emotiv;
+using Microsoft.Practices.ServiceLocation;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1.Images
@@ -29,8 +31,12 @@ namespace WindowsGame1.Images
             set { SetValue(QualityPropertyID, value); }
         }
 
-        public ContactQualityImage()
+        private static ContentManager _contentManager;
+
+        public ContactQualityImage(IServiceLocator services)
         {
+            if (_contentManager == null)
+                _contentManager = services.GetInstance<ContentManager>();
             LoadTextures();
             Texture = NoSignal;
             PropertyChanged += ImageNamePropertyChanged;
@@ -39,15 +45,15 @@ namespace WindowsGame1.Images
         private void LoadTextures()
         {
             if(Good == null)
-                Good = MainComponent.Content.Load<Texture2D>("Brain/ContactQualities/Good");
+                Good = _contentManager.Load<Texture2D>("Brain/ContactQualities/Good");
             if(Fair == null)
-                Fair = MainComponent.Content.Load<Texture2D>("Brain/ContactQualities/Fair");
+                Fair = _contentManager.Load<Texture2D>("Brain/ContactQualities/Fair");
             if(Poor == null)
-                Poor = MainComponent.Content.Load<Texture2D>("Brain/ContactQualities/Poor");
+                Poor = _contentManager.Load<Texture2D>("Brain/ContactQualities/Poor");
             if(VeryBad == null)
-                VeryBad = MainComponent.Content.Load<Texture2D>("Brain/ContactQualities/VeryBad");
+                VeryBad = _contentManager.Load<Texture2D>("Brain/ContactQualities/VeryBad");
             if(NoSignal == null)
-                NoSignal = MainComponent.Content.Load<Texture2D>("Brain/ContactQualities/NoSignal");
+                NoSignal = _contentManager.Load<Texture2D>("Brain/ContactQualities/NoSignal");
         }
 
         private void ImageNamePropertyChanged(object sender, GamePropertyEventArgs gameEvent)

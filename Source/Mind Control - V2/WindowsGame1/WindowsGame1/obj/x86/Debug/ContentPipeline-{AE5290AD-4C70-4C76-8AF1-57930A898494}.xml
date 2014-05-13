@@ -2,6 +2,15 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
+      <Source>Brain\Brain.png</Source>
+      <Name>Brain\Brain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Brain.xnb</Output>
+      <Time>2014-05-01T09:55:24.7557961-07:00</Time>
+    </Item>
+    <Item>
       <Source>Brain\ContactQualities\Fair.png</Source>
       <Name>Brain\ContactQualities\Fair</Name>
       <Importer>TextureImporter</Importer>
@@ -45,15 +54,6 @@
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\VeryBad.xnb</Output>
       <Time>2014-05-02T00:01:06.1014458-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Brain\Brain.png</Source>
-      <Name>Brain\Brain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Brain.xnb</Output>
-      <Time>2014-05-01T09:55:24.7557961-07:00</Time>
     </Item>
     <Item>
       <Source>Brain\Head.png</Source>
@@ -104,6 +104,10 @@
       <Assembly>
         <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</Key>
         <Value>2014-03-03T11:51:06-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.Content.Pipeline.dll</Key>
+        <Value>2014-05-01T23:41:59.8914716-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.Content.Pipeline.dll</Key>

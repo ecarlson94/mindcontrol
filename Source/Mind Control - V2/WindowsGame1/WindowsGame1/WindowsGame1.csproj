@@ -75,6 +75,10 @@
     <Reference Include="DigitalRune.Game.UI">
       <HintPath>..\..\..\..\..\..\..\..\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Game.UI.dll</HintPath>
     </Reference>
+    <Reference Include="DigitalRune.Geometry, Version=1.14.0.0, Culture=neutral, PublicKeyToken=83b2c390cd515404, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.dll</HintPath>
+    </Reference>
     <Reference Include="DigitalRune.Graphics">
       <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.dll</HintPath>
     </Reference>
@@ -112,8 +116,12 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\LoadingComponent.cs" />
+    <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Components\MouseComponent.cs" />
     <Compile Include="Components\BaseComponent.cs" />
+    <Compile Include="Components\StartComponent.cs" />
+    <Compile Include="Components\StateMachineComponent.cs" />
     <Compile Include="Enums\GameState.cs" />
     <Compile Include="Enums\MenuState.cs" />
     <Compile Include="Images\ContactQualityImage.cs" />

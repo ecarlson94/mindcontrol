@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using WindowsGame1.Components;
 using WindowsGame1.Managers;
 using DigitalRune.Animation;
+using DigitalRune.Diagnostics;
 using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Game.UI;
+using DigitalRune.Geometry.Collisions;
+using DigitalRune.Geometry.Partitioning;
 using DigitalRune.Graphics;
+using DigitalRune.Particles;
 using DigitalRune.Physics;
 using DigitalRune.ServiceLocation;
 using DigitalRune.Threading;
@@ -15,6 +17,7 @@ using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace WindowsGame1
 {
@@ -41,7 +44,7 @@ namespace WindowsGame1
         private TimeSpan _deltaTime;
 
         //TBD enable parallel update of game services
-        //public bool EnableParallelGameLoop { get; set; }
+        public bool EnableParallelGameLoop { get; set; }
 
         static MindControl()
         {
@@ -59,7 +62,8 @@ namespace WindowsGame1
                 SynchronizeWithVerticalRetrace = true,
             };
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            IsMouseVisible = false;
+            IsFixedTimeStep = false;
             _emoEngine = new EmoEngineManager();
             _emoEngine.StartEmoEngine();
         }
@@ -70,7 +74,7 @@ namespace WindowsGame1
 
             ServiceLocator.SetLocatorProvider(() => (IServiceLocator)_services);
 
-            _services.Register(typeof(IGraphicsDeviceService), null, GraphicsDevice);
+            _services.Register(typeof(IGraphicsDeviceService), null, _graphicsDevice);
             _services.Register(typeof(GraphicsDeviceManager), null, _graphicsDevice);
 
             // Default, shared content manager
@@ -106,11 +110,100 @@ namespace WindowsGame1
             _services.Register(typeof(IAnimationService), null, _animationManager);
 
             //Physics Simulation
-            
+            ResetPhysicsSimulation();
 
+            //Game logic
+            _gameObjectManager = new GameObjectManager();
+            _services.Register(typeof(IGameObjectService), null, _gameObjectManager);
+
+            _updateAnimation = () => _animationManager.Update(_deltaTime);
+            _updatePhysics = () => _simulation.Update(_deltaTime);
+
+            //MouseComponent to handle mouse centering and the cursor;
+            Components.Add(new MouseComponent(this));
+
+            //MainComponent handles state and flow of Game
+            Components.Add(new StateMachineComponent(this));
 
 
             base.Initialize();
+        }
+
+        public void ResetPhysicsSimulation()
+        {
+            _simulation = new Simulation();
+
+            _simulation.Settings.Timing.MaxNumberOfSteps = 2;
+
+            _simulation.CollisionDomain.BroadPhase.Filter = new DelegatePairFilter<CollisionObject>(
+                pair =>
+                {
+                    bool isPair = false;
+                    var bodyA = pair.First.GeometricObject as RigidBody;
+                    if (bodyA == null || bodyA.MotionType != MotionType.Static)
+                        isPair = true;
+
+                    var bodyB = pair.Second.GeometricObject as RigidBody;
+                    if (bodyB == null || bodyB.MotionType != MotionType.Static)
+                        isPair = true;
+
+                    return isPair;
+                });
+
+            var filter = (ICollisionFilter) _simulation.CollisionDomain.CollisionDetection.CollisionFilter;
+            filter.Set(1, 2, false);
+            _services.Register(typeof(Simulation), null, _simulation);
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+            _deltaTime = gameTime.ElapsedGameTime;
+
+            _inputManager.Update(_deltaTime);
+
+            if (EnableParallelGameLoop)
+            {
+                _updateAnimationTask.Wait();
+                _updatePhysicsTask.Wait();
+
+                _animationManager.ApplyAnimations();
+            }
+            else
+            {
+                _simulation.Update(_deltaTime);
+
+                _animationManager.Update(_deltaTime);
+
+                _animationManager.ApplyAnimations();
+            }
+
+            Parallel.RunCallbacks();
+            
+            base.Update(gameTime);
+
+            _uiManager.Update(_deltaTime);
+
+            _gameObjectManager.Update(_deltaTime);
+
+            if (EnableParallelGameLoop)
+            {
+                _updateAnimationTask = Parallel.Start(_updateAnimation);
+                _updatePhysicsTask = Parallel.Start(_updatePhysics);
+            }
+        }
+
+        //Draws all game content
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(new Color(50, 50, 50));
+            //Load DrawableGameComponents registered in the Components
+            //of the base Game class
+            base.Draw(gameTime);
+
+            //update all graphics (including graphics screens
+            _graphicsManager.Update(gameTime.ElapsedGameTime);
+
+            _graphicsManager.Render(false);
         }
     }
 }

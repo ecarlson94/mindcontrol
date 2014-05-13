@@ -9,6 +9,8 @@ using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Mathematics.Algebra;
 using Emotiv;
+using Microsoft.Practices.ServiceLocation;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1.Paints
@@ -22,12 +24,15 @@ namespace WindowsGame1.Paints
 
         private EmoEngineManager emoEngine;
         private Image brain;
+
+        private IServiceLocator _services;
         
         //images for each of the nodes
         private Dictionary<EdkDll.EE_DataChannel_t, ContactQualityImage> qualityImages;
 
-        public ContactQuality(EmoEngineManager emoEngineParam)
+        public ContactQuality(EmoEngineManager emoEngineParam, IServiceLocator services)
         {
+            _services = services;
             emoEngine = emoEngineParam;
             HorizontalAlignment = HorizontalAlignment.Center;
             VerticalAlignment = VerticalAlignment.Center;
@@ -38,15 +43,16 @@ namespace WindowsGame1.Paints
 
         private void Initialize()
         {
+            var contentManager = _services.GetInstance<ContentManager>();
             brain = new Image
             {
-                Texture = MainComponent.Content.Load<Texture2D>("Brain/Head"),
+                Texture = contentManager.Load<Texture2D>("Brain/Head"),
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
             };
             Children.Add(brain);
 
-            var AF3 = new ContactQualityImage
+            var AF3 = new ContactQualityImage(_services)
             {
                 X = 246.0f,
                 Y = 155.0f,
@@ -54,7 +60,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.AF3, AF3);
             Children.Add(AF3);
 
-            var AF4 = new ContactQualityImage
+            var AF4 = new ContactQualityImage(_services)
             {
                 X = 392.0f,
                 Y = 155.0f,
@@ -62,7 +68,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.AF4, AF4);
             Children.Add(AF4);
 
-            var F7 = new ContactQualityImage
+            var F7 = new ContactQualityImage(_services)
             {
                 X = 125.0f,
                 Y = 190.0f,
@@ -70,7 +76,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.F7, F7);
             Children.Add(F7);
 
-            var F3 = new ContactQualityImage
+            var F3 = new ContactQualityImage(_services)
             {
                 X = 217f,
                 Y = 211f,
@@ -78,7 +84,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.F3, F3);
             Children.Add(F3);
 
-            var F4 = new ContactQualityImage
+            var F4 = new ContactQualityImage(_services)
             {
                 X = 420f,
                 Y = 211f,
@@ -86,7 +92,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.F4, F4);
             Children.Add(F4);
 
-            var F8 = new ContactQualityImage
+            var F8 = new ContactQualityImage(_services)
             {
                 X = 512f,
                 Y = 190f,
@@ -94,7 +100,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.F8, F8);
             Children.Add(F8);
 
-            var FC5 = new ContactQualityImage
+            var FC5 = new ContactQualityImage(_services)
             {
                 X = 145f,
                 Y = 265f,
@@ -102,7 +108,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.FC5, FC5);
             Children.Add(FC5);
 
-            var FC6 = new ContactQualityImage
+            var FC6 = new ContactQualityImage(_services)
             {
                 X = 492f,
                 Y = 265f,
@@ -110,7 +116,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.FC6, FC6);
             Children.Add(FC6);
 
-            var T7 = new ContactQualityImage
+            var T7 = new ContactQualityImage(_services)
             {
                 X = 75f,
                 Y = 330f,
@@ -118,7 +124,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.T7, T7);
             Children.Add(T7);
 
-            var T8 = new ContactQualityImage
+            var T8 = new ContactQualityImage(_services)
             {
                 X = 560f,
                 Y = 330f,
@@ -126,7 +132,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.T8, T8);
             Children.Add(T8);
 
-            var P7 = new ContactQualityImage
+            var P7 = new ContactQualityImage(_services)
             {
                 X = 125f,
                 Y = 470f,
@@ -134,7 +140,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.P7, P7);
             Children.Add(P7);
 
-            var P8 = new ContactQualityImage
+            var P8 = new ContactQualityImage(_services)
             {
                 X = 512f,
                 Y = 470f,
@@ -142,7 +148,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.P8, P8);
             Children.Add(P8);
 
-            var O1 = new ContactQualityImage
+            var O1 = new ContactQualityImage(_services)
             {
                 X = 246f,
                 Y = 554f,
@@ -150,7 +156,7 @@ namespace WindowsGame1.Paints
             qualityImages.Add(EdkDll.EE_DataChannel_t.O1, O1);
             Children.Add(O1);
 
-            var O2 = new ContactQualityImage
+            var O2 = new ContactQualityImage(_services)
             {
                 X = 391f,
                 Y = 553f,

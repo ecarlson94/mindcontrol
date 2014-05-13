@@ -7,6 +7,7 @@ using WindowsGame1.Paints;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using Emotiv;
+using Microsoft.Practices.ServiceLocation;
 
 namespace WindowsGame1.Windows
 {
@@ -18,9 +19,11 @@ namespace WindowsGame1.Windows
         private TextBlock poorQualityText;
         private StackPanel poorContactQuality;
         private ContactQuality contactQualityDisplay;
+        private IServiceLocator _services;
 
-        public ContactQualityWindow(EmoEngineManager emoEngineParam)
+        public ContactQualityWindow(EmoEngineManager emoEngineParam, IServiceLocator services)
         {
+            _services = services;
             emoEngine = emoEngineParam;
             VerticalAlignment = VerticalAlignment.Stretch;
             Title = "Contact Quality";
@@ -32,7 +35,7 @@ namespace WindowsGame1.Windows
 
         private void Initialize()
         {
-            contactQualityDisplay = new ContactQuality(emoEngine)
+            contactQualityDisplay = new ContactQuality(emoEngine, _services)
             {
                 Name = "ContactQualityDisplay",
             };

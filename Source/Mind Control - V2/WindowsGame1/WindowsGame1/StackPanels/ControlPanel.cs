@@ -11,6 +11,7 @@ using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Mathematics.Algebra;
 using Emotiv;
+using Microsoft.Practices.ServiceLocation;
 
 namespace WindowsGame1.StackPanels
 {
@@ -28,6 +29,7 @@ namespace WindowsGame1.StackPanels
         private Button allDirections;
         private MenuState menu;
         private ContactQualityWindow cqWindow;
+        private IServiceLocator _services;
 
         public ControlPanel(EmoEngineManager emoEngine)
         {

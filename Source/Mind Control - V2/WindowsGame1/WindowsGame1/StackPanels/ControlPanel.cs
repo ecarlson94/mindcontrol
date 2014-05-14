@@ -31,8 +31,9 @@ namespace WindowsGame1.StackPanels
         private ContactQualityWindow cqWindow;
         private IServiceLocator _services;
 
-        public ControlPanel(EmoEngineManager emoEngine)
+        public ControlPanel(EmoEngineManager emoEngine, IServiceLocator services)
         {
+            _services = services;
             this.emoEngine = emoEngine;
             Initialize();
         }
@@ -43,7 +44,7 @@ namespace WindowsGame1.StackPanels
 
         protected override void OnLoad()
         {
-            Screen.Children.Add(new ContactQualityWindow(emoEngine));
+            Screen.Children.Add(new ContactQualityWindow(emoEngine, _services));
             base.OnLoad();
         }
 
@@ -110,7 +111,7 @@ namespace WindowsGame1.StackPanels
             HorizontalAlignment = HorizontalAlignment.Left;
             Orientation = Orientation.Vertical;
             Width = 200;
-            cqWindow = new ContactQualityWindow(emoEngine);
+            cqWindow = new ContactQualityWindow(emoEngine, _services);
             MakeMainMenu();
         }
 
@@ -181,7 +182,7 @@ namespace WindowsGame1.StackPanels
             contactQuality.Click += (s, e) =>
             {
                 CloseWindows();
-                Screen.Children.Add(new ContactQualityWindow(emoEngine));
+                Screen.Children.Add(new ContactQualityWindow(emoEngine, _services));
             };
 
             Children.Add(practiceButton);

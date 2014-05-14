@@ -13,6 +13,9 @@ namespace WindowsGame1.Windows
 {
     public class ContactQualityWindow : Window
     {
+        //----------------------------------------------------------------------
+        #region Fields
+
         private EmoEngineManager emoEngine;
         private TextBlock headsetOff;
         private TextBlock headsetOffHead;
@@ -21,6 +24,10 @@ namespace WindowsGame1.Windows
         private ContactQuality contactQualityDisplay;
         private IServiceLocator _services;
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Creation and Cleanup
         public ContactQualityWindow(EmoEngineManager emoEngineParam, IServiceLocator services)
         {
             _services = services;
@@ -78,6 +85,11 @@ namespace WindowsGame1.Windows
             Content = poorContactQuality;
         }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Private Methods
+
         private void DetermineWindowContent()
         {
             bool headsetOn = emoEngine.HeadsetOn();
@@ -105,6 +117,11 @@ namespace WindowsGame1.Windows
             }
         }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Overridden Methods
+
         protected override void OnLoad()
         {
             base.OnLoad();
@@ -119,5 +136,7 @@ namespace WindowsGame1.Windows
                 DetermineWindowContent();
             base.OnUpdate(deltaTime);
         }
+
+        #endregion
     }
 }

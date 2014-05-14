@@ -23,6 +23,9 @@ namespace WindowsGame1
 {
     public class MindControl : Game
     {
+        //----------------------------------------------------------------------
+        #region Fields
+
         private readonly GraphicsDeviceManager _graphicsDevice;
 
         private ServiceContainer _services;
@@ -41,11 +44,22 @@ namespace WindowsGame1
         private Task _updateAnimationTask;
         private Task _updatePhysicsTask;
 
+        //allows user to pause a simulation
+        private bool _isSimulationPaused;
+
         private TimeSpan _deltaTime;
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Properties
         //TBD enable parallel update of game services
         public bool EnableParallelGameLoop { get; set; }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Creation
         static MindControl()
         {
             // ----- License Keys -----
@@ -129,6 +143,10 @@ namespace WindowsGame1
             base.Initialize();
         }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Public Methods
         public void ResetPhysicsSimulation()
         {
             _simulation = new Simulation();
@@ -155,6 +173,10 @@ namespace WindowsGame1
             _services.Register(typeof(Simulation), null, _simulation);
         }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Overridden Methods
         protected override void Update(GameTime gameTime)
         {
             _deltaTime = gameTime.ElapsedGameTime;
@@ -170,7 +192,14 @@ namespace WindowsGame1
             }
             else
             {
-                _simulation.Update(_deltaTime);
+                if (_inputManager.IsPressed(Keys.P, true))
+                    _isSimulationPaused = !_isSimulationPaused;
+
+                if (!_isSimulationPaused)
+                {
+                    // Update the physics simulation.
+                    _simulation.Update(_deltaTime);
+                }
 
                 _animationManager.Update(_deltaTime);
 
@@ -205,5 +234,7 @@ namespace WindowsGame1
 
             _graphicsManager.Render(false);
         }
+
+        #endregion
     }
 }

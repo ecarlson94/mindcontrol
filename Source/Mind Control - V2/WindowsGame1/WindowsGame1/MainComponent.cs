@@ -117,7 +117,7 @@ namespace WindowsGame1
 
         void menuState_Enter(object sender, StateEventArgs e)
         {
-            _screen.Children.Add(new ControlPanel(_emoEngine));
+            _screen.Children.Add(new ControlPanel(_emoEngine,));
             Window newWindow = null;
             string[] profileNames = _emoEngine.GetProfileNames();
             if (profileNames.Length == 0)

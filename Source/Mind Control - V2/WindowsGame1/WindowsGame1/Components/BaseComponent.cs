@@ -18,6 +18,9 @@ namespace WindowsGame1.Components
 {
     public class BaseComponent : GameComponent
     {
+        //----------------------------------------------------------------------
+        #region Fields
+
         // Services to be used in derived classes
         protected readonly ServiceContainer Services;
         protected readonly ContentManager ContentManager;
@@ -29,6 +32,11 @@ namespace WindowsGame1.Components
         protected readonly IAnimationService AnimationService;
         protected readonly IUIService UIService;
         protected readonly EmoEngineManager EmoEngine;
+
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Properties
 
         // Centers and hides the mouse
         public bool EnableMouseCentering
@@ -49,6 +57,11 @@ namespace WindowsGame1.Components
                     mouseComponent.EnableMouseCentering = value;
             }
         }
+
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Creation and Cleanup
 
         protected BaseComponent(Game game, EmoEngineManager emoEngine) : base(game)
         {
@@ -84,5 +97,7 @@ namespace WindowsGame1.Components
 
             base.Dispose(disposing);
         }
+
+        #endregion
     }
 }

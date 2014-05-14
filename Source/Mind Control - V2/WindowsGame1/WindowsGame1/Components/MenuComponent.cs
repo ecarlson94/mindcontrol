@@ -8,6 +8,7 @@ using WindowsGame1.Windows;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
+using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
@@ -15,9 +16,16 @@ namespace WindowsGame1.Components
 {
     public class MenuComponent : BaseComponent
     {
+        //----------------------------------------------------------------------
+        #region Fields
+
         private readonly DelegateGraphicsScreen _graphicsScreen;
-        private ContentManager _uiContentManager;
         private UIScreen _uiScreen;
+
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Creation and Cleanup
 
         public MenuComponent(Game game, EmoEngineManager emoEngine)
             : base(game, emoEngine)
@@ -40,27 +48,22 @@ namespace WindowsGame1.Components
                 // Remove UIScreen from UIService
                 UIService.Screens.Remove(_uiScreen);
 
-                //Dispose the current ContentManager
-                _uiContentManager.Dispose();
-
                 // Remove graphics screen from graphics service
                 GraphicsService.Screens.Remove(_graphicsScreen);
             }
             base.Dispose(disposing);
         }
 
+        #endregion
+
+        //----------------------------------------------------------------------
+        #region Private Methods
+
         private void CreateGUI()
         {
-            // Dispose old UI.
-            if (_uiContentManager != null)
-            {
-                _uiContentManager.Dispose();
-                UIService.Screens.Remove(_uiScreen);
-            }
-
             LoadTheme();
 
-            _uiScreen.Children.Add(new ControlPanel(EmoEngine));
+            _uiScreen.Children.Add(new ControlPanel(EmoEngine, (IServiceLocator)Services));
             Window newWindow = null;
             string[] profileNames = EmoEngine.GetProfileNames();
             if (profileNames.Length == 0)
@@ -77,8 +80,7 @@ namespace WindowsGame1.Components
         private void LoadTheme()
         {
             // Load a UI theme, which defines the appearance and default values of UI controls.
-            _uiContentManager = new ContentManager(Game.Services, "NeoforceTheme");
-            Theme theme = _uiContentManager.Load<Theme>("ThemeRed");
+            Theme theme = UIContentManager.Load<Theme>("ThemeRed");
             // Create a UI renderer, which uses the theme info to renderer UI controls.
             UIRenderer renderer = new UIRenderer(Game, theme);
 
@@ -98,5 +100,7 @@ namespace WindowsGame1.Components
         {
             _uiScreen.Draw(context.DeltaTime);
         }
+
+        #endregion
     }
 }

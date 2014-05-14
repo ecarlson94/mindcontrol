@@ -7,18 +7,21 @@ using WindowsGame1.Paints;
 using WindowsGame1.Windows;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
+using Microsoft.Practices.ServiceLocation;
 
 namespace WindowsGame1.StackPanels
 {
     public class MainPanel : StackPanel
     {
         private Window rightWindow = null;
-        private bool changeScreen = false;
+        private bool changeScreen;
         private EmoEngineManager emoEngine;
+        private IServiceLocator _services;
 
-        public MainPanel(EmoEngineManager emoEngineParam)
+        public MainPanel(EmoEngineManager emoEngineParam, IServiceLocator services)
         {
-            this.emoEngine = emoEngineParam;
+            _services = services;
+            emoEngine = emoEngineParam;
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
             Orientation = Orientation.Horizontal;
@@ -27,7 +30,7 @@ namespace WindowsGame1.StackPanels
 
         private void Initialize()
         {
-            ControlPanel control = new ControlPanel(emoEngine);
+            ControlPanel control = new ControlPanel(emoEngine, _services);
             //control.SettingsClicked += ControlOnSettingsClicked;
             Children.Add(control);
 

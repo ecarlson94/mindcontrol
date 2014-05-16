@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
       <Source>Brain\Brain.png</Source>
@@ -63,6 +63,82 @@
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Head.xnb</Output>
       <Time>2014-05-02T00:47:23.0255086-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Reticle.png</Source>
+      <Name>Reticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Reticle.xnb</Output>
+      <Time>2014-05-14T12:04:29.5681404-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.png</Source>
+      <Name>Car\RacerCar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar.xnb</Output>
+      <Time>2014-05-15T12:08:48.0147197-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\Car.fbx</Source>
+      <Name>Car\Car</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Car.xnb</Output>
+      <Time>2014-05-15T12:08:48.0067173-07:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Key>
+        <Value>2014-05-16T10:34:04.0833107-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Wheel.fbx</Source>
+      <Name>Car\Wheel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Wheel.xnb</Output>
+      <Time>2014-05-15T12:08:48.0277212-07:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Key>
+        <Value>2014-05-16T10:34:05.7115114-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Car.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Output>
+      <Time>2014-05-15T12:08:48.0067173-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Output>
+      <Time>2014-05-15T12:08:48.0147197-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\Wheel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Output>
+      <Time>2014-05-15T12:08:48.0277212-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

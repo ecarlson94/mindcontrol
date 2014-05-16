@@ -116,6 +116,9 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundObjects\Ground.cs" />
+    <Compile Include="BackgroundObjects\Sky.cs" />
+    <Compile Include="Components\GraphicsBaseComponent.cs" />
     <Compile Include="Components\LoadingComponent.cs" />
     <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Components\MouseComponent.cs" />
@@ -135,7 +138,9 @@
     <Compile Include="StackPanels\ControlPanel.cs" />
     <Compile Include="StackPanels\SliderWithLable.cs" />
     <Compile Include="StackPanels\TrainingPanel.cs" />
+    <Compile Include="VehicleSimulation\CognitivVehicle.cs" />
     <Compile Include="VehicleSimulation\VehicleCamera.cs" />
+    <Compile Include="VehicleSimulation\VehicleComponent.cs" />
     <Compile Include="Windows\ContactQualityWindow.cs" />
     <Compile Include="Windows\CreateUser.cs" />
     <Compile Include="Windows\LoadUser.cs" />

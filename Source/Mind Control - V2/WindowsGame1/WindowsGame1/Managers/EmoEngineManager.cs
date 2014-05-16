@@ -223,7 +223,6 @@ namespace WindowsGame1.Managers
             {
                 TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT;
             }
-            
         }
 
         public void RejectTraining()
@@ -358,6 +357,11 @@ namespace WindowsGame1.Managers
         public void DeleteProfile(string profileName)
         {
             throw new NotImplementedException("EmoEngineManager: Delete Profiles");
+        }
+
+        public EdkDll.EE_CognitivAction_t CurrentCognitivAction()
+        {
+            return CurrentEmoState.CognitivCurrentAction;
         }
 
         #endregion

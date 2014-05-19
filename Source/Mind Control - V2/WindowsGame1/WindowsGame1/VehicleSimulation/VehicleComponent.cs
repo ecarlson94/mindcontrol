@@ -6,6 +6,7 @@ using System.Text;
 using WindowsGame1.Components;
 using WindowsGame1.Managers;
 using WindowsGame1.Windows;
+using WindowsGame1.Screens;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
@@ -25,11 +26,13 @@ namespace WindowsGame1.VehicleSimulation
 
         private readonly DelegateGraphicsScreen _graphicsScreen;
         private ContentManager _uiContentManager;
-        private UIScreen _uiScreen;
+        private UIGraphicsScreen _uiGraphicsScreen;
 
         private CognitivVehicle _cognitivVehicle;
         private VehicleCamera _vehicleCamera;
         //scene goes here...
+
+        private DirectionCheckboxWindow _directionCheck;
 
         #endregion
 
@@ -39,6 +42,8 @@ namespace WindowsGame1.VehicleSimulation
         public VehicleComponent(Game game, EmoEngineManager emoEngine)
             : base(game, emoEngine)
         {
+            RemoveBaseComponents();
+
             EnableMouseCentering = false;
 
             _graphicsScreen = new DelegateGraphicsScreen(GraphicsService)
@@ -47,20 +52,17 @@ namespace WindowsGame1.VehicleSimulation
             };
             GraphicsService.Screens.Insert(0, _graphicsScreen);
 
+
             CreateGUI();
         }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                // Remove UIScreen from UIService
-                UIService.Screens.Remove(_uiScreen);
-
-                //Dispose the current ContentManager
-                _uiContentManager.Dispose();
-
                 // Remove graphics screen from graphics service
                 GraphicsService.Screens.Remove(_graphicsScreen);
+
+                DisposeGUI();
             }
             base.Dispose(disposing);
         }
@@ -72,18 +74,15 @@ namespace WindowsGame1.VehicleSimulation
 
         private void CreateGUI()
         {
-            // Dispose old UI.
-            if (_uiContentManager != null)
-            {
-                _uiContentManager.Dispose();
-                UIService.Screens.Remove(_uiScreen);
-            }
+
+            _uiGraphicsScreen = new UIGraphicsScreen(Services);
+            GraphicsService.Screens.Add(_uiGraphicsScreen);
 
             LoadTheme();
 
-            var directionCheck = new DirectionCheckboxWindow(EmoEngine);
-            directionCheck.Closing += DirectionCheckOnClosing;
-            _uiScreen.Children.Add(directionCheck);
+            _directionCheck = new DirectionCheckboxWindow(EmoEngine);
+            _directionCheck.Closing += DirectionCheckOnClosing;
+            _directionCheck.Show(_uiGraphicsScreen.UIScreen);
         }
 
         private void DirectionCheckOnClosing(object sender, CancelEventArgs cancelEventArgs)
@@ -116,31 +115,11 @@ namespace WindowsGame1.VehicleSimulation
 
         private void DisposeGUI()
         {
-            if (_uiContentManager != null)
+            if (_uiGraphicsScreen != null)
             {
-                _uiContentManager.Dispose();
-                UIService.Screens.Remove(_uiScreen);
+                GraphicsService.Screens.Remove(_uiGraphicsScreen);
+                _uiGraphicsScreen.Dispose();
             }
-        }
-
-        private void LoadTheme()
-        {
-            // Load a UI theme, which defines the appearance and default values of UI controls.
-            _uiContentManager = new ContentManager(Game.Services, "NeoforceTheme");
-            Theme theme = _uiContentManager.Load<Theme>("ThemeRed");
-            // Create a UI renderer, which uses the theme info to renderer UI controls.
-            UIRenderer renderer = new UIRenderer(Game, theme);
-
-            // Create a UIScreen and add it to the UI service. The screen is the root of 
-            // the tree of UI controls. Each screen can have its own renderer. 
-            _uiScreen = new UIScreen("Default", renderer)
-            {
-                // Make the screen transparent.
-                Background = new Color(0, 0, 0, 0),
-            };
-
-            // Add the screen to the UI service.
-            UIService.Screens.Add(_uiScreen);
         }
 
         private void Render(RenderContext context)
@@ -159,8 +138,6 @@ namespace WindowsGame1.VehicleSimulation
             if (InputService.IsPressed(Keys.Escape, true))
             {
                 Game.Components.Add(new MenuComponent(Game, EmoEngine));
-                Game.Components.Remove(this);
-                Dispose();
             }
             base.Update(gameTime);
         }

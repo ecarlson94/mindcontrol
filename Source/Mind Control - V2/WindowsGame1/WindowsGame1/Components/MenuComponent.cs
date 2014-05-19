@@ -32,6 +32,8 @@ namespace WindowsGame1.Components
         public MenuComponent(Game game, EmoEngineManager emoEngine)
             : base(game, emoEngine)
         {
+            RemoveBaseComponents();
+
             EnableMouseCentering = false;
 
             _graphicsScreen = new DelegateGraphicsScreen(GraphicsService)
@@ -108,11 +110,9 @@ namespace WindowsGame1.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (_controlPanel.MenuState == Enums.MenuState.Main)
+            if (_controlPanel.MenuState == Enums.MenuState.Practice)
             {
                 Game.Components.Add(new VehicleComponent(Game, EmoEngine));
-                Game.Components.Remove(this);
-                Dispose();
             }
             base.Update(gameTime);
         }

@@ -5,6 +5,7 @@ using System.Text;
 using WindowsGame1.Managers;
 using WindowsGame1.StackPanels;
 using WindowsGame1.Windows;
+using WindowsGame1.VehicleSimulation;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
@@ -21,6 +22,7 @@ namespace WindowsGame1.Components
 
         private readonly DelegateGraphicsScreen _graphicsScreen;
         private UIScreen _uiScreen;
+        private ControlPanel _controlPanel;
 
         #endregion
 
@@ -63,7 +65,8 @@ namespace WindowsGame1.Components
         {
             LoadTheme();
 
-            _uiScreen.Children.Add(new ControlPanel(EmoEngine, (IServiceLocator)Services));
+            _controlPanel = new ControlPanel(EmoEngine, (IServiceLocator)Services);
+            _uiScreen.Children.Add(_controlPanel);
             Window newWindow = null;
             string[] profileNames = EmoEngine.GetProfileNames();
             if (profileNames.Length == 0)
@@ -102,5 +105,16 @@ namespace WindowsGame1.Components
         }
 
         #endregion
+
+        public override void Update(GameTime gameTime)
+        {
+            if (_controlPanel.MenuState == Enums.MenuState.Main)
+            {
+                Game.Components.Add(new VehicleComponent(Game, EmoEngine));
+                Game.Components.Remove(this);
+                Dispose();
+            }
+            base.Update(gameTime);
+        }
     }
 }

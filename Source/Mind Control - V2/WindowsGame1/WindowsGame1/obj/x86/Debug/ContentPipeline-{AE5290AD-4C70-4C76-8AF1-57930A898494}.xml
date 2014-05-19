@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Brain.xnb</Output>
-      <Time>2014-05-01T09:55:24.7557961-07:00</Time>
+      <Time>2014-05-01T10:55:24.7557961-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\Fair.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Fair.xnb</Output>
-      <Time>2014-05-02T00:01:00.7017501-07:00</Time>
+      <Time>2014-05-02T01:01:00.7017501-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\Good.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Good.xnb</Output>
-      <Time>2014-05-02T00:01:46.2815934-07:00</Time>
+      <Time>2014-05-02T01:01:46.2815934-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\NoSignal.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\NoSignal.xnb</Output>
-      <Time>2014-05-02T00:01:38.4815927-07:00</Time>
+      <Time>2014-05-02T01:01:38.4815927-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\Poor.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\Poor.xnb</Output>
-      <Time>2014-05-02T00:01:19.2641325-07:00</Time>
+      <Time>2014-05-02T01:01:19.2641325-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\ContactQualities\VeryBad.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\ContactQualities\VeryBad.xnb</Output>
-      <Time>2014-05-02T00:01:06.1014458-07:00</Time>
+      <Time>2014-05-02T01:01:06.1014458-06:00</Time>
     </Item>
     <Item>
       <Source>Brain\Head.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Brain\Head.xnb</Output>
-      <Time>2014-05-02T00:47:23.0255086-07:00</Time>
+      <Time>2014-05-02T01:47:23.0255086-06:00</Time>
     </Item>
     <Item>
       <Source>Reticle.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Reticle.xnb</Output>
-      <Time>2014-05-14T12:04:29.5681404-07:00</Time>
+      <Time>2014-05-14T13:04:29.5681404-06:00</Time>
     </Item>
     <Item>
       <Source>Car\RacerCar.png</Source>
@@ -80,7 +80,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar.xnb</Output>
-      <Time>2014-05-15T12:08:48.0147197-07:00</Time>
+      <Time>2014-05-15T13:08:48.0147197-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sky2.dds</Source>
+      <Name>Sky2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Sky2.xnb</Output>
+      <Time>2014-05-16T13:41:02.1497556-06:00</Time>
+    </Item>
+    <Item>
+      <Source>checker.png</Source>
+      <Name>checker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker.xnb</Output>
+      <Time>2014-05-16T14:45:45.4727815-06:00</Time>
     </Item>
     <Item>
       <Source>Car\Car.fbx</Source>
@@ -89,10 +107,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Car.xnb</Output>
-      <Time>2014-05-15T12:08:48.0067173-07:00</Time>
+      <Time>2014-05-15T13:08:48.0067173-06:00</Time>
       <Dependency>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Key>
-        <Value>2014-05-16T10:34:04.0833107-07:00</Value>
+        <Value>2014-05-19T13:30:44.6097337-06:00</Value>
       </Dependency>
       <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
     </Item>
@@ -103,19 +121,33 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Wheel.xnb</Output>
-      <Time>2014-05-15T12:08:48.0277212-07:00</Time>
+      <Time>2014-05-15T13:08:48.0277212-06:00</Time>
       <Dependency>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Key>
-        <Value>2014-05-16T10:34:05.7115114-07:00</Value>
+        <Value>2014-05-19T13:30:46.2597385-06:00</Value>
       </Dependency>
       <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ground.x</Source>
+      <Name>Ground</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Ground.xnb</Output>
+      <Time>2014-05-19T13:27:00.5490273-06:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Ground_0.xml</Key>
+        <Value>2014-05-19T13:30:46.3017237-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_0.xnb</Request>
     </Item>
     <Item>
       <Source>Car\Car.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Output>
-      <Time>2014-05-15T12:08:48.0067173-07:00</Time>
+      <Time>2014-05-15T13:08:48.0067173-06:00</Time>
     </Item>
     <Item>
       <Source>Car\RacerCar.png</Source>
@@ -131,14 +163,37 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Output>
-      <Time>2014-05-15T12:08:48.0147197-07:00</Time>
+      <Time>2014-05-15T13:08:48.0147197-06:00</Time>
     </Item>
     <Item>
       <Source>Car\Wheel.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Output>
-      <Time>2014-05-15T12:08:48.0277212-07:00</Time>
+      <Time>2014-05-15T13:08:48.0277212-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Ground.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Ground_0.xml</Output>
+      <Time>2014-05-19T13:27:00.5490273-06:00</Time>
+    </Item>
+    <Item>
+      <Source>checker.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_0.xnb</Output>
+      <Time>2014-05-16T14:45:45.4727815-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -155,27 +210,27 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2012-09-06T14:52:54-07:00</Value>
+        <Value>2012-09-06T15:52:54-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Mathematics.Content.Pipeline.dll</Key>
@@ -183,7 +238,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Graphics.Content.Pipeline.dll</Key>
-        <Value>2014-05-01T23:41:59.8914716-07:00</Value>
+        <Value>2014-05-02T00:41:59.8914716-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Download\XNA GameStudio\DigitalRune\DigitalRune-Engine\References\XNA\Windows\DigitalRune.Geometry.Content.Pipeline.dll</Key>
@@ -199,7 +254,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-04-17T14:26:30.1927182-07:00</Value>
+        <Value>2014-04-17T15:26:30.1927182-06:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

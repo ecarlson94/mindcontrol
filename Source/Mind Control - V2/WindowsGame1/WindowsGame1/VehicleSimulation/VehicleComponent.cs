@@ -36,7 +36,7 @@ namespace WindowsGame1.VehicleSimulation
         //--------------------------------------------------------------
         #region Creation and Cleanup
 
-        protected VehicleComponent(Game game, EmoEngineManager emoEngine)
+        public VehicleComponent(Game game, EmoEngineManager emoEngine)
             : base(game, emoEngine)
         {
             EnableMouseCentering = false;

@@ -143,6 +143,7 @@
     <Compile Include="VehicleSimulation\VehicleComponent.cs" />
     <Compile Include="Windows\ContactQualityWindow.cs" />
     <Compile Include="Windows\CreateUser.cs" />
+    <Compile Include="Windows\DirectionCheckboxWindow.cs" />
     <Compile Include="Windows\LoadUser.cs" />
     <Compile Include="Windows\MessageBox.cs" />
     <Compile Include="Windows\OptionDialog.cs" />

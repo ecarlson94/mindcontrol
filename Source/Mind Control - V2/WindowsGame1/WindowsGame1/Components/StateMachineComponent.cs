@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using WindowsGame1.Enums;
-using WindowsGame1.Managers;
-using DigitalRune.Game.Input;
+﻿using DigitalRune.Game.Input;
 using DigitalRune.Game.States;
 using DigitalRune.ServiceLocation;
 using DigitalRune.Threading;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System;
+using System.Linq;
+using System.Threading;
+using WindowsGame1.Enums;
+using WindowsGame1.Managers;
 
 namespace WindowsGame1.Components
 {
@@ -20,7 +18,6 @@ namespace WindowsGame1.Components
         // Services used by this game component.
         private readonly IInputService _inputService;
         private readonly EmoEngineManager _emoEngine;
-        public static ContentManager Content;
 
         private StateMachine stateMachine;
 
@@ -31,7 +28,6 @@ namespace WindowsGame1.Components
             // Get the required services from the game's service provider.
             var services = (ServiceContainer)ServiceLocator.Current;
             _inputService = services.GetInstance<IInputService>();
-            Content = Game.Content;
             _emoEngine = new EmoEngineManager();
             _emoEngine.StartEmoEngine();
         }

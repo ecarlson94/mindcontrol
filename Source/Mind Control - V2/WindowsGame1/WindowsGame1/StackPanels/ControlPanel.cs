@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using WindowsGame1.Enums;
-using WindowsGame1.Managers;
-using WindowsGame1.Windows;
-using WindowsGame1.Components;
-using DigitalRune.Game.UI;
+﻿using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
-using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Mathematics.Algebra;
 using Emotiv;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.Linq;
+using WindowsGame1.Enums;
+using WindowsGame1.Managers;
+using WindowsGame1.Windows;
 
 namespace WindowsGame1.StackPanels
 {

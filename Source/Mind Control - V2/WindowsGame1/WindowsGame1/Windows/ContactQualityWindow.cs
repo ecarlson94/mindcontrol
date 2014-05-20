@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using DigitalRune.Game.UI;
+using DigitalRune.Game.UI.Controls;
+using Microsoft.Practices.ServiceLocation;
+using System;
 using WindowsGame1.Managers;
 using WindowsGame1.Paints;
-using DigitalRune.Game.UI;
-using DigitalRune.Game.UI.Controls;
-using Emotiv;
-using Microsoft.Practices.ServiceLocation;
 
 namespace WindowsGame1.Windows
 {
@@ -113,7 +109,6 @@ namespace WindowsGame1.Windows
                     poorContactQuality.Children.Add(poorQualityText);
                 else if (poorContactQuality.Children.Contains(poorQualityText) && overallGoodQuality)
                     poorContactQuality.Children.Remove(poorQualityText);
-                    
             }
         }
 

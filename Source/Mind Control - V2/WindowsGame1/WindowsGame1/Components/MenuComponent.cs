@@ -1,4 +1,5 @@
-﻿using DigitalRune.Game.UI.Controls;
+﻿using DigitalRune;
+using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
 using Microsoft.Practices.ServiceLocation;
@@ -47,9 +48,11 @@ namespace WindowsGame1.Components
             {
                 // Remove UIScreen from UIService
                 UIService.Screens.Remove(_uiScreen);
+                _uiScreen.SafeDispose();
 
                 // Remove graphics screen from graphics service
                 GraphicsService.Screens.Remove(_graphicsScreen);
+                _graphicsScreen.SafeDispose();
             }
             base.Dispose(disposing);
         }
@@ -77,14 +80,14 @@ namespace WindowsGame1.Components
                 }
                 newWindow.Closing += (s, e) =>
                 {
-                    _controlPanel = new ControlPanel(EmoEngine, (IServiceLocator)Services);
+                    _controlPanel = new ControlPanel(EmoEngine, Services);
                     _uiScreen.Children.Add(_controlPanel);
                 };
                 _uiScreen.Children.Add(newWindow);
             }
             else
             {
-                _controlPanel = new ControlPanel(EmoEngine, (IServiceLocator)Services);
+                _controlPanel = new ControlPanel(EmoEngine, Services);
                 _uiScreen.Children.Add(_controlPanel);
             }
         }

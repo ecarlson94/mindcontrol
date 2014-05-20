@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DigitalRune.Game.Input;
+﻿using DigitalRune.Game.Input;
 using DigitalRune.Mathematics.Algebra;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
@@ -18,7 +14,10 @@ namespace WindowsGame1.Components
         public bool EnableMouseCentering
         {
             get { return _enableMouseCentering; }
-            set { _enableMouseCentering = value; }
+            set{
+                _enableMouseCentering = value;
+                Game.IsMouseVisible = !value;
+            }
         }
 
         public MouseComponent(Game game) : base(game)

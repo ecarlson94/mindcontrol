@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DigitalRune.Game;
+﻿using DigitalRune.Game;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Graphics.SceneGraph;
 using DigitalRune.Mathematics.Algebra;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.PeerToPeer.Collaboration;
-using System.Text;
-using WindowsGame1.Managers;
-using DigitalRune.Game;
+﻿using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Geometry;
 using DigitalRune.Graphics;
@@ -12,6 +6,7 @@ using DigitalRune.Graphics.SceneGraph;
 using DigitalRune.Mathematics;
 using DigitalRune.Mathematics.Algebra;
 using Microsoft.Practices.ServiceLocation;
+using System;
 
 namespace WindowsGame1.VehicleSimulation
 {

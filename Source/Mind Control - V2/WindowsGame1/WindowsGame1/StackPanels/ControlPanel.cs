@@ -42,7 +42,7 @@ namespace WindowsGame1.StackPanels
 
         protected override void OnLoad()
         {
-            Screen.Children.Add(new ContactQualityWindow(emoEngine, _services));
+            Screen.Children.Add(cqWindow);
             base.OnLoad();
         }
 
@@ -158,7 +158,7 @@ namespace WindowsGame1.StackPanels
             contactQuality.Click += (s, e) =>
             {
                 CloseWindows();
-                Screen.Children.Add(new ContactQualityWindow(emoEngine, _services));
+                Screen.Children.Add(cqWindow);
             };
 
             Children.Add(practiceButton);

@@ -128,6 +128,7 @@ namespace WindowsGame1.Windows
             X = 250;
             Y = 0;
             Width = Screen.ActualWidth - 250;
+            MaxWidth = Screen.ActualWidth - 250;
         }
 
         protected override void OnUpdate(TimeSpan deltaTime)

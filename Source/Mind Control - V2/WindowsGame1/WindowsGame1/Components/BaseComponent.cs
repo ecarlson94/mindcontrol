@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WindowsGame1.Managers;
-using DigitalRune.Animation;
+﻿using DigitalRune.Animation;
 using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Game.UI;
 using DigitalRune.Graphics;
 using DigitalRune.Physics;
 using DigitalRune.ServiceLocation;
+using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Practices.ServiceLocation;
+using System.Linq;
+using WindowsGame1.Managers;
 
 namespace WindowsGame1.Components
 {

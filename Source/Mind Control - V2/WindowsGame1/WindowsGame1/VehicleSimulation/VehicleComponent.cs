@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using WindowsGame1.Components;
-using WindowsGame1.Managers;
-using WindowsGame1.Windows;
-using WindowsGame1.Screens;
-using DigitalRune.Game.UI;
-using DigitalRune.Game.UI.Controls;
-using DigitalRune.Game.UI.Rendering;
+﻿using DigitalRune.Game.UI;
 using DigitalRune.Graphics;
 using DigitalRune.Physics.ForceEffects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using WindowsGame1.BackgroundObjects;
 using Microsoft.Xna.Framework.Input;
+using System.ComponentModel;
+using System.Linq;
+using WindowsGame1.BackgroundObjects;
+using WindowsGame1.Components;
+using WindowsGame1.Managers;
+using WindowsGame1.Screens;
+using WindowsGame1.Windows;
 
 namespace WindowsGame1.VehicleSimulation
 {

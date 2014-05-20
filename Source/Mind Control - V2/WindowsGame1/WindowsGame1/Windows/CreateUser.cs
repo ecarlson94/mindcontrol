@@ -71,27 +71,35 @@ namespace WindowsGame1.Windows
         {
             String profileName = nameBox.Text;
             string[] profileNames = emoEngine.GetProfileNames();
-            if (!profileNames.Contains(profileName))
+            if (profileName.Equals("New User") || profileName.Equals(""))
             {
-                Match match = Regex.Match(profileName, @"^([\w ]*)$");
-                if (match.Success)
-                {
-                    emoEngine.CreateProfile(profileName);
-                    emoEngine.LoadProfile(profileName);
-                    Close();
-                }
-                else
-                {
-                    //message box
-                        //invalid characters
-                    var messageBox = new MessageBox("Invalid Characters", "Special characters are not allowed.");
-                    messageBox.Show(Screen);
-                }
+                var messageBox = new MessageBox("You must give a profile name.");
+                messageBox.Show(Screen);
             }
             else
             {
-                var messageBox = new MessageBox("Profile Exists", "This profile already exists.");
-                messageBox.Show(Screen);
+                if (!profileNames.Contains(profileName))
+                {
+                    Match match = Regex.Match(profileName, @"^([\w ]*)$");
+                    if (match.Success)
+                    {
+                        emoEngine.CreateProfile(profileName);
+                        emoEngine.LoadProfile(profileName);
+                        Close();
+                    }
+                    else
+                    {
+                        //message box
+                        //invalid characters
+                        var messageBox = new MessageBox("Invalid Characters", "Special characters are not allowed.");
+                        messageBox.Show(Screen);
+                    }
+                }
+                else
+                {
+                    var messageBox = new MessageBox("Profile Exists", "This profile already exists.");
+                    messageBox.Show(Screen);
+                }
             }
         }
 

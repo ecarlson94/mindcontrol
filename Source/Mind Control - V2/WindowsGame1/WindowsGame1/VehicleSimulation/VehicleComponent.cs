@@ -45,13 +45,7 @@ namespace WindowsGame1.VehicleSimulation
             RemoveBaseComponents();
 
             EnableMouseCentering = false;
-
-            _graphicsScreen = new DelegateGraphicsScreen(GraphicsService)
-            {
-                RenderCallback = Render,
-            };
-            GraphicsService.Screens.Insert(0, _graphicsScreen);
-
+            GraphicsScreen.DrawReticle = false;
 
             CreateGUI();
         }
@@ -60,9 +54,8 @@ namespace WindowsGame1.VehicleSimulation
             if (disposing)
             {
                 // Remove graphics screen from graphics service
-                GraphicsService.Screens.Remove(_graphicsScreen);
-
-                DisposeGUI();
+                GraphicsService.Screens.Remove(_uiGraphicsScreen);
+                _uiGraphicsScreen.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -78,9 +71,11 @@ namespace WindowsGame1.VehicleSimulation
             _uiGraphicsScreen = new UIGraphicsScreen(Services);
             GraphicsService.Screens.Add(_uiGraphicsScreen);
 
-            LoadTheme();
-
-            _directionCheck = new DirectionCheckboxWindow(EmoEngine);
+            _directionCheck = new DirectionCheckboxWindow(EmoEngine)
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
             _directionCheck.Closing += DirectionCheckOnClosing;
             _directionCheck.Show(_uiGraphicsScreen.UIScreen);
         }
@@ -107,25 +102,12 @@ namespace WindowsGame1.VehicleSimulation
                 GameObjectService.Objects.Add(_vehicleCamera);
                 GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
 
-                DisposeGUI();
+                GraphicsService.Screens.Remove(_uiGraphicsScreen);
+                _uiGraphicsScreen.Dispose();
+                GraphicsScreen.DrawReticle = true;
             }
             else
                 cancelEventArgs.Cancel = true;
-        }
-
-        private void DisposeGUI()
-        {
-            if (_uiGraphicsScreen != null)
-            {
-                GraphicsService.Screens.Remove(_uiGraphicsScreen);
-                _uiGraphicsScreen.Dispose();
-            }
-        }
-
-        private void Render(RenderContext context)
-        {
-            if (_uiScreen != null)
-                _uiScreen.Draw(context.DeltaTime);
         }
 
         #endregion

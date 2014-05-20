@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DigitalRune;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
@@ -19,25 +20,21 @@ namespace WindowsGame1.Screens
         public UIScreen UIScreen { get; private set; }
 
         public UIGraphicsScreen(IServiceLocator services)
+            : base(services.GetInstance<IGraphicsService>())
         {
             Name = "UI";
 
             _uiService = services.GetInstance<IUIService>();
             var contentManager = services.GetInstance<ContentManager>("UIContent");
 
-            LoadTheme();
-        }
-
-        private void LoadTheme()
-        {
             // Load a UI theme, which defines the appearance and default values of UI controls.
-            Theme theme = UIContentManager.Load<Theme>("ThemeRed");
+            Theme theme = contentManager.Load<Theme>("ThemeRed");
             // Create a UI renderer, which uses the theme info to renderer UI controls.
-            UIRenderer renderer = new UIRenderer(Game, theme);
+            UIRenderer renderer = new UIRenderer(GraphicsService.GraphicsDevice, theme);
 
             // Create a UIScreen and add it to the UI service. The screen is the root of 
             // the tree of UI controls. Each screen can have its own renderer. 
-            _uiScreen = new UIScreen("Default", renderer)
+            UIScreen = new UIScreen("Default", renderer)
             {
                 // Make the screen transparent.
                 Background = Color.Transparent,
@@ -45,7 +42,7 @@ namespace WindowsGame1.Screens
             };
 
             // Add the screen to the UI service.
-            _uiService.Screens.Add(_uiScreen);
+            _uiService.Screens.Add(UIScreen);
         }
 
         public void Dispose()
@@ -57,6 +54,10 @@ namespace WindowsGame1.Screens
         protected override void OnRender(RenderContext context)
         {
             UIScreen.Draw(context.DeltaTime);
+        }
+
+        protected override void OnUpdate(TimeSpan deltaTime)
+        {
         }
     }
 }

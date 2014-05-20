@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using WindowsGame1.Managers;
-using DigitalRune.Game;
+﻿using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Geometry;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Graphics;
 using DigitalRune.Graphics.SceneGraph;
+using DigitalRune.Mathematics;
 using DigitalRune.Mathematics.Algebra;
 using DigitalRune.Physics;
 using DigitalRune.Physics.Materials;
@@ -15,6 +12,10 @@ using DigitalRune.Physics.Specialized;
 using Emotiv;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework.Content;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using WindowsGame1.Managers;
 using MathHelper = DigitalRune.Mathematics.MathHelper;
 
 namespace WindowsGame1.VehicleSimulation
@@ -110,7 +111,7 @@ namespace WindowsGame1.VehicleSimulation
 
             var chassis = new RigidBody(chassisShape, mass, material)
             {
-                Pose = new Pose(Vector3F.Zero),
+                Pose = new Pose(new Vector3F(0, 2, 0)),// Start Position
                 UserData = "NoDraw",
             };
 
@@ -159,15 +160,41 @@ namespace WindowsGame1.VehicleSimulation
                 UpdateSteeringAngle(deltaTimeF);
 
                 //Update acceleration from up/down arrow keys.
-                UpdateAcceleration(deltaTimeF);
-
                 //If the vehicle is not accelerating or at top speed, the brakes
                 //will automatically be turned on
+                if (UpdateAcceleration(deltaTimeF))
+                {
+                    const float brakeForce = 6000;
+                    Vehicle.Wheels[2].MotorForce = 0;
+                    Vehicle.Wheels[3].MotorForce = 0;
+                    Vehicle.Wheels[2].BrakeForce = brakeForce;
+                    Vehicle.Wheels[3].BrakeForce = brakeForce;
+                }
+                else
+                {
+                    Vehicle.Wheels[2].BrakeForce = 0;
+                    Vehicle.Wheels[3].BrakeForce = 0;
+                }
+
+                //Update poses of graphics models
+                _vehicleModelNode.SetLastPose(true);
+                _vehicleModelNode.PoseWorld = Vehicle.Chassis.Pose;
+                for (int i = 0; i < _wheelModelNodes.Length; i++)
+                {
+                    var pose = Vehicle.Wheels[i].Pose;
+                    if (Vehicle.Wheels[i].Offset.X < 0)
+                    {
+                        pose.Orientation = pose.Orientation * Matrix33F.CreateRotationY(ConstantsF.Pi);
+                    }
+                    _wheelModelNodes[i].SetLastPose(true);
+                    _wheelModelNodes[i].PoseWorld = pose;
+                }
             }
         }
 
         #endregion
 
+        //--------------------------------------------------------------
         #region Private Methods
 
         private void UpdateSteeringAngle(float deltaTime)
@@ -204,8 +231,10 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.SetCarSteeringAngle(_steeringAngle, Vehicle.Wheels[0], Vehicle.Wheels[1], Vehicle.Wheels[2], Vehicle.Wheels[3]);
         }
 
-        private void UpdateAcceleration(float deltaTime)
+        //returns false if not accelerating
+        private bool UpdateAcceleration(float deltaTime)
         {
+            bool brake = false;
             const float MaxForce = 2000;
             const float AccelerationRate = 10000;
 
@@ -229,6 +258,7 @@ namespace WindowsGame1.VehicleSimulation
             if (direction == 0)
             {
                 //No acceleratoin Bring motor frce down to 0;
+                brake = true;
                 if (_motorForce > 0)
                     _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);
                 else if (_motorForce < 0)
@@ -237,6 +267,7 @@ namespace WindowsGame1.VehicleSimulation
             else
             {
                 //Increase motor force
+                brake = false;
                 _motorForce = MathHelper.Clamp(_motorForce + direction*change, -MaxForce, +MaxForce);
             }
 
@@ -245,6 +276,8 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Wheels[1].MotorForce = _motorForce;
             Vehicle.Wheels[2].MotorForce = _motorForce;
             Vehicle.Wheels[3].MotorForce = _motorForce;
+
+            return brake;
         }
 
         #endregion

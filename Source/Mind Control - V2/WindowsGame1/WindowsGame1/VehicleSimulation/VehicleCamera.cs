@@ -78,14 +78,6 @@ namespace WindowsGame1.VehicleSimulation
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
-            if (_inputService.EnableMouseCentering)
-            {
-                //float deltaTimeF = (float) deltaTime.TotalSeconds;
-
-                //compute new yaw and pitch from mouse movement here
-                //TBD implement mouse camera rotation
-            }
-
             CameraNode.LastPoseWorld = CameraNode.PoseWorld;
 
             var vehiclePose = _vehicle.Pose;

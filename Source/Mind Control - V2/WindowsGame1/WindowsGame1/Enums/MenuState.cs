@@ -8,6 +8,7 @@ namespace WindowsGame1.Enums
     public enum MenuState
     {
         Main,
-        Practice
+        Practice,
+        RCCar,
     }
 }

@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WindowsGame1.Managers;
+using Microsoft.Xna.Framework.Input;
 using MathHelper = DigitalRune.Mathematics.MathHelper;
 
 namespace WindowsGame1.VehicleSimulation
@@ -60,6 +61,7 @@ namespace WindowsGame1.VehicleSimulation
         {
             _services = services;
             _emoEngine = emoEngine;
+            _allowedActions = allowedActions;
             Name = "Vehicle";
 
             _inputService = _services.GetInstance<IInputService>();
@@ -162,19 +164,20 @@ namespace WindowsGame1.VehicleSimulation
                 //Update acceleration from up/down arrow keys.
                 //If the vehicle is not accelerating or at top speed, the brakes
                 //will automatically be turned on
-                if (UpdateAcceleration(deltaTimeF))
-                {
-                    const float brakeForce = 6000;
-                    Vehicle.Wheels[2].MotorForce = 0;
-                    Vehicle.Wheels[3].MotorForce = 0;
-                    Vehicle.Wheels[2].BrakeForce = brakeForce;
-                    Vehicle.Wheels[3].BrakeForce = brakeForce;
-                }
-                else
-                {
-                    Vehicle.Wheels[2].BrakeForce = 0;
-                    Vehicle.Wheels[3].BrakeForce = 0;
-                }
+                UpdateAcceleration(deltaTimeF);
+//                if (UpdateAcceleration(deltaTimeF))
+//                {
+//                    const float brakeForce = 6000;
+//                    Vehicle.Wheels[2].MotorForce = 0;
+//                    Vehicle.Wheels[3].MotorForce = 0;
+//                    Vehicle.Wheels[2].BrakeForce = brakeForce;
+//                    Vehicle.Wheels[3].BrakeForce = brakeForce;
+//                }
+//                else
+//                {
+//                    Vehicle.Wheels[2].BrakeForce = 0;
+//                    Vehicle.Wheels[3].BrakeForce = 0;
+//                }
 
                 //Update poses of graphics models
                 _vehicleModelNode.SetLastPose(true);
@@ -243,17 +246,18 @@ namespace WindowsGame1.VehicleSimulation
             float change = AccelerationRate*deltaTime;
 
             float direction = 0;
-            if (_allowedActions.Contains(_currentAction))
-            {
-                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PUSH
-                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT
-                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
+//            if (_allowedActions.Contains(_currentAction))
+//            {
+//                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PUSH
+//                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT
+//                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
+                if(_inputService.IsDown(Keys.W))
                 {
                     direction += 1;
                 }
                 else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PULL)
                     direction -= 1;
-            }
+//            }
 
             if (direction == 0)
             {

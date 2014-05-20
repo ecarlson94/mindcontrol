@@ -100,6 +100,7 @@ namespace WindowsGame1.VehicleSimulation
                 GraphicsService.Screens.Remove(_uiGraphicsScreen);
                 _uiGraphicsScreen.Dispose();
                 GraphicsScreen.DrawReticle = true;
+                EnableMouseCentering = true;
             }
             else
                 cancelEventArgs.Cancel = true;

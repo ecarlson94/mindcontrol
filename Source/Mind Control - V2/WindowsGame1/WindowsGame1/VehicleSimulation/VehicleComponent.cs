@@ -75,30 +75,34 @@ namespace WindowsGame1.VehicleSimulation
             _directionCheck.Show(_uiGraphicsScreen.UIScreen);
         }
 
+        private void LoadAssets()
+        {
+            //Add basic force effects
+            Simulation.ForceEffects.Add(new Gravity());
+            Simulation.ForceEffects.Add(new Damping());
+
+            //Add the sky and ground objects here
+            GameObjectService.Objects.Add(new Sky(Services));
+            GameObjectService.Objects.Add(new Ground(Services));
+
+            //Add the camera object attached to chassis of the vehicle
+            _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
+            GameObjectService.Objects.Add(_vehicleCamera);
+            GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
+
+            GraphicsService.Screens.Remove(_uiGraphicsScreen);
+            _uiGraphicsScreen.Dispose();
+        }
+
         private void DirectionCheckOnClosing(object sender, CancelEventArgs cancelEventArgs)
         {
             var actions = (sender as DirectionCheckboxWindow).AllowedActions;
-            if (actions.Count() > 0)
+            if (actions.Any())
             {
-                //Add basic force effects
-                Simulation.ForceEffects.Add(new Gravity());
-                Simulation.ForceEffects.Add(new Damping());
-
-                //Add the sky and ground objects here
-                GameObjectService.Objects.Add(new Sky(Services));
-                GameObjectService.Objects.Add(new Ground(Services));
-
                 //Add the game object which controls a vehicle here
                 _cognitivVehicle = new CognitivVehicle(Services, EmoEngine, actions);
                 GameObjectService.Objects.Add(_cognitivVehicle);
 
-                //Add the camera object attached to chassis of the vehicle
-                _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
-                GameObjectService.Objects.Add(_vehicleCamera);
-                GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
-
-                GraphicsService.Screens.Remove(_uiGraphicsScreen);
-                _uiGraphicsScreen.Dispose();
                 GraphicsScreen.DrawReticle = true;
                 EnableMouseCentering = true;
             }

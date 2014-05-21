@@ -100,6 +100,9 @@
     <Reference Include="DotNetEmotivSDK">
       <HintPath>.\DotNetEmotivSDK.dll</HintPath>
     </Reference>
+    <Reference Include="FTD2XX_NET">
+      <HintPath>..\..\Eric Carlson - Mind Control\Vendor\USB Relay\FTD2XX_NET.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\Eric Carlson - Mind Control\Vendor\DigitalRune-Engine\References\XNA\Windows\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -134,6 +137,7 @@
     <Compile Include="Paints\ContactQuality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="RCCar\USBRelay.cs" />
     <Compile Include="Screens\BaseGraphicsScreen.cs" />
     <Compile Include="Screens\UIGraphicsScreen.cs" />
     <Compile Include="StackPanels\ControlPanel.cs" />

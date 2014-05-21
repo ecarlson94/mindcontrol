@@ -69,7 +69,7 @@ namespace WindowsGame1.RCCar
 
                 if (_status != FTDI.FT_STATUS.FT_OK)
                 {
-                    Console.WriteLine("Error connecting to relay board");
+//                    Console.WriteLine("Error connecting to relay board");
                     return false;
                 }
 

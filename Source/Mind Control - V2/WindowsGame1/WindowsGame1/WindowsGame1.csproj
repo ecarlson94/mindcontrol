@@ -126,6 +126,7 @@
     <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Components\MouseComponent.cs" />
     <Compile Include="Components\BaseComponent.cs" />
+    <Compile Include="Components\RCCarComponent.cs" />
     <Compile Include="Components\StartComponent.cs" />
     <Compile Include="Components\StateMachineComponent.cs" />
     <Compile Include="Enums\GameState.cs" />
@@ -145,7 +146,7 @@
     <Compile Include="StackPanels\TrainingPanel.cs" />
     <Compile Include="VehicleSimulation\CognitivVehicle.cs" />
     <Compile Include="VehicleSimulation\VehicleCamera.cs" />
-    <Compile Include="VehicleSimulation\VehicleComponent.cs" />
+    <Compile Include="Components\VehicleComponent.cs" />
     <Compile Include="Windows\ContactQualityWindow.cs" />
     <Compile Include="Windows\CreateUser.cs" />
     <Compile Include="Windows\DirectionCheckboxWindow.cs" />

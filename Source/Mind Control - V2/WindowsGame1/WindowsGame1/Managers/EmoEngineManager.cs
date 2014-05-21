@@ -209,27 +209,58 @@ namespace WindowsGame1.Managers
 
         public void EraseCognitivTraining(EdkDll.EE_CognitivAction_t action)
         {
-            if (Profile != String.Empty)
+            lock (emoEngine)
             {
-                IsTraining = true;
-                emoEngine.CognitivSetTrainingAction(UserID, action);
-                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ERASE;
+                if (Profile != String.Empty)
+                {
+                    IsTraining = true;
+                    emoEngine.CognitivSetTrainingAction(UserID, action);
+                    TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ERASE;
+                }
             }
         }
 
         public void AcceptTraining()
         {
-            if (IsTraining)
+            lock (emoEngine)
             {
-                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT;
+                if (IsTraining)
+                {
+                    TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT;
+                }
             }
         }
 
         public void RejectTraining()
         {
-            if (IsTraining)
+            lock (emoEngine)
             {
-                TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_REJECT;
+                if (IsTraining)
+                {
+                    TrainingStatus = EdkDll.EE_CognitivTrainingControl_t.COG_REJECT;
+                }
+            }
+        }
+
+        public void SetCognitivActionInactive(EdkDll.EE_CognitivAction_t action)
+        {
+            if (emoEngine != null && Profile != String.Empty && action != EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
+            {
+                uint activeActions = emoEngine.CognitivGetActiveActions(UserID);
+                if ((activeActions & (uint) action) == (uint) action)
+                {
+                    activeActions = (activeActions | (uint) action);
+                }
+
+                emoEngine.CognitivSetActiveActions(UserID, activeActions);
+            }
+        }
+
+        public void SetAllTrainedCognitivActionActive()
+        {
+            if (Profile != String.Empty)
+            {
+                emoEngine.CognitivSetActiveActions(UserID, emoEngine.CognitivGetTrainedSignatureActions(UserID));
             }
         }
 
@@ -248,6 +279,19 @@ namespace WindowsGame1.Managers
             }
 
             return cognitivActionTrained;
+        }
+
+        public bool AtLeastTwoCogActionsTrained()
+        {
+            bool twoActionsTrained = IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PUSH);
+            if(!twoActionsTrained)
+                twoActionsTrained = IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_PULL);
+            if (!twoActionsTrained)
+                twoActionsTrained = IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_LEFT);
+            if (!twoActionsTrained)
+                twoActionsTrained = IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+
+            return twoActionsTrained;
         }
 
         public bool AllCognitivActionsTrained()
@@ -315,6 +359,7 @@ namespace WindowsGame1.Managers
 
         public void SaveProfile(string profileName)
         {
+            SetAllTrainedCognitivActionActive();
             Profile tmp = emoEngine.GetUserProfile(0);
             ByteArrayToFile(GetProfilePath(profileName), tmp.GetBytes());
         }

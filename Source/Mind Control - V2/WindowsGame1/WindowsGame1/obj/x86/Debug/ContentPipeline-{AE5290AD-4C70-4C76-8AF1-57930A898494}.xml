@@ -83,6 +83,15 @@
       <Time>2014-05-15T13:08:48.0147197-06:00</Time>
     </Item>
     <Item>
+      <Source>Sky2.dds</Source>
+      <Name>Sky2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Sky2.xnb</Output>
+      <Time>2014-05-16T13:41:02.1497556-06:00</Time>
+    </Item>
+    <Item>
       <Source>checker.png</Source>
       <Name>checker</Name>
       <Importer>TextureImporter</Importer>
@@ -93,10 +102,84 @@
     </Item>
     <Item>
       <Source>Car\Car.fbx</Source>
+      <Name>Car\Car</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Car.xnb</Output>
+      <Time>2014-05-15T13:08:48.0067173-06:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Key>
+        <Value>2014-05-21T11:23:59.0141824-06:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Car\Car.drmdl</Key>
+        <Value>2014-05-19T23:43:22.1979279-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Wheel.fbx</Source>
+      <Name>Car\Wheel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Wheel.xnb</Output>
+      <Time>2014-05-15T13:08:48.0277212-06:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Key>
+        <Value>2014-05-21T11:24:03.5347667-06:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Car\Wheel.drmdl</Key>
+        <Value>2014-05-19T23:43:25.8243921-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ground.x</Source>
+      <Name>Ground</Name>
+      <Importer>XImporter</Importer>
+      <Processor>DRModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Ground.xnb</Output>
+      <Time>2014-05-19T13:27:00.5490273-06:00</Time>
+      <Dependency>
+        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Ground_0.xml</Key>
+        <Value>2014-05-21T11:24:03.6157562-06:00</Value>
+      </Dependency>
+      <Dependency>
+        <Key>Ground.drmdl</Key>
+        <Value>2014-05-19T23:41:00.8277938-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\Car.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Output>
       <Time>2014-05-15T13:08:48.0067173-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.drmat</Source>
+      <Importer>DRMaterialImporter</Importer>
+      <Processor>DRMaterialProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_0.xnb</Output>
+      <Time>2014-05-19T23:43:22.2579317-06:00</Time>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_1.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Car\RacerCar.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>DRTextureProcessor</Processor>
+      <Parameters>
+        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_1.xnb</Output>
+      <Time>2014-05-15T13:08:48.0147197-06:00</Time>
     </Item>
     <Item>
       <Source>Car\Wheel.fbx</Source>
@@ -113,31 +196,13 @@
       <Time>2014-05-19T13:27:00.5490273-06:00</Time>
     </Item>
     <Item>
-      <Source>Ground.x</Source>
-      <Name>Ground</Name>
-      <Importer>XImporter</Importer>
-      <Processor>DRModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Ground.xnb</Output>
-      <Time>2014-05-19T13:27:00.5490273-06:00</Time>
-      <Dependency>
-        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Ground_0.xml</Key>
-        <Value>2014-05-19T13:30:46.3017237-06:00</Value>
-      </Dependency>
-      <Dependency>
-        <Key>Ground.drmdl</Key>
-        <Value>2014-05-19T23:41:00.8277938-06:00</Value>
-      </Dependency>
-      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_1.xnb</Request>
-    </Item>
-    <Item>
       <Source>checker.drmat</Source>
       <Importer>DRMaterialImporter</Importer>
       <Processor>DRMaterialProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_1.xnb</Output>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_0.xnb</Output>
       <Time>2014-05-19T23:41:00.9007863-06:00</Time>
-      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_2.xnb</Request>
+      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_1.xnb</Request>
     </Item>
     <Item>
       <Source>checker.png</Source>
@@ -147,73 +212,8 @@
         <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_2.xnb</Output>
+      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\checker_1.xnb</Output>
       <Time>2014-05-16T14:45:45.4727815-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Car\Car.fbx</Source>
-      <Name>Car\Car</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>DRModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Car.xnb</Output>
-      <Time>2014-05-15T13:08:48.0067173-06:00</Time>
-      <Dependency>
-        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Key>
-        <Value>2014-05-19T13:30:44.6097337-06:00</Value>
-      </Dependency>
-      <Dependency>
-        <Key>Car\Car.drmdl</Key>
-        <Value>2014-05-19T23:43:22.1979279-06:00</Value>
-      </Dependency>
-      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_1.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Car\Wheel.fbx</Source>
-      <Name>Car\Wheel</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>DRModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\Wheel.xnb</Output>
-      <Time>2014-05-15T13:08:48.0277212-06:00</Time>
-      <Dependency>
-        <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Key>
-        <Value>2014-05-19T13:30:46.2597385-06:00</Value>
-      </Dependency>
-      <Dependency>
-        <Key>Car\Wheel.drmdl</Key>
-        <Value>2014-05-19T23:43:25.8243921-06:00</Value>
-      </Dependency>
-      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_1.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Car\RacerCar.drmat</Source>
-      <Importer>DRMaterialImporter</Importer>
-      <Processor>DRMaterialProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_1.xnb</Output>
-      <Time>2014-05-19T23:43:22.2579317-06:00</Time>
-      <Request>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_2.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Car\RacerCar.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>DRTextureProcessor</Processor>
-      <Parameters>
-        <Data Key="Format" Type="DigitalRune.Graphics.Content.Pipeline.DRTextureFormat">Dxt</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Car\RacerCar_2.xnb</Output>
-      <Time>2014-05-15T13:08:48.0147197-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Sky2.dds</Source>
-      <Name>Sky2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>DRTextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Content\Sky2.xnb</Output>
-      <Time>2014-05-16T13:41:02.1497556-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

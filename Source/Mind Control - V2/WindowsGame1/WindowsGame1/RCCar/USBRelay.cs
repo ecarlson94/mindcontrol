@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Linq;
 using FTD2XX_NET;
+using System;
+using System.ComponentModel;
+using System.Threading;
 
 namespace WindowsGame1.RCCar
 {
@@ -27,7 +25,7 @@ namespace WindowsGame1.RCCar
         private byte[] _startup = {0x00};
         private uint _bytesToSend = 1;
 
-        private UInt32 ftdiDeviceCount = 0;
+        private UInt32 _ftdiDeviceCount = 0;
         private  FTDI.FT_STATUS _status = FTDI.FT_STATUS.FT_OK;
 
         private FTDI FTDIDevice = new FTDI();
@@ -53,41 +51,15 @@ namespace WindowsGame1.RCCar
             DetermineConnectionWorker.RunWorkerAsync();
         }
 
-        public bool Connect()
+        public void TurnOffAllRelays()
         {
-            bool connected = false;
-            if (USBConnected)
+            foreach (var relayNumber in Enum.GetValues(typeof(RelayNumber)).Cast<RelayNumber>())
             {
-                // Allocate storage for device info list
-                FTDI.FT_DEVICE_INFO_NODE[] ftdiDeviceList = new FTDI.FT_DEVICE_INFO_NODE[ftdiDeviceCount];
-
-                // Populate our device list
-                _status = FTDIDevice.GetDeviceList(ftdiDeviceList);
-
-                // Open first device in our list by serial number
-                _status = FTDIDevice.OpenBySerialNumber(ftdiDeviceList[0].SerialNumber);
-
-                if (_status != FTDI.FT_STATUS.FT_OK)
-                {
-//                    Console.WriteLine("Error connecting to relay board");
-                    return false;
-                }
-
-                // Set Baud rate to 9600
-                _status = FTDIDevice.SetBaudRate(9600);
-
-                // Set FT245RL to synchronous bit-bang mode, used on sainsmart relay board
-                FTDIDevice.SetBitMode(0xFF, FTD2XX_NET.FTDI.FT_BIT_MODES.FT_BIT_MODE_SYNC_BITBANG);
-                // Switch off all the relays
-                FTDIDevice.Write(_startup, 1, ref _bytesToSend);
-
-                connected = true;
+                RelaySwitch(relayNumber, RelayState.Off);
             }
-
-            return connected;
         }
 
-        public void RelaySwitch(RelayNumber Rnum, RelayState state)
+        public void RelaySwitch(RelayNumber relayNum, RelayState state)
         {
             uint numBytes = 1;
             int relay = 0x00;
@@ -98,7 +70,7 @@ namespace WindowsGame1.RCCar
             //Find which relays are ON/OFF
             FTDIDevice.GetPinStates(ref pins);
 
-            switch (Rnum)
+            switch (relayNum)
             {
                 case RelayNumber.One:
                     relay = 0x01;
@@ -144,11 +116,34 @@ namespace WindowsGame1.RCCar
 
             while (!worker.CancellationPending)
             {
-                _status = FTDIDevice.GetNumberOfDevices(ref ftdiDeviceCount);
+                _status = FTDIDevice.GetNumberOfDevices(ref _ftdiDeviceCount);
 
-                USBConnected = ftdiDeviceCount != 0;
+                if (!USBConnected && _ftdiDeviceCount != 0)
+                {
+                    // Allocate storage for device info list
+                    FTDI.FT_DEVICE_INFO_NODE[] ftdiDeviceList = new FTDI.FT_DEVICE_INFO_NODE[_ftdiDeviceCount];
 
-                Thread.Sleep(500);
+                    // Populate our device list
+                    _status = FTDIDevice.GetDeviceList(ftdiDeviceList);
+
+                    // Open first device in our list by serial number
+                    _status = FTDIDevice.OpenBySerialNumber(ftdiDeviceList[0].SerialNumber);
+
+                    if (_status == FTDI.FT_STATUS.FT_OK)
+                    {
+                        // Set Baud rate to 9600
+                        _status = FTDIDevice.SetBaudRate(9600);
+
+                        // Set FT245RL to synchronous bit-bang mode, used on sainsmart relay board
+                        FTDIDevice.SetBitMode(0xFF, FTDI.FT_BIT_MODES.FT_BIT_MODE_SYNC_BITBANG);
+                        // Switch off all the relays
+                        FTDIDevice.Write(_startup, 1, ref _bytesToSend);
+                    }
+                }
+
+                USBConnected = _ftdiDeviceCount != 0;
+
+                Thread.Sleep(250);
             }
         }
     }

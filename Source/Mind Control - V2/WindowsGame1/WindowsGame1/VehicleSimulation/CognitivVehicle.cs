@@ -52,16 +52,22 @@ namespace WindowsGame1.VehicleSimulation
 
         public Vehicle Vehicle { get; private set; }
 
+        public IEnumerable<EdkDll.EE_CognitivAction_t> AllowedActions
+        {
+            get { return _allowedActions; }
+            set { _allowedActions = value; }
+        }
+
         #endregion
 
         //--------------------------------------------------------------
         #region Creation and Cleanup
 
-        public CognitivVehicle(IServiceLocator services, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
+        public CognitivVehicle(IServiceLocator services, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions = null)
         {
             _services = services;
             _emoEngine = emoEngine;
-            _allowedActions = allowedActions;
+            _allowedActions = allowedActions ?? new List<EdkDll.EE_CognitivAction_t>();
             Name = "Vehicle";
 
             _inputService = _services.GetInstance<IInputService>();

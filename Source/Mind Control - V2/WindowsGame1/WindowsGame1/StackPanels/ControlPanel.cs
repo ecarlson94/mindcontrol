@@ -43,25 +43,22 @@ namespace WindowsGame1.StackPanels
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
-            if (MenuState != MenuState.Practice)
+            if (MenuState == MenuState.Main)
             {
                 bool headsetOn = emoEngine.HeadsetOn();
                 bool headsetOnHead = emoEngine.HeadsetOnHead();
-                bool allCognitivActionsTrained = emoEngine.AllCognitivActionsTrained();
+                bool twoActionsTrained = emoEngine.AtLeastTwoCogActionsTrained();
                 bool goodContactQuality = emoEngine.OverallGoodQuality();
 
-                if (MenuState == MenuState.Main)
-                {
-                    practiceButton.IsEnabled = headsetOn &&
-                                               emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
-                                               && headsetOnHead && goodContactQuality;
+                practiceButton.IsEnabled = headsetOn &&
+                                           twoActionsTrained
+                                           && headsetOnHead && goodContactQuality;
 
-                    rcCarButton.IsEnabled = headsetOn && allCognitivActionsTrained
-                                            && headsetOnHead && goodContactQuality;
+                rcCarButton.IsEnabled = headsetOn && twoActionsTrained
+                                        && headsetOnHead && goodContactQuality;
 
-                    settings.IsEnabled = headsetOn
+                settings.IsEnabled = headsetOn
                                          && headsetOnHead && goodContactQuality;
-                }
 
                 if (emoEngine.Profile != String.Empty && !(headsetOn && headsetOnHead && goodContactQuality))
                 {
@@ -117,10 +114,7 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 FocusWhenMouseOver = false,
             };
-            rcCarButton.Click += (s, e) =>
-            {
-                //TODO: implement remote control car funtionality
-            };
+            rcCarButton.Click += (s, e) => MenuState = MenuState.RCCar;
 
             settings = new Button
             {

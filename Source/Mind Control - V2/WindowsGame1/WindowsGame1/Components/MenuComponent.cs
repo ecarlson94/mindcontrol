@@ -1,4 +1,5 @@
-﻿using DigitalRune;
+﻿using WindowsGame1.Enums;
+using DigitalRune;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
@@ -123,9 +124,16 @@ namespace WindowsGame1.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (_controlPanel != null && _controlPanel.MenuState == Enums.MenuState.Practice)
+            if (_controlPanel != null)
             {
-                Game.Components.Add(new VehicleComponent(Game, EmoEngine));
+                if (_controlPanel.MenuState == MenuState.Practice)
+                {
+                    Game.Components.Add(new VehicleComponent(Game, EmoEngine));
+                }
+                else if (_controlPanel.MenuState == MenuState.RCCar)
+                {
+                    Game.Components.Add(new RCCarComponent(Game, EmoEngine));
+                }
             }
             base.Update(gameTime);
         }

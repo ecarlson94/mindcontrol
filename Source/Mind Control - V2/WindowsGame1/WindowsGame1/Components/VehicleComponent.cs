@@ -1,6 +1,7 @@
 ﻿using DigitalRune.Game.UI;
 using DigitalRune.Graphics;
 using DigitalRune.Physics.ForceEffects;
+using DigitalRune.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
@@ -41,6 +42,8 @@ namespace WindowsGame1.VehicleSimulation
 
             EnableMouseCentering = false;
             GraphicsScreen.DrawReticle = false;
+
+            Parallel.StartBackground(LoadAssets);
 
             CreateGUI();
         }
@@ -85,6 +88,10 @@ namespace WindowsGame1.VehicleSimulation
             GameObjectService.Objects.Add(new Sky(Services));
             GameObjectService.Objects.Add(new Ground(Services));
 
+            //Add the game object which controls a vehicle here
+            _cognitivVehicle = new CognitivVehicle(Services, EmoEngine);
+            GameObjectService.Objects.Add(_cognitivVehicle);
+
             //Add the camera object attached to chassis of the vehicle
             _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
             GameObjectService.Objects.Add(_vehicleCamera);
@@ -99,9 +106,7 @@ namespace WindowsGame1.VehicleSimulation
             var actions = (sender as DirectionCheckboxWindow).AllowedActions;
             if (actions.Any())
             {
-                //Add the game object which controls a vehicle here
-                _cognitivVehicle = new CognitivVehicle(Services, EmoEngine, actions);
-                GameObjectService.Objects.Add(_cognitivVehicle);
+                _cognitivVehicle.AllowedActions = actions;
 
                 GraphicsScreen.DrawReticle = true;
                 EnableMouseCentering = true;

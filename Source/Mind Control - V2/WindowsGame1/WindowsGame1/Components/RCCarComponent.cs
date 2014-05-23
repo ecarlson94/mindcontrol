@@ -117,7 +117,7 @@ namespace WindowsGame1.Components
             if (actions.Any())
             {
                 _allowedActions = actions;
-
+                RestrictDirections(_allowedActions);
             }
             else
                 cancelEventArgs.Cancel = true;
@@ -125,7 +125,17 @@ namespace WindowsGame1.Components
 
         private void RestrictDirections(IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
         {
-            
+            List<EdkDll.EE_CognitivAction_t> allActions = new List<EdkDll.EE_CognitivAction_t>();
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+
+            foreach (var action in allowedActions)
+            {
+                if(!allowedActions.Contains(action))
+                    EmoEngine.SetCognitivActionInactive(action);
+            }
         } 
 
         private void RcCarForward()
@@ -177,6 +187,8 @@ namespace WindowsGame1.Components
 
                 //Dispose the _relay
                 _relay.SafeDispose();
+
+                EmoEngine.SetAllTrainedCognitivActionActive();
             }
             base.Dispose(disposing);
         }

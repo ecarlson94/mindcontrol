@@ -1,7 +1,9 @@
-﻿using DigitalRune.Game.UI;
+﻿using System.Collections.Generic;
+using DigitalRune.Game.UI;
 using DigitalRune.Graphics;
 using DigitalRune.Physics.ForceEffects;
 using DigitalRune.Threading;
+using Emotiv;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
@@ -43,8 +45,6 @@ namespace WindowsGame1.VehicleSimulation
             EnableMouseCentering = false;
             GraphicsScreen.DrawReticle = false;
 
-            Parallel.StartBackground(LoadAssets);
-
             CreateGUI();
         }
         protected override void Dispose(bool disposing)
@@ -78,29 +78,6 @@ namespace WindowsGame1.VehicleSimulation
             _directionCheck.Show(_uiGraphicsScreen.UIScreen);
         }
 
-        private void LoadAssets()
-        {
-            //Add basic force effects
-            Simulation.ForceEffects.Add(new Gravity());
-            Simulation.ForceEffects.Add(new Damping());
-
-            //Add the sky and ground objects here
-            GameObjectService.Objects.Add(new Sky(Services));
-            GameObjectService.Objects.Add(new Ground(Services));
-
-            //Add the game object which controls a vehicle here
-            _cognitivVehicle = new CognitivVehicle(Services, EmoEngine);
-            GameObjectService.Objects.Add(_cognitivVehicle);
-
-            //Add the camera object attached to chassis of the vehicle
-            _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
-            GameObjectService.Objects.Add(_vehicleCamera);
-            GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
-
-            GraphicsService.Screens.Remove(_uiGraphicsScreen);
-            _uiGraphicsScreen.Dispose();
-        }
-
         private void DirectionCheckOnClosing(object sender, CancelEventArgs cancelEventArgs)
         {
             var actions = (sender as DirectionCheckboxWindow).AllowedActions;
@@ -108,12 +85,47 @@ namespace WindowsGame1.VehicleSimulation
             {
                 _cognitivVehicle.AllowedActions = actions;
 
+                //Add basic force effects
+                Simulation.ForceEffects.Add(new Gravity());
+                Simulation.ForceEffects.Add(new Damping());
+
+                //Add the sky and ground objects here
+                GameObjectService.Objects.Add(new Sky(Services));
+                GameObjectService.Objects.Add(new Ground(Services));
+
+                //Add the game object which controls a vehicle here
+                _cognitivVehicle = new CognitivVehicle(Services, EmoEngine);
+                GameObjectService.Objects.Add(_cognitivVehicle);
+
+                //Add the camera object attached to chassis of the vehicle
+                _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
+                GameObjectService.Objects.Add(_vehicleCamera);
+                GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
+
                 GraphicsScreen.DrawReticle = true;
                 EnableMouseCentering = true;
+                RestrictDirections(actions);
+                GraphicsService.Screens.Remove(_uiGraphicsScreen);
+                //_uiGraphicsScreen.Dispose();
             }
             else
                 cancelEventArgs.Cancel = true;
         }
+
+        private void RestrictDirections(IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
+        {
+            List<EdkDll.EE_CognitivAction_t> allActions = new List<EdkDll.EE_CognitivAction_t>();
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+            allActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+
+            foreach (var action in allowedActions)
+            {
+                if (!allowedActions.Contains(action))
+                    EmoEngine.SetCognitivActionInactive(action);
+            }
+        } 
 
         #endregion
 

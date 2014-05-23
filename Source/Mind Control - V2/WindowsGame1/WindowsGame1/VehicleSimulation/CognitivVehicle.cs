@@ -168,7 +168,7 @@ namespace WindowsGame1.VehicleSimulation
                 UpdateSteeringAngle(deltaTimeF);
 
                 //Update acceleration from up/down arrow keys.
-                //If the vehicle is not accelerating or at top speed, the brakes
+                //TBD: If the vehicle is not accelerating or at top speed, the brakes
                 //will automatically be turned on
                 UpdateAcceleration(deltaTimeF);
 //                if (UpdateAcceleration(deltaTimeF))

@@ -60,10 +60,13 @@ namespace WindowsGame1.Windows
             };
             forwardCheck.Click += (s, e) =>
             {
-                if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_PUSH))
-                    AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_PUSH);
-                else
-                    AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+                lock (AllowedActions)
+                {
+                    if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_PUSH))
+                        AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_PUSH);
+                    else
+                        AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_PUSH);
+                }
             };
             stackPanel.Children.Add(forwardCheck);
 
@@ -77,10 +80,13 @@ namespace WindowsGame1.Windows
             };
             backwardCheck.Click += (s, e) =>
             {
-                if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_PULL))
-                    AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_PULL);
-                else
-                    AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
+                lock (AllowedActions)
+                {
+                    if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_PULL))
+                        AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_PULL);
+                    else
+                        AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_PULL);
+                }
             };
             stackPanel.Children.Add(backwardCheck);
 
@@ -94,10 +100,13 @@ namespace WindowsGame1.Windows
             };
             leftCheck.Click += (s, e) =>
             {
-                if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_LEFT))
-                    AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_LEFT);
-                else
-                    AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+                lock (AllowedActions)
+                {
+                    if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_LEFT))
+                        AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_LEFT);
+                    else
+                        AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
+                }
             };
             stackPanel.Children.Add(leftCheck);
 
@@ -111,10 +120,13 @@ namespace WindowsGame1.Windows
             };
             rightCheck.Click += (s, e) =>
             {
-                if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_RIGHT))
-                    AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_RIGHT);
-                else
-                    AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+                lock (AllowedActions)
+                {
+                    if (AllowedActions.Contains(EdkDll.EE_CognitivAction_t.COG_RIGHT))
+                        AllowedActions.Remove(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+                    else
+                        AllowedActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
+                }
             };
             stackPanel.Children.Add(rightCheck);
 

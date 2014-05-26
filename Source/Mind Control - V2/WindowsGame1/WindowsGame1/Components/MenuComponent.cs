@@ -1,4 +1,6 @@
-﻿using WindowsGame1.Enums;
+﻿using System.ComponentModel;
+using System.Linq;
+using WindowsGame1.Enums;
 using DigitalRune;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
@@ -126,16 +128,36 @@ namespace WindowsGame1.Components
         {
             if (_controlPanel != null)
             {
-                if (_controlPanel.MenuState == MenuState.Practice)
+                if (_controlPanel.MenuState != MenuState.Main)
                 {
-                    Game.Components.Add(new VehicleComponent(Game, EmoEngine));
-                }
-                else if (_controlPanel.MenuState == MenuState.RCCar)
-                {
-                    Game.Components.Add(new RCCarComponent(Game, EmoEngine));
+                    var directionCheck = new DirectionCheckboxWindow(EmoEngine)
+                    {
+                        IsModal = true,
+                    };
+                    directionCheck.Closing += DirectionCheckOnClosing;
+                    _uiScreen.Children.Add(directionCheck);
                 }
             }
             base.Update(gameTime);
+        }
+
+        private void DirectionCheckOnClosing(object sender, CancelEventArgs cancelEventArgs)
+        {
+            var actions = (sender as DirectionCheckboxWindow).AllowedActions;
+            if (actions.Any())
+            {
+                switch (_controlPanel.MenuState)
+                {
+                    case MenuState.Practice:
+                        Game.Components.Add(new VehicleComponent(Game, EmoEngine, actions));
+                        break;
+                    case MenuState.RCCar:
+                        Game.Components.Add(new RCCarComponent(Game, EmoEngine, actions));
+                        break;
+                }
+            }
+            else
+                cancelEventArgs.Cancel = true;
         }
 
         #endregion

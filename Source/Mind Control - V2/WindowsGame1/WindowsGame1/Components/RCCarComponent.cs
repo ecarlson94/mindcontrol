@@ -41,12 +41,13 @@ namespace WindowsGame1.Components
         //--------------------------------------------------------------
         #region Creation
 
-        public RCCarComponent(Game game, EmoEngineManager emoEngine)
+        public RCCarComponent(Game game, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
             : base(game, emoEngine)
         {
             RemoveBaseComponents();
 
-            _allowedActions = new List<EdkDll.EE_CognitivAction_t>();
+            _allowedActions = allowedActions;
+            RestrictDirections(_allowedActions);
             _relay = new USBRelay();
 
             EnableMouseCentering = false;
@@ -78,14 +79,6 @@ namespace WindowsGame1.Components
                 VerticalAlignment = VerticalAlignment.Center,
             };
             _uiScreen.Children.Add(_rcCarTextBlock);
-
-            _directionCheck = new DirectionCheckboxWindow(EmoEngine)
-            {
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-            };
-            _directionCheck.Closing += DirectionCheckOnClosing;
-            _directionCheck.Show(_uiScreen);
         }
 
         private void LoadTheme()
@@ -111,18 +104,6 @@ namespace WindowsGame1.Components
             _uiScreen.Draw(context.DeltaTime);
         }
 
-        private void DirectionCheckOnClosing(object sender, CancelEventArgs cancelEventArgs)
-        {
-            var actions = (sender as DirectionCheckboxWindow).AllowedActions;
-            if (actions.Any())
-            {
-                _allowedActions = actions;
-                RestrictDirections(_allowedActions);
-            }
-            else
-                cancelEventArgs.Cancel = true;
-        }
-
         private void RestrictDirections(IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
         {
             List<EdkDll.EE_CognitivAction_t> allActions = new List<EdkDll.EE_CognitivAction_t>();
@@ -140,18 +121,18 @@ namespace WindowsGame1.Components
 
         private void RcCarForward()
         {
-            _relay.RelaySwitch(RelayNumber.One, RelayState.On);
+            _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
-            _relay.RelaySwitch(RelayNumber.Three, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Three, RelayState.On);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
         }
 
         private void RcCarBackward()
         {
             _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.On);
-            _relay.RelaySwitch(RelayNumber.Three, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Three, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Two, RelayState.On);
         }
 
         private void RcCarTurnLeft()
@@ -164,10 +145,10 @@ namespace WindowsGame1.Components
 
         private void RcCarTurnRight()
         {
-            _relay.RelaySwitch(RelayNumber.One, RelayState.On);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
-            _relay.RelaySwitch(RelayNumber.Three, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.On);
+            _relay.RelaySwitch(RelayNumber.Three, RelayState.On);
+            _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
         }
 
         #endregion

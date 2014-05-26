@@ -159,7 +159,7 @@ namespace WindowsGame1.VehicleSimulation
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
-            if (_inputService.EnableMouseCentering)
+            if (_inputService.EnableMouseCentering)// && AllowedActions.Any())
             {
                 _currentAction = _emoEngine.CurrentCognitivAction();
                 float deltaTimeF = (float) deltaTime.TotalSeconds;

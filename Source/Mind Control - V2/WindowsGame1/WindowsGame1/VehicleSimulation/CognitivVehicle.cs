@@ -270,24 +270,19 @@ namespace WindowsGame1.VehicleSimulation
             //var gamePadState = _inputService.GetGamePadState(LogicalPlayerIndex.One);
             //direction += gamePadState.Triggers.Right - gamePadState.Triggers.Left;
 
-            //if (direction == 0)
-            //{
-            //    //No acceleratoin Bring motor frce down to 0;
-            //    brake = true;
-            //    if (_motorForce > 0)
-            //        _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);
-            //    else if (_motorForce < 0)
-            //        _motorForce = MathHelper.Clamp(_motorForce + change, -MaxForce, 0);
-            //}
-            //else
-            //{
-            //    //Increase motor force
-            //    _motorForce = MathHelper.Clamp(_motorForce + direction*change, -MaxForce, +MaxForce);
-            //}
-
-            if (direction != 0)
+            if (direction == 0)
             {
-                _motorForce = MathHelper.Clamp(_motorForce + direction * change, -MaxForce, +MaxForce);
+                //No acceleratoin Bring motor frce down to 0;
+                brake = true;
+                if (_motorForce > 0)
+                    _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);
+                else if (_motorForce < 0)
+                    _motorForce = MathHelper.Clamp(_motorForce + change, -MaxForce, 0);
+            }
+            else
+            {
+                //Increase motor force
+                _motorForce = MathHelper.Clamp(_motorForce + direction*change, -MaxForce, +MaxForce);
             }
 
             //Motorize each wheel

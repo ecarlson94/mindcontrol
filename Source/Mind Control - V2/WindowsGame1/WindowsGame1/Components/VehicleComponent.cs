@@ -1,4 +1,6 @@
-﻿using DigitalRune.Physics.ForceEffects;
+﻿using DigitalRune.Geometry.Shapes;
+using DigitalRune.Physics;
+using DigitalRune.Physics.ForceEffects;
 using Emotiv;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -41,8 +43,10 @@ namespace WindowsGame1.VehicleSimulation
             //Add the sky and ground objects here
             _sceneSky = new Sky(Services);
             GameObjectService.Objects.Add(_sceneSky);
-            _sceneGround = new Ground(Services);
-            GameObjectService.Objects.Add(_sceneGround);
+            //_sceneGround = new Ground(Services);
+            //GameObjectService.Objects.Add(_sceneGround);
+            var ground = new RigidBody(new PlaneShape()) {MotionType = MotionType.Static};
+            Simulation.RigidBodies.Add(ground);
 
             //Add the game object which controls a vehicle here
             _cognitivVehicle = new CognitivVehicle(Services, EmoEngine, allowedActions);

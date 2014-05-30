@@ -19,6 +19,8 @@ namespace WindowsGame1.VehicleSimulation
         private CognitivVehicle _cognitivVehicle;
         private VehicleCamera _vehicleCamera;
         //scene goes here...
+        private Sky _sceneSky;
+        private Ground _sceneGround;
 
         private DirectionCheckboxWindow _directionCheck;
 
@@ -37,8 +39,10 @@ namespace WindowsGame1.VehicleSimulation
             Simulation.ForceEffects.Add(new Damping());
 
             //Add the sky and ground objects here
-            GameObjectService.Objects.Add(new Sky(Services));
-            GameObjectService.Objects.Add(new Ground(Services));
+            _sceneSky = new Sky(Services);
+            GameObjectService.Objects.Add(_sceneSky);
+            _sceneGround = new Ground(Services);
+            GameObjectService.Objects.Add(_sceneGround);
 
             //Add the game object which controls a vehicle here
             _cognitivVehicle = new CognitivVehicle(Services, EmoEngine, allowedActions);
@@ -48,8 +52,7 @@ namespace WindowsGame1.VehicleSimulation
             _vehicleCamera = new VehicleCamera(_cognitivVehicle.Vehicle.Chassis, Services);
             GameObjectService.Objects.Add(_vehicleCamera);
             GraphicsScreen.CameraNode3D = _vehicleCamera.CameraNode;
-
-            GraphicsScreen.DrawReticle = true;
+            
             EnableMouseCentering = true;
             RestrictDirections(allowedActions);
         }
@@ -59,8 +62,12 @@ namespace WindowsGame1.VehicleSimulation
             {
                 GameObjectService.Objects.Remove(_cognitivVehicle);
                 GameObjectService.Objects.Remove(_vehicleCamera);
+                GameObjectService.Objects.Remove(_sceneGround);
+                GameObjectService.Objects.Remove(_sceneSky);
                 // Remove graphics screen from graphics service
+                GraphicsScreen.CameraNode3D = null;
             }
+
             base.Dispose(disposing);
         }
 

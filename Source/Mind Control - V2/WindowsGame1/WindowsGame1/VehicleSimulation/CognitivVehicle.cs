@@ -171,19 +171,21 @@ namespace WindowsGame1.VehicleSimulation
                 //TBD: If the vehicle is not accelerating or at top speed, the brakes
                 //will automatically be turned on
                 UpdateAcceleration(deltaTimeF);
-//                if (UpdateAcceleration(deltaTimeF))
-//                {
-//                    const float brakeForce = 6000;
-//                    Vehicle.Wheels[2].MotorForce = 0;
-//                    Vehicle.Wheels[3].MotorForce = 0;
-//                    Vehicle.Wheels[2].BrakeForce = brakeForce;
-//                    Vehicle.Wheels[3].BrakeForce = brakeForce;
-//                }
-//                else
-//                {
-//                    Vehicle.Wheels[2].BrakeForce = 0;
-//                    Vehicle.Wheels[3].BrakeForce = 0;
-//                }
+
+                //apply brakes if the space key is pressed
+                if (_inputService.IsDown(Keys.Space))
+                {
+                    const float brakeForce = 6000;
+                    Vehicle.Wheels[2].MotorForce = 0;
+                    Vehicle.Wheels[3].MotorForce = 0;
+                    Vehicle.Wheels[2].BrakeForce = brakeForce;
+                    Vehicle.Wheels[3].BrakeForce = brakeForce;
+                }
+                else
+                {
+                    Vehicle.Wheels[2].BrakeForce = 0;
+                    Vehicle.Wheels[3].BrakeForce = 0;
+                }
 
                 //Update poses of graphics models
                 _vehicleModelNode.SetLastPose(true);
@@ -215,13 +217,21 @@ namespace WindowsGame1.VehicleSimulation
             float change = SteeringRate*deltaTime;
 
             float direction = 0;
-            if (_allowedActions.Contains(_currentAction))
-            {
-                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT)
-                    direction += 1;
-                else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
-                    direction -= 1;
-            }
+            if (_inputService.IsDown(Keys.A))
+                direction += 1;
+            if (_inputService.IsDown(Keys.D))
+                direction -= 1;
+
+            var gamePadState = _inputService.GetGamePadState(LogicalPlayerIndex.One);
+            direction -= gamePadState.ThumbSticks.Left.X;
+
+            //if (_allowedActions.Contains(_currentAction))
+            //{
+            //    if (_currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT)
+            //        direction += 1;
+            //    else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
+            //        direction -= 1;
+            //}
 
             if (direction == 0)
             {
@@ -252,33 +262,32 @@ namespace WindowsGame1.VehicleSimulation
             float change = AccelerationRate*deltaTime;
 
             float direction = 0;
-//            if (_allowedActions.Contains(_currentAction))
-//            {
-//                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PUSH
-//                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT
-//                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
-                if(_inputService.IsDown(Keys.W))
-                {
-                    direction += 1;
-                }
-                else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PULL)
-                    direction -= 1;
-//            }
+            if (_inputService.IsDown(Keys.W))
+                direction += 1;
+            if (_inputService.IsDown(Keys.S))
+                direction -= 1;
 
-            if (direction == 0)
+            //var gamePadState = _inputService.GetGamePadState(LogicalPlayerIndex.One);
+            //direction += gamePadState.Triggers.Right - gamePadState.Triggers.Left;
+
+            //if (direction == 0)
+            //{
+            //    //No acceleratoin Bring motor frce down to 0;
+            //    brake = true;
+            //    if (_motorForce > 0)
+            //        _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);
+            //    else if (_motorForce < 0)
+            //        _motorForce = MathHelper.Clamp(_motorForce + change, -MaxForce, 0);
+            //}
+            //else
+            //{
+            //    //Increase motor force
+            //    _motorForce = MathHelper.Clamp(_motorForce + direction*change, -MaxForce, +MaxForce);
+            //}
+
+            if (direction != 0)
             {
-                //No acceleratoin Bring motor frce down to 0;
-                brake = true;
-                if (_motorForce > 0)
-                    _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);
-                else if (_motorForce < 0)
-                    _motorForce = MathHelper.Clamp(_motorForce + change, -MaxForce, 0);
-            }
-            else
-            {
-                //Increase motor force
-                brake = false;
-                _motorForce = MathHelper.Clamp(_motorForce + direction*change, -MaxForce, +MaxForce);
+                _motorForce = MathHelper.Clamp(_motorForce + direction * change, -MaxForce, +MaxForce);
             }
 
             //Motorize each wheel

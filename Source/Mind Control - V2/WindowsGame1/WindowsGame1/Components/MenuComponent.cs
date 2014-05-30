@@ -2,6 +2,7 @@
 using System.Linq;
 using WindowsGame1.Enums;
 using DigitalRune;
+using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
@@ -126,17 +127,18 @@ namespace WindowsGame1.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (_controlPanel != null)
+            if (_uiScreen.Children.Contains(_controlPanel) && _controlPanel.MenuState != MenuState.Main)
             {
-                if (_controlPanel.MenuState != MenuState.Main)
+                _uiScreen.Children.Remove(_controlPanel);
+
+                var directionCheck = new DirectionCheckboxWindow(EmoEngine)
                 {
-                    var directionCheck = new DirectionCheckboxWindow(EmoEngine)
-                    {
-                        IsModal = true,
-                    };
-                    directionCheck.Closing += DirectionCheckOnClosing;
-                    _uiScreen.Children.Add(directionCheck);
-                }
+                    IsModal = true,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                };
+                directionCheck.Closing += DirectionCheckOnClosing;
+                _uiScreen.Children.Add(directionCheck);
             }
             base.Update(gameTime);
         }

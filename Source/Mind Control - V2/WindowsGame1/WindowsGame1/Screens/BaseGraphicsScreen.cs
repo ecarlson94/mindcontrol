@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DigitalRune.Geometry;
+﻿using DigitalRune.Geometry;
 using DigitalRune.Graphics;
 using DigitalRune.Graphics.Rendering;
 using DigitalRune.Graphics.SceneGraph;
@@ -11,6 +7,7 @@ using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace WindowsGame1.Screens
 {
@@ -75,12 +72,9 @@ namespace WindowsGame1.Screens
             int height = graphicsDevice.PresentationParameters.BackBufferHeight;
             var projection = new OrthographicProjection
             {
-                Near = 0,
-                Far = 2000,
-                Left = 0,
-                Right = width,
-                Top = 0,
-                Bottom = height,
+                Near = 0, Far = 2000,
+                Left = 0, Right = width,
+                Top = 0, Bottom = height,
             };
             var camera = new Camera(projection);
             _cameraNode2D = new CameraNode(camera)

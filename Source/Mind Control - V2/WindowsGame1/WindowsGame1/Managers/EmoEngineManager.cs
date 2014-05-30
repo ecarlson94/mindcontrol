@@ -260,7 +260,7 @@ namespace WindowsGame1.Managers
         {
             if (Profile != String.Empty)
             {
-                emoEngine.CognitivSetActiveActions(UserID, emoEngine.CognitivGetTrainedSignatureActions(UserID));
+                emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
             }
         }
 

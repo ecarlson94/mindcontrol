@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DigitalRune;
+﻿using DigitalRune;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
@@ -9,7 +6,7 @@ using DigitalRune.Graphics;
 using Emotiv;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Linq;
 using WindowsGame1.Managers;
 using WindowsGame1.RCCar;

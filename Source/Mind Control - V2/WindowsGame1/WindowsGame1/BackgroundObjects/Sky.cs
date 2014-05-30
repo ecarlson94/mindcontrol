@@ -41,8 +41,8 @@ namespace WindowsGame1.BackgroundObjects
                 Color = new Vector3F(0.9f, 0.9f, 1f),
                 HdrScale = 0.1f,
                 Intensity = 0.5f,
+                HemisphericAttenuation = 0.8f,
             };
-
             _ambientLightNode = new LightNode(ambientLight)
             {
                 Name = "Ambient",
@@ -56,7 +56,6 @@ namespace WindowsGame1.BackgroundObjects
                 DiffuseIntensity = 1,
                 SpecularIntensity = 1,
             };
-
             _sunLightNode = new LightNode(sunlight)
             {
                 Name = "Sunlight",
@@ -91,11 +90,11 @@ namespace WindowsGame1.BackgroundObjects
             _skyboxNode.Dispose(false);
             _skyboxNode = null;
 
-            _ambientLightNode.Parent.Children.Remove(_skyboxNode);
+            _ambientLightNode.Parent.Children.Remove(_ambientLightNode);
             _ambientLightNode.Dispose(false);
             _ambientLightNode = null;
 
-            _sunLightNode.Parent.Children.Remove(_skyboxNode);
+            _sunLightNode.Parent.Children.Remove(_sunLightNode);
             _sunLightNode.Dispose(false);
             _sunLightNode = null;
         }

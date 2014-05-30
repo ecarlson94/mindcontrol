@@ -41,7 +41,7 @@ namespace WindowsGame1.Components
                     continue;
 
                 var color = Color.Gray;
-                if (body.MotionType == MotionType.Static && body.IsSleeping)
+                if (body.MotionType == MotionType.Static)
                     color = Color.LightGray;
 
                 debugRenderer.DrawObject(body, color, false, false);

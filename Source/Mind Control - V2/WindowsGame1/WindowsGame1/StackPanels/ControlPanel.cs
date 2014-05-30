@@ -156,7 +156,7 @@ namespace WindowsGame1.StackPanels
             Children.Add(contactQuality);
         }
 
-        private void CloseWindows()
+        public void CloseWindows()
         {
             var windows = Screen.Children.OfType<Window>().ToArray();
 

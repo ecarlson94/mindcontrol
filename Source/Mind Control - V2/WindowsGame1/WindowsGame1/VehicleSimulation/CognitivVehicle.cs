@@ -1,8 +1,10 @@
-﻿using DigitalRune.Game;
+﻿using WindowsGame1.Screens;
+using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Geometry;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Graphics;
+using DigitalRune.Graphics.Rendering;
 using DigitalRune.Graphics.SceneGraph;
 using DigitalRune.Mathematics;
 using DigitalRune.Mathematics.Algebra;
@@ -11,6 +13,7 @@ using DigitalRune.Physics.Materials;
 using DigitalRune.Physics.Specialized;
 using Emotiv;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
@@ -38,8 +41,11 @@ namespace WindowsGame1.VehicleSimulation
         private readonly Simulation _simulation;
 
         //Models for rendering
-        private readonly ModelNode _vehicleModelNode;
-        private readonly ModelNode[] _wheelModelNodes;
+        private ModelNode _vehicleModelNode;
+        private ModelNode[] _wheelModelNodes;
+
+        //DebugRenderer
+        private DebugRenderer _debugRenderer;
 
         //Vehicle values.
         private float _steeringAngle;
@@ -71,7 +77,7 @@ namespace WindowsGame1.VehicleSimulation
             Name = "Vehicle";
 
             _inputService = _services.GetInstance<IInputService>();
-            _simulation = services.GetInstance<Simulation>();
+            _simulation = _services.GetInstance<Simulation>();
 
             //Loading all the models
             var contentManager = _services.GetInstance<ContentManager>();
@@ -98,7 +104,7 @@ namespace WindowsGame1.VehicleSimulation
 
             //Create simplified convex hull from mesh
             var convexHull = GeometryHelper.CreateConvexHull(mesh.Vertices, 64, -0.04f);
-            
+
             //Create convex polyedron shape using the vertices of the convex hull.
             var chassisShape = new ConvexPolyhedron(convexHull.Vertices.Select(v => v.Position));
 
@@ -132,7 +138,9 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Wheels.Add(new Wheel { Offset = new Vector3F(-0.9f, 0.6f, 0.98f), Radius = 0.36f, SuspensionRestLength = 0.55f, MinSuspensionLength = 0.25f, Friction = 1.8f });// Back left
             Vehicle.Wheels.Add(new Wheel { Offset = new Vector3F(0.9f, 0.6f, 0.98f), Radius = 0.36f, SuspensionRestLength = 0.55f, MinSuspensionLength = 0.25f, Friction = 1.8f }); // Back right
 
+            _simulation.RigidBodies.Add(Vehicle.Chassis);
             Vehicle.Enabled = false;
+
         }
 
         #endregion
@@ -145,8 +153,11 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Enabled = true;
 
             //Add graphics model to scene graph.
-            var scene = _services.GetInstance<IScene>();
-            scene.Children.Add(_vehicleModelNode);
+            var graphicsService = _services.GetInstance<IGraphicsService>();
+            var screen = ((BaseGraphicsScreen)graphicsService.Screens["BaseGraphicsScreen"]);
+
+            screen.Scene.Children.Add(_vehicleModelNode);
+            _debugRenderer = screen.DebugRenderer3D;
         }
 
         protected override void OnUnload()
@@ -187,19 +198,13 @@ namespace WindowsGame1.VehicleSimulation
                     Vehicle.Wheels[3].BrakeForce = 0;
                 }
 
-                //Update poses of graphics models
-                _vehicleModelNode.SetLastPose(true);
-                _vehicleModelNode.PoseWorld = Vehicle.Chassis.Pose;
-                for (int i = 0; i < _wheelModelNodes.Length; i++)
-                {
-                    var pose = Vehicle.Wheels[i].Pose;
-                    if (Vehicle.Wheels[i].Offset.X < 0)
-                    {
-                        pose.Orientation = pose.Orientation * Matrix33F.CreateRotationY(ConstantsF.Pi);
-                    }
-                    _wheelModelNodes[i].SetLastPose(true);
-                    _wheelModelNodes[i].PoseWorld = pose;
-                }
+                RealignModels();
+
+                _debugRenderer.DrawAxes(_vehicleModelNode.PoseWorld, 1, true);
+                _debugRenderer.DrawText("Chassis", _vehicleModelNode.PoseWorld.Position, Color.Red, true);
+                _debugRenderer.DrawAxes(Vehicle.Chassis.Pose, 1, true);
+                _debugRenderer.DrawShape(Vehicle.Chassis.Shape, Vehicle.Chassis.Pose, Vehicle.Chassis.Scale, Color.Green, true, true);
+                _debugRenderer.DrawText("vehicle", Vehicle.Chassis.Pose.Position, Color.Green, true);
             }
         }
 
@@ -207,6 +212,23 @@ namespace WindowsGame1.VehicleSimulation
 
         //--------------------------------------------------------------
         #region Private Methods
+
+        private void RealignModels()
+        {
+            //Update poses of graphics models
+            _vehicleModelNode.SetLastPose(true);
+            _vehicleModelNode.PoseWorld = Vehicle.Chassis.Pose;
+            for (int i = 0; i < _wheelModelNodes.Length; i++)
+            {
+                var pose = Vehicle.Wheels[i].Pose;
+                if (Vehicle.Wheels[i].Offset.X < 0)
+                {
+                    pose.Orientation = pose.Orientation * Matrix33F.CreateRotationY(ConstantsF.Pi);
+                }
+                _wheelModelNodes[i].SetLastPose(true);
+                _wheelModelNodes[i].PoseWorld = pose;
+            }
+        }
 
         private void UpdateSteeringAngle(float deltaTime)
         {
@@ -221,17 +243,6 @@ namespace WindowsGame1.VehicleSimulation
                 direction += 1;
             if (_inputService.IsDown(Keys.D))
                 direction -= 1;
-
-            var gamePadState = _inputService.GetGamePadState(LogicalPlayerIndex.One);
-            direction -= gamePadState.ThumbSticks.Left.X;
-
-            //if (_allowedActions.Contains(_currentAction))
-            //{
-            //    if (_currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT)
-            //        direction += 1;
-            //    else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
-            //        direction -= 1;
-            //}
 
             if (direction == 0)
             {
@@ -267,9 +278,6 @@ namespace WindowsGame1.VehicleSimulation
             if (_inputService.IsDown(Keys.S))
                 direction -= 1;
 
-            //var gamePadState = _inputService.GetGamePadState(LogicalPlayerIndex.One);
-            //direction += gamePadState.Triggers.Right - gamePadState.Triggers.Left;
-
             if (direction == 0)
             {
                 //No acceleratoin Bring motor frce down to 0;
@@ -292,6 +300,13 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Wheels[3].MotorForce = _motorForce;
 
             return brake;
+        }
+
+        public void Respawn()
+        {
+            Vehicle.Chassis.Pose = new Pose(new Vector3F(0, 2, 0));
+            Vehicle.Chassis.LinearVelocity = Vector3F.Zero;
+            Vehicle.Chassis.AngularVelocity = Vector3F.Zero;
         }
 
         #endregion

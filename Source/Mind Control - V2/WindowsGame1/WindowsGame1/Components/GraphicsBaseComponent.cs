@@ -37,7 +37,7 @@ namespace WindowsGame1.Components
             debugRenderer.Clear();
             foreach (var body in Simulation.RigidBodies)
             {
-                if (body.UserData is string && (string) body.UserData == "NoDraw")
+                if (body.UserData is string && (string)body.UserData == "NoDraw")
                     continue;
 
                 var color = Color.Gray;

@@ -131,5 +131,15 @@ namespace WindowsGame1.Screens
         }
 
         #endregion
+
+        protected override void OnUpdate(TimeSpan deltaTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnRender(RenderContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

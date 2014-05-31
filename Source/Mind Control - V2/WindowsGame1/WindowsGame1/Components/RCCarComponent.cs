@@ -121,7 +121,7 @@ namespace WindowsGame1.Components
             _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Three, RelayState.On);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Four, RelayState.Off);
         }
 
         private void RcCarBackward()
@@ -129,7 +129,7 @@ namespace WindowsGame1.Components
             _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Three, RelayState.Off);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.On);
+            _relay.RelaySwitch(RelayNumber.Four, RelayState.On);
         }
 
         private void RcCarTurnLeft()
@@ -137,7 +137,7 @@ namespace WindowsGame1.Components
             _relay.RelaySwitch(RelayNumber.One, RelayState.On);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Three, RelayState.On);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Four, RelayState.Off);
         }
 
         private void RcCarTurnRight()
@@ -145,7 +145,7 @@ namespace WindowsGame1.Components
             _relay.RelaySwitch(RelayNumber.One, RelayState.Off);
             _relay.RelaySwitch(RelayNumber.Two, RelayState.On);
             _relay.RelaySwitch(RelayNumber.Three, RelayState.On);
-            _relay.RelaySwitch(RelayNumber.Two, RelayState.Off);
+            _relay.RelaySwitch(RelayNumber.Four, RelayState.Off);
         }
 
         #endregion

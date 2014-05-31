@@ -34,9 +34,9 @@ namespace WindowsGame1.VehicleSimulation
 
         //Emo Engine properties
         private EmoEngineManager _emoEngine;
-        private EdkDll.EE_CognitivAction_t _currentAction;
-            //Actions the car can use for it's directional movement
-        private IEnumerable<EdkDll.EE_CognitivAction_t> _allowedActions; 
+        //private EdkDll.EE_CognitivAction_t _currentAction;
+        //    //Actions the car can use for it's directional movement
+        //private IEnumerable<EdkDll.EE_CognitivAction_t> _allowedActions; 
 
         private readonly Simulation _simulation;
 
@@ -58,12 +58,6 @@ namespace WindowsGame1.VehicleSimulation
 
         public Vehicle Vehicle { get; private set; }
 
-        public IEnumerable<EdkDll.EE_CognitivAction_t> AllowedActions
-        {
-            get { return _allowedActions; }
-            set { _allowedActions = value; }
-        }
-
         #endregion
 
         //--------------------------------------------------------------
@@ -73,7 +67,7 @@ namespace WindowsGame1.VehicleSimulation
         {
             _services = services;
             _emoEngine = emoEngine;
-            _allowedActions = allowedActions ?? new List<EdkDll.EE_CognitivAction_t>();
+            //_allowedActions = allowedActions ?? new List<EdkDll.EE_CognitivAction_t>();
             Name = "Vehicle";
 
             _inputService = _services.GetInstance<IInputService>();
@@ -126,7 +120,7 @@ namespace WindowsGame1.VehicleSimulation
             var chassis = new RigidBody(chassisShape, mass, material)
             {
                 Pose = new Pose(new Vector3F(0, 2, 0)),// Start Position
-                UserData = "NoDraw",
+                //UserData = "NoDraw",
             };
 
             //Create the vehicle
@@ -138,7 +132,6 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Wheels.Add(new Wheel { Offset = new Vector3F(-0.9f, 0.6f, 0.98f), Radius = 0.36f, SuspensionRestLength = 0.55f, MinSuspensionLength = 0.25f, Friction = 1.8f });// Back left
             Vehicle.Wheels.Add(new Wheel { Offset = new Vector3F(0.9f, 0.6f, 0.98f), Radius = 0.36f, SuspensionRestLength = 0.55f, MinSuspensionLength = 0.25f, Friction = 1.8f }); // Back right
 
-            _simulation.RigidBodies.Add(Vehicle.Chassis);
             Vehicle.Enabled = false;
 
         }
@@ -172,7 +165,7 @@ namespace WindowsGame1.VehicleSimulation
         {
             if (_inputService.EnableMouseCentering)// && AllowedActions.Any())
             {
-                _currentAction = _emoEngine.CurrentCognitivAction();
+                //_currentAction = _emoEngine.CurrentCognitivAction();
                 float deltaTimeF = (float) deltaTime.TotalSeconds;
 
                 //Update steering direction from left/right movement
@@ -187,10 +180,8 @@ namespace WindowsGame1.VehicleSimulation
                 if (_inputService.IsDown(Keys.Space))
                 {
                     const float brakeForce = 6000;
-                    Vehicle.Wheels[2].MotorForce = 0;
-                    Vehicle.Wheels[3].MotorForce = 0;
-                    Vehicle.Wheels[2].BrakeForce = brakeForce;
-                    Vehicle.Wheels[3].BrakeForce = brakeForce;
+                    Vehicle.Wheels[2].MotorForce = Vehicle.Wheels[3].MotorForce = 0;
+                    Vehicle.Wheels[2].BrakeForce = Vehicle.Wheels[3].BrakeForce = brakeForce;
                 }
                 else
                 {

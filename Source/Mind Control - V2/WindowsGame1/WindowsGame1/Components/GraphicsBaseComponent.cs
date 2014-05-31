@@ -1,5 +1,6 @@
 ﻿using DigitalRune.Graphics.Rendering;
 using DigitalRune.Graphics.SceneGraph;
+using DigitalRune.Mathematics.Algebra;
 using DigitalRune.Physics;
 using Microsoft.Xna.Framework;
 using WindowsGame1.Managers;
@@ -9,6 +10,9 @@ namespace WindowsGame1.Components
 {
     public class GraphicsBaseComponent : BaseComponent
     {
+        private readonly DefaultLightsObject _defaultLightsObject;
+        private CameraObject _cameraObject;
+
         protected BaseGraphicsScreen GraphicsScreen { get; private set; }
 
         protected GraphicsBaseComponent(Game game, EmoEngineManager emoEngine) : base(game, emoEngine)
@@ -24,29 +28,9 @@ namespace WindowsGame1.Components
             Services.Register(typeof(DebugRenderer), "DebugRenderer2D", GraphicsScreen.DebugRenderer2D);
             Services.Register(typeof(IScene), null, GraphicsScreen.Scene);
 
-            GraphicsScreen.ClearBackground = true;
-            GraphicsScreen.BackgroundColor = Color.White;
-            GraphicsScreen.DrawReticle = true;
-
-            //TODO: TBD add a default light setup here
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            var debugRenderer = GraphicsScreen.DebugRenderer3D;
-            debugRenderer.Clear();
-            foreach (var body in Simulation.RigidBodies)
-            {
-                if (body.UserData is string && (string)body.UserData == "NoDraw")
-                    continue;
-
-                var color = Color.Gray;
-                if (body.MotionType == MotionType.Static)
-                    color = Color.LightGray;
-
-                debugRenderer.DrawObject(body, color, false, false);
-            }
-            base.Update(gameTime);
+            //Add a default light setup (ambient light +3 directional lights
+            _defaultLightsObject = new DefaultLightsObject(Services);
+            GameObjectService.Objects.Add(_defaultLightsObject);
         }
 
         protected override void Dispose(bool disposing)
@@ -54,11 +38,26 @@ namespace WindowsGame1.Components
             if (disposing)
             {
                 //Clean up.
+                GameObjectService.Objects.Remove(_defaultLightsObject);
+                GameObjectService.Objects.Remove(_cameraObject);
+
                 GraphicsService.Screens.Remove(GraphicsScreen);
                 GraphicsScreen.Dispose();
             }
 
             base.Dispose(disposing);
+        }
+
+        protected void SetCamera(Vector3F position, float yaw, float pitch)
+        {
+            if (_cameraObject == null)
+            {
+                _cameraObject = new CameraObject(Services);
+                GameObjectService.Objects.Add(_cameraObject);
+                GraphicsScreen.CameraNode3D = _cameraObject.CameraNode;
+            }
+
+            _cameraObject.ResetPose(position, yaw, pitch);
         }
     }
 }

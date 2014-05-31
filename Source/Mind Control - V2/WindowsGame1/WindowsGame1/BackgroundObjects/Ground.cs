@@ -37,11 +37,13 @@ namespace WindowsGame1.BackgroundObjects
             var scene = _services.GetInstance<IScene>();
             scene.Children.Add(_modelNode);
 
+            // Create rigid body
             _rigidBody = new RigidBody(new PlaneShape(Vector3F.UnitY, 0))
             {
                 MotionType = MotionType.Static,
             };
 
+            // Add rigid body to the physics simulation
             var simulation = _services.GetInstance<Simulation>();
             simulation.RigidBodies.Add(_rigidBody);
         }

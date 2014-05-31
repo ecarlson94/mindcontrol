@@ -13,7 +13,7 @@ using WindowsGame1.Windows;
 
 namespace WindowsGame1.VehicleSimulation
 {
-    public class VehicleComponent : GraphicsBaseComponent
+    public class VehicleComponent : SpecializedComponent
     {
         //--------------------------------------------------------------
         #region Fields
@@ -23,8 +23,6 @@ namespace WindowsGame1.VehicleSimulation
         //scene goes here...
         private Sky _sceneSky;
         private Ground _sceneGround;
-
-        private DirectionCheckboxWindow _directionCheck;
 
         #endregion
 
@@ -43,10 +41,8 @@ namespace WindowsGame1.VehicleSimulation
             //Add the sky and ground objects here
             _sceneSky = new Sky(Services);
             GameObjectService.Objects.Add(_sceneSky);
-            //_sceneGround = new Ground(Services);
-            //GameObjectService.Objects.Add(_sceneGround);
-            var ground = new RigidBody(new PlaneShape()) {MotionType = MotionType.Static};
-            Simulation.RigidBodies.Add(ground);
+            _sceneGround = new Ground(Services);
+            GameObjectService.Objects.Add(_sceneGround);
 
             //Add the game object which controls a vehicle here
             _cognitivVehicle = new CognitivVehicle(Services, EmoEngine, allowedActions);
@@ -60,6 +56,7 @@ namespace WindowsGame1.VehicleSimulation
             EnableMouseCentering = true;
             RestrictDirections(allowedActions);
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

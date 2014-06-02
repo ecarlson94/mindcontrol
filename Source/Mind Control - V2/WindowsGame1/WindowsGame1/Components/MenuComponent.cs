@@ -88,8 +88,20 @@ namespace WindowsGame1.Components
                 }
                 newWindow.Closing += (s, e) =>
                 {
-                    _controlPanel = new ControlPanel(EmoEngine, Services);
-                    _uiScreen.Children.Add(_controlPanel);
+                    if (_uiScreen.Children.Any(x => x.Name == "New User"))
+                    {
+                        newWindow = (Window) _uiScreen.Children.FirstOrDefault(x => x.Name == "New User");
+                        newWindow.Closing += (se, ev) =>
+                        {
+                            _controlPanel = new ControlPanel(EmoEngine, Services);
+                            _uiScreen.Children.Add(_controlPanel);
+                        };
+                    }
+                    else
+                    {
+                        _controlPanel = new ControlPanel(EmoEngine, Services);
+                        _uiScreen.Children.Add(_controlPanel);
+                    }
                 };
                 _uiScreen.Children.Add(newWindow);
             }

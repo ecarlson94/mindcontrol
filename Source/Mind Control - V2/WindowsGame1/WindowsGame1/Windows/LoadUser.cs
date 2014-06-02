@@ -42,7 +42,6 @@ namespace WindowsGame1.Windows
             //find way to override update() method
             stackPanel.Children.Add(loadPanel);
 
-            string[] profileNames = emoEngine.GetProfileNames();
             profileList = new DropDownButton
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -51,6 +50,7 @@ namespace WindowsGame1.Windows
             };
             loadPanel.Children.Add(profileList);
 
+            string[] profileNames = emoEngine.GetProfileNames();
             profileList.SelectedIndex = 0;
             for (int i = 0; i < profileNames.Length; i++)
             {
@@ -107,6 +107,37 @@ namespace WindowsGame1.Windows
                 Close();
             };
             createPanel.Children.Add(createButton);
+
+            var deleteButton = new Button
+            {
+                Name = "DeleteUser",
+                Content = new TextBlock{Text = "Delete User"},
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new Vector4F(3),
+                FocusWhenMouseOver = false,
+                Focusable = false,
+            };
+            deleteButton.Click += (s, e) =>
+            {
+                string profileName = (string)profileList.Items[profileList.SelectedIndex];
+                emoEngine.DeleteProfile(profileName);
+
+                loadPanel.Children.Remove(profileList);
+                profileNames = emoEngine.GetProfileNames();
+                profileList.SelectedIndex = 0;
+                profileList.Items.Clear();
+                for (int i = 0; i < profileNames.Length; i++)
+                {
+                    profileList.Items.Add(profileNames[i]);
+                    if (profileNames[i].Length >= profileNames[profileList.SelectedIndex].Length)
+                    {
+                        profileList.SelectedIndex = i;
+                    }
+                }
+                loadPanel.Children.Insert(0, profileList);
+            };
+            createPanel.Children.Add(deleteButton);
         }
     }
 }

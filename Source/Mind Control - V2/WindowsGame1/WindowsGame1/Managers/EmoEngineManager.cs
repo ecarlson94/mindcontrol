@@ -401,7 +401,9 @@ namespace WindowsGame1.Managers
 
         public void DeleteProfile(string profileName)
         {
-            throw new NotImplementedException("EmoEngineManager: Delete Profiles");
+            string profilePath = GetProfilePath(profileName);
+            if(File.Exists(profilePath))
+                File.Delete(profilePath);
         }
 
         public EdkDll.EE_CognitivAction_t CurrentCognitivAction()

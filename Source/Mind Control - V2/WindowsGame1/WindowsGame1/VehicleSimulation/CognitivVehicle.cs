@@ -1,10 +1,8 @@
-﻿using WindowsGame1.Screens;
-using DigitalRune.Game;
+﻿using DigitalRune.Game;
 using DigitalRune.Game.Input;
 using DigitalRune.Geometry;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Graphics;
-using DigitalRune.Graphics.Rendering;
 using DigitalRune.Graphics.SceneGraph;
 using DigitalRune.Mathematics;
 using DigitalRune.Mathematics.Algebra;
@@ -13,13 +11,12 @@ using DigitalRune.Physics.Materials;
 using DigitalRune.Physics.Specialized;
 using Emotiv;
 using Microsoft.Practices.ServiceLocation;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using WindowsGame1.Managers;
-using Microsoft.Xna.Framework.Input;
 using MathHelper = DigitalRune.Mathematics.MathHelper;
 
 namespace WindowsGame1.VehicleSimulation
@@ -159,6 +156,8 @@ namespace WindowsGame1.VehicleSimulation
         {
             if (_inputService.EnableMouseCentering)// && AllowedActions.Any())
             {
+                _currentAction = _emoEngine.CurrentCognitivAction();
+
                 //_currentAction = _emoEngine.CurrentCognitivAction();
                 float deltaTimeF = (float) deltaTime.TotalSeconds;
 
@@ -213,10 +212,13 @@ namespace WindowsGame1.VehicleSimulation
             float change = SteeringRate*deltaTime;
 
             float direction = 0;
-            if (_inputService.IsDown(Keys.A))
-                direction += 1;
-            if (_inputService.IsDown(Keys.D))
-                direction -= 1;
+            if(_allowedActions.Contains(_currentAction))
+            {
+                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT)
+                    direction += 1;
+                else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT)
+                    direction -= 1;
+            }
 
             if (direction == 0)
             {
@@ -247,14 +249,19 @@ namespace WindowsGame1.VehicleSimulation
             float change = AccelerationRate*deltaTime;
 
             float direction = 0;
-            if (_inputService.IsDown(Keys.W))
-                direction += 1;
-            if (_inputService.IsDown(Keys.S))
-                direction -= 1;
+            if (_allowedActions.Contains(_currentAction))
+            {
+                if (_currentAction == EdkDll.EE_CognitivAction_t.COG_LEFT
+                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_RIGHT
+                    || _currentAction == EdkDll.EE_CognitivAction_t.COG_PUSH)
+                    direction += 1;
+                else if (_currentAction == EdkDll.EE_CognitivAction_t.COG_PULL)
+                    direction -= 1;
+            }
 
             if (direction == 0)
             {
-                //No acceleratoin Bring motor frce down to 0;
+                //No acceleratoin Bring motor force down to 0;
                 brake = true;
                 if (_motorForce > 0)
                     _motorForce = MathHelper.Clamp(_motorForce - change, 0, +MaxForce);

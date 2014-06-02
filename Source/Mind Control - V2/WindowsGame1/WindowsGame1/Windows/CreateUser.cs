@@ -18,6 +18,7 @@ namespace WindowsGame1.Windows
             this.emoEngine = emoEngine;
             IsModal = true;
             Title = "New User";
+            Name = "New User";
             HideOnClose = false;
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;

@@ -110,7 +110,7 @@
       <Time>2014-05-15T13:08:48.0067173-06:00</Time>
       <Dependency>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Car_0.xml</Key>
-        <Value>2014-06-01T23:39:08.3591449-06:00</Value>
+        <Value>2014-06-02T03:09:52.804289-06:00</Value>
       </Dependency>
       <Dependency>
         <Key>Car\Car.drmdl</Key>
@@ -128,7 +128,7 @@
       <Time>2014-05-15T13:08:48.0277212-06:00</Time>
       <Dependency>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Car\Wheel_0.xml</Key>
-        <Value>2014-06-01T23:39:13.8788461-06:00</Value>
+        <Value>2014-06-02T03:10:00.1021937-06:00</Value>
       </Dependency>
       <Dependency>
         <Key>Car\Wheel.drmdl</Key>
@@ -146,7 +146,7 @@
       <Time>2014-05-19T13:27:00.5490273-06:00</Time>
       <Dependency>
         <Key>C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\Ground_0.xml</Key>
-        <Value>2014-06-01T23:39:13.9448552-06:00</Value>
+        <Value>2014-06-02T03:10:00.1641982-06:00</Value>
       </Dependency>
       <Dependency>
         <Key>Ground.drmdl</Key>

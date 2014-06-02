@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using WindowsGame1.Enums;
 using DigitalRune;
@@ -6,6 +7,7 @@ using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Game.UI.Rendering;
 using DigitalRune.Graphics;
+using Emotiv;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
 using System;
@@ -27,15 +29,17 @@ namespace WindowsGame1.Components
 
         #endregion
 
+        public List<EdkDll.EE_CognitivAction_t> AllowedActions { get; private set; }
+        public MenuState MenuState { get; private set; }
+
         //----------------------------------------------------------------------
         #region Creation and Cleanup
 
         public MenuComponent(Game game, EmoEngineManager emoEngine)
             : base(game, emoEngine)
         {
-            RemoveBaseComponents();
-
             EnableMouseCentering = false;
+            MenuState = MenuState.Main;
 
             _graphicsScreen = new DelegateGraphicsScreen(GraphicsService)
             {
@@ -72,7 +76,7 @@ namespace WindowsGame1.Components
 
             if (EmoEngine.Profile == String.Empty)
             {
-                Window newWindow = null;
+                Window newWindow;
                 string[] profileNames = EmoEngine.GetProfileNames();
                 if (profileNames.Length == 0)
                 {
@@ -148,15 +152,18 @@ namespace WindowsGame1.Components
             var actions = (sender as DirectionCheckboxWindow).AllowedActions;
             if (actions.Any())
             {
-                switch (_controlPanel.MenuState)
-                {
-                    case MenuState.Practice:
-                        Game.Components.Add(new VehicleComponent(Game, EmoEngine, actions));
-                        break;
-                    case MenuState.RCCar:
-                        Game.Components.Add(new RCCarComponent(Game, EmoEngine, actions));
-                        break;
-                }
+                //switch (_controlPanel.MenuState)
+                //{
+                //    case MenuState.Practice:
+                //        Game.Components.Add(new VehicleComponent(Game, EmoEngine, actions));
+                //        break;
+                //    case MenuState.RCCar:
+                //        Game.Components.Add(new RCCarComponent(Game, EmoEngine, actions));
+                //        break;
+                //}
+
+                AllowedActions = actions;
+                MenuState = _controlPanel.MenuState;
             }
             else
                 cancelEventArgs.Cancel = true;

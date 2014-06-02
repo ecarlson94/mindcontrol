@@ -34,18 +34,15 @@ namespace WindowsGame1.VehicleSimulation
 
         //Emo Engine properties
         private EmoEngineManager _emoEngine;
-        //private EdkDll.EE_CognitivAction_t _currentAction;
-        //    //Actions the car can use for it's directional movement
-        //private IEnumerable<EdkDll.EE_CognitivAction_t> _allowedActions; 
+        private EdkDll.EE_CognitivAction_t _currentAction;
+        //Actions the car can use for it's directional movement
+        private IEnumerable<EdkDll.EE_CognitivAction_t> _allowedActions; 
 
         private readonly Simulation _simulation;
 
         //Models for rendering
         private ModelNode _vehicleModelNode;
         private ModelNode[] _wheelModelNodes;
-
-        //DebugRenderer
-        private DebugRenderer _debugRenderer;
 
         //Vehicle values.
         private float _steeringAngle;
@@ -67,7 +64,7 @@ namespace WindowsGame1.VehicleSimulation
         {
             _services = services;
             _emoEngine = emoEngine;
-            //_allowedActions = allowedActions ?? new List<EdkDll.EE_CognitivAction_t>();
+            _allowedActions = allowedActions ?? new List<EdkDll.EE_CognitivAction_t>();
             Name = "Vehicle";
 
             _inputService = _services.GetInstance<IInputService>();
@@ -120,7 +117,7 @@ namespace WindowsGame1.VehicleSimulation
             var chassis = new RigidBody(chassisShape, mass, material)
             {
                 Pose = new Pose(new Vector3F(0, 2, 0)),// Start Position
-                //UserData = "NoDraw",
+                UserData = "NoDraw",
             };
 
             //Create the vehicle
@@ -146,11 +143,8 @@ namespace WindowsGame1.VehicleSimulation
             Vehicle.Enabled = true;
 
             //Add graphics model to scene graph.
-            var graphicsService = _services.GetInstance<IGraphicsService>();
-            var screen = ((BaseGraphicsScreen)graphicsService.Screens["BaseGraphicsScreen"]);
-
-            screen.Scene.Children.Add(_vehicleModelNode);
-            _debugRenderer = screen.DebugRenderer3D;
+            var scene = _services.GetInstance<IScene>();
+            scene.Children.Add(_vehicleModelNode);
         }
 
         protected override void OnUnload()
@@ -189,13 +183,19 @@ namespace WindowsGame1.VehicleSimulation
                     Vehicle.Wheels[3].BrakeForce = 0;
                 }
 
-                RealignModels();
-
-                _debugRenderer.DrawAxes(_vehicleModelNode.PoseWorld, 1, true);
-                _debugRenderer.DrawText("Chassis", _vehicleModelNode.PoseWorld.Position, Color.Red, true);
-                _debugRenderer.DrawAxes(Vehicle.Chassis.Pose, 1, true);
-                _debugRenderer.DrawShape(Vehicle.Chassis.Shape, Vehicle.Chassis.Pose, Vehicle.Chassis.Scale, Color.Green, true, true);
-                _debugRenderer.DrawText("vehicle", Vehicle.Chassis.Pose.Position, Color.Green, true);
+                //Update poses of graphics models
+                _vehicleModelNode.SetLastPose(true);
+                _vehicleModelNode.PoseWorld = Vehicle.Chassis.Pose;
+                for (int i = 0; i < _wheelModelNodes.Length; i++)
+                {
+                    var pose = Vehicle.Wheels[i].Pose;
+                    if (Vehicle.Wheels[i].Offset.X < 0)
+                    {
+                        pose.Orientation = pose.Orientation * Matrix33F.CreateRotationY(ConstantsF.Pi);
+                    }
+                    _wheelModelNodes[i].SetLastPose(true);
+                    _wheelModelNodes[i].PoseWorld = pose;
+                }
             }
         }
 
@@ -203,23 +203,6 @@ namespace WindowsGame1.VehicleSimulation
 
         //--------------------------------------------------------------
         #region Private Methods
-
-        private void RealignModels()
-        {
-            //Update poses of graphics models
-            _vehicleModelNode.SetLastPose(true);
-            _vehicleModelNode.PoseWorld = Vehicle.Chassis.Pose;
-            for (int i = 0; i < _wheelModelNodes.Length; i++)
-            {
-                var pose = Vehicle.Wheels[i].Pose;
-                if (Vehicle.Wheels[i].Offset.X < 0)
-                {
-                    pose.Orientation = pose.Orientation * Matrix33F.CreateRotationY(ConstantsF.Pi);
-                }
-                _wheelModelNodes[i].SetLastPose(true);
-                _wheelModelNodes[i].PoseWorld = pose;
-            }
-        }
 
         private void UpdateSteeringAngle(float deltaTime)
         {

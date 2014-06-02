@@ -121,15 +121,12 @@
   <ItemGroup>
     <Compile Include="BackgroundObjects\Ground.cs" />
     <Compile Include="BackgroundObjects\Sky.cs" />
-    <Compile Include="Components\CameraObject.cs" />
-    <Compile Include="Components\DefaultLightsObject.cs" />
     <Compile Include="Components\GraphicsBaseComponent.cs" />
     <Compile Include="Components\LoadingComponent.cs" />
     <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Components\MouseComponent.cs" />
     <Compile Include="Components\BaseComponent.cs" />
     <Compile Include="Components\RCCarComponent.cs" />
-    <Compile Include="Components\SpecializedComponent.cs" />
     <Compile Include="Components\StartComponent.cs" />
     <Compile Include="Components\StateMachineComponent.cs" />
     <Compile Include="Enums\GameState.cs" />

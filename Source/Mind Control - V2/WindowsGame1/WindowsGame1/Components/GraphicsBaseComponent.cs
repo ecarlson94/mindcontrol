@@ -10,9 +10,6 @@ namespace WindowsGame1.Components
 {
     public class GraphicsBaseComponent : BaseComponent
     {
-        private readonly DefaultLightsObject _defaultLightsObject;
-        private CameraObject _cameraObject;
-
         protected BaseGraphicsScreen GraphicsScreen { get; private set; }
 
         protected GraphicsBaseComponent(Game game, EmoEngineManager emoEngine) : base(game, emoEngine)
@@ -28,9 +25,9 @@ namespace WindowsGame1.Components
             Services.Register(typeof(DebugRenderer), "DebugRenderer2D", GraphicsScreen.DebugRenderer2D);
             Services.Register(typeof(IScene), null, GraphicsScreen.Scene);
 
-            //Add a default light setup (ambient light +3 directional lights
-            _defaultLightsObject = new DefaultLightsObject(Services);
-            GameObjectService.Objects.Add(_defaultLightsObject);
+            GraphicsScreen.ClearBackground = true;
+            GraphicsScreen.BackgroundColor = Color.White;
+            GraphicsScreen.DrawReticle = true;
         }
 
         protected override void Dispose(bool disposing)
@@ -38,9 +35,6 @@ namespace WindowsGame1.Components
             if (disposing)
             {
                 //Clean up.
-                GameObjectService.Objects.Remove(_defaultLightsObject);
-                GameObjectService.Objects.Remove(_cameraObject);
-
                 GraphicsService.Screens.Remove(GraphicsScreen);
                 GraphicsScreen.Dispose();
             }
@@ -48,16 +42,27 @@ namespace WindowsGame1.Components
             base.Dispose(disposing);
         }
 
-        protected void SetCamera(Vector3F position, float yaw, float pitch)
+        public override void Update(GameTime gameTime)
         {
-            if (_cameraObject == null)
+            // ----- Draw rigid bodies using the DebugRenderer of the graphics screen.
+            var debugRenderer = GraphicsScreen.DebugRenderer3D;
+            debugRenderer.Clear();
+            foreach (var body in Simulation.RigidBodies)
             {
-                _cameraObject = new CameraObject(Services);
-                GameObjectService.Objects.Add(_cameraObject);
-                GraphicsScreen.CameraNode3D = _cameraObject.CameraNode;
+                // To skip automatic drawing of bodies, the sub-classes can set the UserData
+                // property to "NoDraw".
+                if (body.UserData is string && (string)body.UserData == "NoDraw")
+                    continue;
+
+                var color = Color.Gray;
+                // Draw static and, optionally, sleeping bodies with different colors.
+                if (body.MotionType == MotionType.Static)
+                    color = Color.LightGray;
+
+                debugRenderer.DrawObject(body, color, false, false);
             }
 
-            _cameraObject.ResetPose(position, yaw, pitch);
+            base.Update(gameTime);
         }
     }
 }

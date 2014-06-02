@@ -103,7 +103,7 @@ namespace WindowsGame1.Windows
             createButton.Click += (s, e) =>
             {
                 Window createUser = new CreateUser(emoEngine);
-                Screen.Children.Add(new CreateUser(emoEngine));
+                Screen.Children.Add(createUser);
                 Close();
             };
             createPanel.Children.Add(createButton);

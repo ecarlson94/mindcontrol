@@ -2,14 +2,15 @@
 using DigitalRune.Game.States;
 using DigitalRune.ServiceLocation;
 using DigitalRune.Threading;
+using Emotiv;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using System;
 using System.Linq;
 using System.Threading;
 using WindowsGame1.Enums;
 using WindowsGame1.Managers;
+using WindowsGame1.VehicleSimulation;
 
 namespace WindowsGame1.Components
 {
@@ -23,6 +24,9 @@ namespace WindowsGame1.Components
 
         public static GameState gameState;
 
+        private BaseComponent currentComponent;
+        private BaseComponent previousComponent;
+
         public StateMachineComponent(Game game) : base(game)
         {
             // Get the required services from the game's service provider.
@@ -35,6 +39,34 @@ namespace WindowsGame1.Components
         //----------------------------------------------------------------------
         #region State-Based Delegates
 
+        private void RcStateOnUpdate(object sender, StateEventArgs stateEventArgs)
+        {
+            if (((RCCarComponent) currentComponent).Exit)
+                stateMachine.States.ActiveState.Transitions["RCToMenu"].Fire();
+        }
+
+        private void RcStateOnEnter(object sender, StateEventArgs stateEventArgs)
+        {
+            Game.Components.Remove(currentComponent);
+            currentComponent.Dispose();
+            currentComponent = new RCCarComponent(Game, _emoEngine, ((MenuComponent)currentComponent).AllowedActions);
+            Game.Components.Add(currentComponent);
+        }
+
+        private void PracticeStateOnUpdate(object sender, StateEventArgs stateEventArgs)
+        {
+            if (((VehicleComponent)currentComponent).Exit)
+                stateMachine.States.ActiveState.Transitions["PracticeToMenu"].Fire();
+        }
+
+        private void PracticeStateOnEnter(object sender, StateEventArgs stateEventArgs)
+        {
+            Game.Components.Remove(currentComponent);
+            currentComponent.Dispose();
+            currentComponent = new VehicleComponent(Game, _emoEngine, ((MenuComponent)currentComponent).AllowedActions);
+            Game.Components.Add(currentComponent);
+        }
+
         void menuState_Update(object sender, StateEventArgs e)
         {
             if (!_emoEngine.DonglePluggedIn)
@@ -42,16 +74,26 @@ namespace WindowsGame1.Components
                 gameState = GameState.Start;
                 stateMachine.States.ActiveState.Transitions["MenuToStart"].Fire();
             }
+            else if (((MenuComponent)currentComponent).MenuState != MenuState.Main)
+            {
+                switch (((MenuComponent)currentComponent).MenuState)
+                {
+                    case MenuState.Practice:
+                        stateMachine.States.ActiveState.Transitions["MenuToPractice"].Fire();
+                        break;
+                    case MenuState.RCCar:
+                        stateMachine.States.ActiveState.Transitions["MenuToRC"].Fire();
+                        break;
+                }
+            }
         }
 
         void menuState_Enter(object sender, StateEventArgs e)
         {
-            Game.Components.Add(new MenuComponent(Game, _emoEngine));
-        }
-
-        void startState_Exit(object sender, StateEventArgs e)
-        {
-            RemoveBaseComponents();
+            Game.Components.Remove(currentComponent);
+            currentComponent.Dispose();
+            currentComponent = new MenuComponent(Game, _emoEngine);
+            Game.Components.Add(currentComponent);
         }
 
         void startState_Update(object sender, StateEventArgs e)
@@ -73,8 +115,10 @@ namespace WindowsGame1.Components
 
         void startState_Enter(object sender, StateEventArgs e)
         {
-            RemoveBaseComponents();
-            Game.Components.Add(new StartComponent(Game, _emoEngine));
+            Game.Components.Remove(currentComponent);
+            currentComponent.Dispose();
+            currentComponent = new StartComponent(Game, _emoEngine);
+            Game.Components.Add(currentComponent);
         }
 
         /// <summary>
@@ -83,36 +127,18 @@ namespace WindowsGame1.Components
         private void OnEnterLoadingScreen(object sender, StateEventArgs eventArgs)
         {
             //Add the loading screen
-            Game.Components.Add(new LoadingComponent(Game, _emoEngine));
+            Game.Components.Remove(currentComponent);
+            currentComponent = new LoadingComponent(Game, _emoEngine);
+            Game.Components.Add(currentComponent);
 
             // Start loading assets in the background.
             Parallel.StartBackground(LoadAssets);
-        }
-
-        /// <summary>
-        /// Called when "Loading" state is exited.
-        /// </summary>
-        private void OnExitLoadingScreen(object sender, StateEventArgs eventArgs)
-        {
-            //remove all BaseComponents here
-            RemoveBaseComponents();
         }
 
         #endregion
 
         //----------------------------------------------------------------------
         #region Private Methods
-
-        private void RemoveBaseComponents()
-        {
-            var baseComponents = Game.Components.OfType<BaseComponent>().ToArray();
-
-            foreach (BaseComponent component in baseComponents)
-            {
-                Game.Components.Remove(component);
-                component.Dispose();
-            }
-        }
 
         private void LoadAssets()
         {
@@ -138,14 +164,11 @@ namespace WindowsGame1.Components
 
             var loadingState = new State { Name = "Loading" };
             loadingState.Enter += OnEnterLoadingScreen;
-            loadingState.Exit += OnExitLoadingScreen;
-
             stateMachine.States.Add(loadingState);
 
             var startState = new State { Name = "Start" };
             startState.Enter += startState_Enter;
             startState.Update += startState_Update;
-            startState.Exit += startState_Exit;
             stateMachine.States.Add(startState);
 
             var menuState = new State { Name = "Menu" };
@@ -153,12 +176,50 @@ namespace WindowsGame1.Components
             menuState.Update += menuState_Update;
             stateMachine.States.Add(menuState);
 
+            var practiceState = new State {Name = "Practice"};
+            practiceState.Enter += PracticeStateOnEnter;
+            practiceState.Update += PracticeStateOnUpdate;
+            stateMachine.States.Add(practiceState);
+
+            var rcState = new State {Name = "RC"};
+            rcState.Enter += RcStateOnEnter;
+            rcState.Update += RcStateOnUpdate;
+            stateMachine.States.Add(rcState);
+
             var menuToStartTransition = new Transition
             {
                 Name = "MenuToStart",
                 TargetState = startState,
             };
             menuState.Transitions.Add(menuToStartTransition);
+
+            var menuToRCTransition = new Transition
+            {
+                Name = "MenuToRC",
+                TargetState = rcState,
+            };
+            menuState.Transitions.Add(menuToRCTransition);
+
+            var menuToPracticeTransition = new Transition
+            {
+                Name = "MenuToPractice",
+                TargetState = practiceState,
+            };
+            menuState.Transitions.Add(menuToPracticeTransition);
+
+            var rcToMenuTransition = new Transition
+            {
+                Name = "RCToMenu",
+                TargetState = menuState,
+            };
+            rcState.Transitions.Add(rcToMenuTransition);
+
+            var practiceToMenuTransition = new Transition
+            {
+                Name = "PracticeToMenu",
+                TargetState = menuState,
+            };
+            practiceState.Transitions.Add(practiceToMenuTransition);
 
             var startToMenuTransition = new Transition
             {

@@ -23,7 +23,6 @@ namespace WindowsGame1.Components
         private readonly DelegateGraphicsScreen _graphicsScreen;
         private UIScreen _uiScreen;
         private TextBlock _rcCarTextBlock;
-        private DirectionCheckboxWindow _directionCheck;
 
         //USB Relay interface
         private USBRelay _relay;
@@ -36,13 +35,18 @@ namespace WindowsGame1.Components
         #endregion
 
         //--------------------------------------------------------------
+        #region Properties
+
+        public bool Exit { get; private set; }
+
+        #endregion
+
+        //--------------------------------------------------------------
         #region Creation
 
         public RCCarComponent(Game game, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
             : base(game, emoEngine)
         {
-            RemoveBaseComponents();
-
             _allowedActions = allowedActions;
             RestrictDirections(_allowedActions);
             _relay = new USBRelay();
@@ -175,7 +179,7 @@ namespace WindowsGame1.Components
         {
             if (InputService.IsPressed(Keys.Escape, true))
             {
-                Game.Components.Add(new MenuComponent(Game, EmoEngine));
+                Exit = true;
             }
             else
             {

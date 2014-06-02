@@ -1,4 +1,4 @@
-﻿using DigitalRune.Geometry.Shapes;
+﻿using WindowsGame1.Screens;
 using DigitalRune.Physics;
 using DigitalRune.Physics.ForceEffects;
 using Emotiv;
@@ -9,11 +9,10 @@ using System.Linq;
 using WindowsGame1.BackgroundObjects;
 using WindowsGame1.Components;
 using WindowsGame1.Managers;
-using WindowsGame1.Windows;
 
 namespace WindowsGame1.VehicleSimulation
 {
-    public class VehicleComponent : SpecializedComponent
+    public class VehicleComponent : GraphicsBaseComponent
     {
         //--------------------------------------------------------------
         #region Fields
@@ -27,13 +26,18 @@ namespace WindowsGame1.VehicleSimulation
         #endregion
 
         //--------------------------------------------------------------
+        #region Properties
+
+        public bool Exit { get; private set; }
+
+        #endregion
+
+        //--------------------------------------------------------------
         #region Creation and Cleanup
 
-        public VehicleComponent(Game game, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions)
+        public VehicleComponent(Game game, EmoEngineManager emoEngine, IEnumerable<EdkDll.EE_CognitivAction_t> allowedActions = null)
             : base(game, emoEngine)
         {
-            RemoveBaseComponents();
-
             //Add basic force effects
             Simulation.ForceEffects.Add(new Gravity());
             Simulation.ForceEffects.Add(new Damping());
@@ -85,10 +89,13 @@ namespace WindowsGame1.VehicleSimulation
             allActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
             allActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
 
-            foreach (var action in allowedActions)
+            if (allowedActions != null)
             {
-                if (!allowedActions.Contains(action))
-                    EmoEngine.SetCognitivActionInactive(action);
+                foreach (var action in allowedActions)
+                {
+                    if (!allowedActions.Contains(action))
+                        EmoEngine.SetCognitivActionInactive(action);
+                }
             }
         } 
 
@@ -101,7 +108,7 @@ namespace WindowsGame1.VehicleSimulation
         {
             if (InputService.IsPressed(Keys.Escape, true))
             {
-                Game.Components.Add(new MenuComponent(Game, EmoEngine));
+                Exit = true;
             }
             base.Update(gameTime);
         }

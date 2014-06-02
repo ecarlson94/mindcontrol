@@ -96,15 +96,5 @@ namespace WindowsGame1.Components
         }
 
         #endregion
-
-        protected void RemoveBaseComponents()
-        {
-            var baseComponents = Game.Components.OfType<BaseComponent>().ToArray();
-            foreach (var baseComponent in baseComponents)
-            {
-                Game.Components.Remove(baseComponent);
-                baseComponent.Dispose(true);
-            }
-        }
     }
 }

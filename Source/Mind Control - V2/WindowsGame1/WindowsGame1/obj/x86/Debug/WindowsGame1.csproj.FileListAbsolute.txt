@@ -64,3 +64,4 @@ C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\DigitalRune.Physics.Specialized.xml
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\DigitalRune.ServiceLocation.xml
 C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\Microsoft.Practices.ServiceLocation.xml
+C:\Users\mcarlson\Documents\School\Quarter 7\Capstone\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache

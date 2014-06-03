@@ -91,7 +91,7 @@ namespace WindowsGame1.VehicleSimulation
 
             if (allowedActions != null)
             {
-                foreach (var action in allowedActions)
+                foreach (var action in allActions)
                 {
                     if (!allowedActions.Contains(action))
                         EmoEngine.SetCognitivActionInactive(action);

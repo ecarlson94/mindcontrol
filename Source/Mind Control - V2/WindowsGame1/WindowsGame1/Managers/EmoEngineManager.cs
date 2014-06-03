@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Emotiv;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
-using Emotiv;
 
 namespace WindowsGame1.Managers
 {
@@ -249,7 +249,7 @@ namespace WindowsGame1.Managers
                 uint activeActions = emoEngine.CognitivGetActiveActions(UserID);
                 if ((activeActions & (uint) action) == (uint) action)
                 {
-                    activeActions = (activeActions | (uint) action);
+                    activeActions = (activeActions ^ (uint) action);
                 }
 
                 emoEngine.CognitivSetActiveActions(UserID, activeActions);
@@ -279,6 +279,22 @@ namespace WindowsGame1.Managers
             }
 
             return cognitivActionTrained;
+        }
+
+        public bool IsCognitivActionActive(EdkDll.EE_CognitivAction_t action)
+        {
+            bool cognitivActionActive = false;
+
+            lock (emoEngine)
+            {
+                if (emoEngine != null && Profile != String.Empty)
+                {
+                    uint activeActions = emoEngine.CognitivGetActiveActions(UserID);
+                    cognitivActionActive = (activeActions & (uint) action) == (uint) action;
+                }
+            }
+
+            return cognitivActionActive;
         }
 
         public bool AtLeastTwoCogActionsTrained()
@@ -381,6 +397,7 @@ namespace WindowsGame1.Managers
             EdkDll.EE_SetUserProfile(UserID, buffer, (uint)buffer.Length);
             emoEngine.LoadUserProfile(UserID, GetProfilePath(profileName));
             LoadTrainedActions();
+            SetAllTrainedCognitivActionActive();
         }
 
         public string[] GetProfileNames()

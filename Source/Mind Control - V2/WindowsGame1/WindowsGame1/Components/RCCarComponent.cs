@@ -113,7 +113,7 @@ namespace WindowsGame1.Components
             allActions.Add(EdkDll.EE_CognitivAction_t.COG_LEFT);
             allActions.Add(EdkDll.EE_CognitivAction_t.COG_RIGHT);
 
-            foreach (var action in allowedActions)
+            foreach (var action in allActions)
             {
                 if(!allowedActions.Contains(action))
                     EmoEngine.SetCognitivActionInactive(action);

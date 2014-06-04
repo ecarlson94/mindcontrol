@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using WindowsGame1.Images;
 using WindowsGame1.Managers;
+using WindowsGame1.StackPanels;
 using DigitalRune.Game;
 using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;

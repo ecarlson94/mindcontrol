@@ -1,27 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WindowsGame1.Managers;
-using DigitalRune.Game.UI;
+﻿using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Mathematics.Algebra;
 using Emotiv;
+using Microsoft.Xna.Framework;
+using System;
+using WindowsGame1.Managers;
 
 namespace WindowsGame1.StackPanels
 {
     public class TrainingPanel : StackPanel
     {
-        private EmoEngineManager emoEngine;
-        private StackPanel bottomPanel;
-        private readonly EdkDll.EE_CognitivAction_t trainingAction;
-        private Button trainButton;
-        private Button eraseButton;
+        private EmoEngineManager _emoEngine;
+        private StackPanel _bottomPanel;
+        private readonly EdkDll.EE_CognitivAction_t _trainingAction;
+        private Button _trainButton;
+        private Button _eraseButton;
+        private bool _isTraining;
 
         public TrainingPanel(EmoEngineManager emoEngineParam, EdkDll.EE_CognitivAction_t trainingActionParam)
         {
-            emoEngine = emoEngineParam;
-            trainingAction = trainingActionParam;
+            _emoEngine = emoEngineParam;
+            _trainingAction = trainingActionParam;
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
             Orientation = Orientation.Vertical;
@@ -54,6 +53,7 @@ namespace WindowsGame1.StackPanels
         {
             TopPanel();
             BottomPanel();
+            _emoEngine.CognitivTrainingCompleted += EmoEngineOnCognitivTrainingCompleted;
         }
 
         private void TopPanel()
@@ -77,20 +77,19 @@ namespace WindowsGame1.StackPanels
             topPanel.Children.Add(name);
 
             //add image here
-            //figure out spacing
         }
 
         private void BottomPanel()
         {
-            bottomPanel = new StackPanel
+            _bottomPanel = new StackPanel
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Orientation = Orientation.Horizontal,
             };
-            Children.Add(bottomPanel);
+            Children.Add(_bottomPanel);
 
-            trainButton = new Button
+            _trainButton = new Button
             {
                 Name = "TrainButton",
                 Content = new TextBlock { Text = "Train" },
@@ -101,10 +100,14 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 FocusWhenMouseOver = false,
             };
-            trainButton.Click += (s, e) => emoEngine.StartCognitivTraining(trainingAction);
-            bottomPanel.Children.Add(trainButton);
+            _trainButton.Click += (s, e) =>
+            {
+                _emoEngine.StartCognitivTraining(_trainingAction);
+                _isTraining = true;
+            };
+            _bottomPanel.Children.Add(_trainButton);
 
-            eraseButton = new Button
+            _eraseButton = new Button
             {
                 Name = "EraseButton",
                 Content = new TextBlock { Text = "Erase Data" },
@@ -115,23 +118,30 @@ namespace WindowsGame1.StackPanels
                 Focusable = false,
                 FocusWhenMouseOver = false,
             };
-            eraseButton.Click += (s, e) => emoEngine.EraseCognitivTraining(trainingAction);
-            bottomPanel.Children.Add(eraseButton);
+            _eraseButton.Click += (s, e) => _emoEngine.EraseCognitivTraining(_trainingAction);
+            _bottomPanel.Children.Add(_eraseButton);
+        }
+
+        private void EmoEngineOnCognitivTrainingCompleted(object sender, EmoEngineEventArgs emoEngineEventArgs)
+        {
+            _isTraining = false;
         }
 
         protected override void OnUpdate(TimeSpan deltaTime)
         {
             if (Name.Equals("Neutral"))
             {
-                trainButton.IsEnabled = !emoEngine.IsTraining; //TODO: // && headsetOnHead;
+                _trainButton.IsEnabled = !_emoEngine.IsTraining; //TODO: // && headsetOnHead;
             }
             else
             {
-                trainButton.IsEnabled = emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL) &&
-                    !emoEngine.IsTraining;//TODO: && headsetOnHead;
+                _trainButton.IsEnabled = _emoEngine.IsCognitivActionTrained(EdkDll.EE_CognitivAction_t.COG_NEUTRAL) &&
+                    !_emoEngine.IsTraining;//TODO: && headsetOnHead;
             }
 
-            eraseButton.IsEnabled = emoEngine.IsCognitivActionTrained(trainingAction) && !emoEngine.IsTraining;
+            Background = _isTraining ? new Color(18, 172, 219, 125) : new Color(0, 0, 0, 0);
+
+            _eraseButton.IsEnabled = _emoEngine.IsCognitivActionTrained(_trainingAction) && !_emoEngine.IsTraining;
 
             base.OnUpdate(deltaTime);
         }

@@ -1,6 +1,5 @@
 ﻿using DigitalRune.Graphics.Rendering;
 using DigitalRune.Graphics.SceneGraph;
-using DigitalRune.Mathematics.Algebra;
 using DigitalRune.Physics;
 using Microsoft.Xna.Framework;
 using WindowsGame1.Managers;

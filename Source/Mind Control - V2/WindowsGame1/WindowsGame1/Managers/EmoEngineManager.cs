@@ -79,10 +79,7 @@ namespace WindowsGame1.Managers
         public EmoStateWrapper CurrentEmoState
         {
             get { return currentEmoState; }
-            set
-            {
-                currentEmoState = value;
-            }
+            set { currentEmoState = value; }
         }
 
         private int _emotivPollLapse;
@@ -197,8 +194,7 @@ namespace WindowsGame1.Managers
         {
             if (Profile != String.Empty)
             {
-                if (action != EdkDll.EE_CognitivAction_t.COG_NEUTRAL &&
-                    !activeActions.Contains(action))
+                if (action != EdkDll.EE_CognitivAction_t.COG_NEUTRAL && !activeActions.Contains(action))
                     activeActions.Add(action);
                 emoEngine.CognitivSetActiveActions(UserID, GetActiveActions());
                 IsTraining = true;

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WindowsGame1.Managers;
-using WindowsGame1.StackPanels;
-using DigitalRune.Game.UI;
+﻿using DigitalRune.Game.UI;
 using DigitalRune.Game.UI.Controls;
 using DigitalRune.Mathematics.Algebra;
 using Emotiv;
-using Microsoft.Xna.Framework;
+using System;
+using WindowsGame1.Managers;
+using WindowsGame1.StackPanels;
 
 namespace WindowsGame1.Windows
 {
@@ -30,7 +26,6 @@ namespace WindowsGame1.Windows
         private void Initialize()
         {
             emoEngine.CognitivTrainingCompleted += EmoEngineOnCognitivTrainingCompleted;
-            emoEngine.CognitivTrainingStarted += EmoEngineOnCognitivTrainingStarted;
             emoEngine.CognitivTrainingSucceeded += EmoEngineOnCognitivTrainingSucceeded;
             emoEngine.CognitivTrainingFailed += EmoEngineOnCognitivTrainingFailed;
             emoEngine.CognitivTrainingDataErased += EmoEngineOnCognitivTrainingDataErased;
@@ -134,12 +129,6 @@ namespace WindowsGame1.Windows
                 }
             };
             acceptDialog.Show(Screen);
-        }
-
-        private void EmoEngineOnCognitivTrainingStarted(object sender, EmoEngineEventArgs e)
-        {
-            //training started
-            //start the progress bar
         }
 
         private void EmoEngineOnCognitivTrainingCompleted(object sender, EmoEngineEventArgs emoEngineEventArgs)
